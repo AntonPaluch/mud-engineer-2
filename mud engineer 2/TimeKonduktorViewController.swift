@@ -15,7 +15,7 @@ class TimeKonduktorViewController: UIViewController {
     @IBOutlet weak var poltoraChiklaLabel: UILabel!
     @IBOutlet weak var dvaChiklaLabel: UILabel!
     
-    var litrazh: String?
+    var litrazh = TestService.shared.number
     var chikl: String?
     var prokachkaDoZaboy: String?
     
@@ -28,8 +28,5 @@ class TimeKonduktorViewController: UIViewController {
         chiklLabel.text = chikl
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        chiklLabel.text = chikl
-    }
+
 }
