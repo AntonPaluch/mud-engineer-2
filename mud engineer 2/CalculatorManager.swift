@@ -55,8 +55,4 @@ class CalculationManager {
         let n4 = 0.785 * n3 * (Double(zaboy) ?? 1.0)
         return String(format: "%.2f", n4)
     }
-    
-   
-    
-   
 }

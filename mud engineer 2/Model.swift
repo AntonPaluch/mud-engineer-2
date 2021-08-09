@@ -6,12 +6,12 @@
 //
 
 struct Model {
-    let dlina: String?
-    let vnutrDiamtr: String?
-    let zaboy: String?
-    let dDolota: String?
-    let kKavernoznosty: String?
-    let diametrSbt: String?
-    let tolshinaStenki: String?
-    let litraz: String?
+//    let dlina = KonduktorViewController().dlinaPredKolonni
+//    let vnutrDiamtr: String?
+//    let zaboy: String?
+//    let dDolota: String?
+//    let kKavernoznosty: String?
+//    let diametrSbt: String?
+//    let tolshinaStenki: String?
+//    var litraz: String { "\(KonduktorViewController().litrazh)"}
 }
