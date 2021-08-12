@@ -55,4 +55,11 @@ class CalculationManager {
         let n4 = 0.785 * n3 * (Double(zaboy) ?? 1.0)
         return String(format: "%.2f", n4)
     }
+    
+    func rascetChikla(vihodZaboynoy: Double, prokachkaDozaboy: Double) -> String {
+        let summa = vihodZaboynoy + prokachkaDozaboy
+        let summaString = String(summa)
+        return String(format: "%.2f", summaString)
+    }
+    
 }
