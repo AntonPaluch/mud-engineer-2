@@ -92,7 +92,14 @@ class KonduktorViewController: UIViewController {
         timeVC.zaboynayaPachka = vihodZaboynoyPachki
         timeVC.poltoraChikla = zhiklPoltora
         timeVC.dvaChikla = zhiklDva
-        
+        let obyemVC = tabBarController.viewControllers?.last as! ObyemKonduktorViewController
+        obyemVC.sYchetomInstrumentaD = vSuchetomTrub
+        obyemVC.vInstrumenteD = Double(vRastvoraVtrub)
+        obyemVC.vZatrubeD = vRastvoraZatrub
+        obyemVC.vSkvazhineBezInstrumentaD = vObchii
+        obyemVC.vMetallaD = Double(metalSbt)
+        obyemVC.vKolonniD = Double(vKolonni)
+        obyemVC.vOtkritiyStvolD = Double(vOtkrtStvol)
         }
     
 }
