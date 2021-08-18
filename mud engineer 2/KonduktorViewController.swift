@@ -8,37 +8,48 @@
 import UIKit
 
 class KonduktorViewController: UIViewController {
+    
+    private let userDef = UserDefaults.standard
 
     @IBOutlet weak var dlinaPredKolonni: UITextField!
     @IBOutlet weak var vnDiametrKolonni: UITextField!
-
     @IBOutlet weak var dolotoMM: UITextField!
     @IBOutlet weak var kKavernoznosty: UITextField!
     @IBOutlet weak var diametrInstrumenta: UITextField!
     @IBOutlet weak var stenkaInstrumentaMM: UITextField!
-    
     @IBOutlet weak var zaboy: UITextField!
     @IBOutlet weak var litrazh: UITextField!
-    
     @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet weak var resetButtonOutlet: UIButton!
     
-    var vKolonni = ""
-    var vOtkrtStvol = ""
-    var metalSbt = ""
-    var vObchii = 0.0
-    var vSuchetomTrub = 0.0
-    var vRastvoraVtrub = ""
-    var vRastvoraZatrub = 0.0
-    
-    var vihodZaboynoyPachki = 0.0
-    var prokachkaDoZaboy = 0.0
-    var zhikl = 0.0
-    var zhiklPoltora = 0.0
-    var zhiklDva = 0.0
+    private var vKolonni = ""
+    private var vOtkrtStvol = ""
+    private var metalSbt = ""
+    private var vObchii = 0.0
+    private var vSuchetomTrub = 0.0
+    private var vRastvoraVtrub = ""
+    private var vRastvoraZatrub = 0.0
+    private var vihodZaboynoyPachki = 0.0
+    private var prokachkaDoZaboy = 0.0
+    private var zhikl = 0.0
+    private var zhiklPoltora = 0.0
+    private var zhiklDva = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonOutlet.layer.cornerRadius = 15
+        
+        resetButtonOutlet.layer.cornerRadius = resetButtonOutlet.frame.width / 2
+        resetButtonOutlet.layer.masksToBounds = true
+            
+        dlinaPredKolonni.text = userDef.string(forKey: "k1")
+        vnDiametrKolonni.text = userDef.string(forKey: "k2")
+        dolotoMM.text = userDef.string(forKey: "k3")
+        kKavernoznosty.text = userDef.string(forKey: "k4")
+        diametrInstrumenta.text = userDef.string(forKey: "k5")
+        stenkaInstrumentaMM.text = userDef.string(forKey: "k6")
+        zaboy.text = userDef.string(forKey: "k7")
+        litrazh.text = userDef.string(forKey: "k8")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -49,7 +60,7 @@ class KonduktorViewController: UIViewController {
     @IBAction func raschetButton() {
 
             guard let litrazhString = litrazh.text,
-            let litrazh = Double(litrazhString) else { return }
+            let litrazhh = Double(litrazhString) else { return }
         
         vKolonni = CalculationManager().vKolonny(
             vnDiametrKolonni: vnDiametrKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
@@ -74,13 +85,44 @@ class KonduktorViewController: UIViewController {
             zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
         )
         vRastvoraZatrub = vSuchetomTrub - (Double(vRastvoraVtrub) ?? 1.0)
-        vihodZaboynoyPachki = Double(vRastvoraZatrub) / ((litrazh * 60) / 1000)
-        prokachkaDoZaboy = (Double(vRastvoraVtrub) ?? 1.0) / ((litrazh * 60) / 1000)
+        vihodZaboynoyPachki = Double(vRastvoraZatrub) / ((litrazhh * 60) / 1000)
+        prokachkaDoZaboy = (Double(vRastvoraVtrub) ?? 1.0) / ((litrazhh * 60) / 1000)
         zhikl = vihodZaboynoyPachki + prokachkaDoZaboy
         zhiklPoltora = zhikl * 1.5
         zhiklDva = zhikl * 2
 
+        userDef.setValue(dlinaPredKolonni.text, forKey: "k1")
+        userDef.setValue(vnDiametrKolonni.text, forKey: "k2")
+        userDef.setValue(dolotoMM.text, forKey: "k3")
+        userDef.setValue(kKavernoznosty.text, forKey: "k4")
+        userDef.setValue(diametrInstrumenta.text, forKey: "k5")
+        userDef.setValue(stenkaInstrumentaMM.text, forKey: "k6")
+        userDef.setValue(zaboy.text, forKey: "k7")
+        userDef.setValue(litrazh.text, forKey: "k8")
+        
         performSegue(withIdentifier: "qwerty", sender: nil)
+    }
+    
+    
+    @IBAction func resetButton(_ sender: UIButton) {
+        
+        dlinaPredKolonni.text = ""
+        vnDiametrKolonni.text = ""
+        dolotoMM.text = ""
+        kKavernoznosty.text = ""
+        diametrInstrumenta.text = ""
+        stenkaInstrumentaMM.text = ""
+        zaboy.text = ""
+        litrazh.text = ""
+        
+        userDef.removeObject(forKey: "k1")
+        userDef.removeObject(forKey: "k2")
+        userDef.removeObject(forKey: "k3")
+        userDef.removeObject(forKey: "k4")
+        userDef.removeObject(forKey: "k5")
+        userDef.removeObject(forKey: "k6")
+        userDef.removeObject(forKey: "k7")
+        userDef.removeObject(forKey: "k8")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,7 +143,6 @@ class KonduktorViewController: UIViewController {
         obyemVC.vKolonniD = Double(vKolonni)
         obyemVC.vOtkritiyStvolD = Double(vOtkrtStvol)
         }
-    
 }
     
 

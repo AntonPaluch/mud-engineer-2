@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7E1435A326A9BB8A00EFE812 /* TimeKonduktorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */; };
 		7E1435CB26B1A07000EFE812 /* ObyemKonduktorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */; };
+		7E1435DB26C80A0000EFE812 /* ProductColumnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */; };
+		7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435DC26CC0A6800EFE812 /* ShankVC.swift */; };
 		7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42980264D7C0B00E0B269 /* AppDelegate.swift */; };
 		7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */; };
 		7ED42988264D7C0B00E0B269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED42986264D7C0B00E0B269 /* Main.storyboard */; };
@@ -16,13 +18,14 @@
 		7ED4298D264D7C0D00E0B269 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED4298B264D7C0D00E0B269 /* LaunchScreen.storyboard */; };
 		7ED42996264D7F9200E0B269 /* FirstTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */; };
 		7ED42999264FEA4C00E0B269 /* KonduktorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */; };
-		7ED4299D264FEF8300E0B269 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED4299C264FEF8300E0B269 /* Model.swift */; };
 		7ED429A0264FEF9E00E0B269 /* CalculatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKonduktorViewController.swift; sourceTree = "<group>"; };
 		7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObyemKonduktorViewController.swift; sourceTree = "<group>"; };
+		7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductColumnVC.swift; sourceTree = "<group>"; };
+		7E1435DC26CC0A6800EFE812 /* ShankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShankVC.swift; sourceTree = "<group>"; };
 		7ED4297D264D7C0B00E0B269 /* mud engineer 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mud engineer 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED42980264D7C0B00E0B269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +35,6 @@
 		7ED4298E264D7C0D00E0B269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTableViewController.swift; sourceTree = "<group>"; };
 		7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonduktorViewController.swift; sourceTree = "<group>"; };
-		7ED4299C264FEF8300E0B269 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,10 +72,11 @@
 				7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */,
 				7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */,
 				7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */,
+				7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */,
+				7E1435DC26CC0A6800EFE812 /* ShankVC.swift */,
 				7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */,
 				7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */,
 				7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */,
-				7ED4299C264FEF8300E0B269 /* Model.swift */,
 				7ED42986264D7C0B00E0B269 /* Main.storyboard */,
 				7ED42989264D7C0D00E0B269 /* Assets.xcassets */,
 				7ED4298B264D7C0D00E0B269 /* LaunchScreen.storyboard */,
@@ -152,14 +155,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */,
 				7ED42996264D7F9200E0B269 /* FirstTableViewController.swift in Sources */,
 				7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */,
 				7E1435A326A9BB8A00EFE812 /* TimeKonduktorViewController.swift in Sources */,
-				7ED4299D264FEF8300E0B269 /* Model.swift in Sources */,
 				7ED429A0264FEF9E00E0B269 /* CalculatorManager.swift in Sources */,
 				7E1435CB26B1A07000EFE812 /* ObyemKonduktorViewController.swift in Sources */,
 				7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */,
 				7ED42999264FEA4C00E0B269 /* KonduktorViewController.swift in Sources */,
+				7E1435DB26C80A0000EFE812 /* ProductColumnVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -335,7 +339,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
