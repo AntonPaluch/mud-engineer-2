@@ -35,6 +35,15 @@ class TimeKonduktorViewController: UIViewController {
         poltoraChiklaLabel.text = converterTime(time: poltoraChikla ?? 0)
         dvaChiklaLabel.text = converterTime(time: dvaChikla ?? 0)
         
+        guard litrazhLabel.text != "0 л/с" else {
+            chiklLabel.text = "Промывка скважины не ведется"
+            prokachkaDoZaboyLabel.text = " - "
+            zaboynayaPachkaLabel.text = " - "
+            poltoraChiklaLabel.text = " - "
+            dvaChiklaLabel.text = " - "
+            return
+        }
+        
     }
     
     private func string(from number: Double) -> String {

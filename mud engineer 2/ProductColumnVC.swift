@@ -54,6 +54,48 @@ class ProductColumnVC: UIViewController {
     
     @IBAction func resultButton(_ sender: Any) {
         
+        guard wellBottom.text != "" else {
+            showAlert(
+            title: "Введите забой скважины"
+        )
+        return
+        }
+            
+        guard diametrDrilling.text != "" else {
+                showAlert(
+                title: "Введите диаметр долота"
+        )
+        return
+        }
+            
+        guard kCavernosity.text != "" else {
+                showAlert(
+                title: "Введите коэффициент кавернозности"
+            )
+        return
+        }
+            
+        guard diametrDrillingPipes.text != "" else {
+                showAlert(
+                title: "Введите диаметр инструмента"
+        )
+        return
+        }
+        
+        guard wallThickness.text != "" else {
+                showAlert(
+                title: "Введите толщину стенки инструмента"
+        )
+        return
+        }
+        
+        guard pumpLiters.text != "" else {
+                showAlert(
+                title: "Введите литраж"
+        )
+        return
+        }
+            
         guard let pumpLitersString = pumpLiters.text,
         let pumpLitersDouble = Double(pumpLitersString) else { return }
     
@@ -115,5 +157,17 @@ class ProductColumnVC: UIViewController {
         obyemVC.vMetallaD = Double(volumePipe)
         obyemVC.vKolonniD = Double(volumeColumn)
         obyemVC.vOtkritiyStvolD = Double(volumeOpenBorehole)
+    }
+}
+
+// MARK: - Alert Controller
+extension ProductColumnVC {
+    private func showAlert(title: String, message: String? = nil, textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = nil
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }

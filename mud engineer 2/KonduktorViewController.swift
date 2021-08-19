@@ -58,7 +58,48 @@ class KonduktorViewController: UIViewController {
     }
     
     @IBAction func raschetButton() {
-
+        
+        guard zaboy.text != "" else {
+            showAlert(
+            title: "Введите забой скважины"
+        )
+        return
+            
+        }
+        
+        guard dolotoMM.text != "" else {
+            showAlert(
+            title: "Введите диаметр долота"
+        )
+        return
+        }
+        
+        guard kKavernoznosty.text != "" else {
+            showAlert(
+            title: "Введите коэффициент кавернозности"
+        )
+        return
+        }
+        
+        guard diametrInstrumenta.text != "" else {
+            showAlert(
+            title: "Введите диаметр инструмента"
+        )
+        return
+        }
+        guard stenkaInstrumentaMM.text != "" else {
+            showAlert(
+            title: "Введите толщину стенки инструмента"
+        )
+        return
+        }
+        guard litrazh.text != "" else {
+            showAlert(
+            title: "Введите литраж"
+        )
+        return
+        }
+        
             guard let litrazhString = litrazh.text,
             let litrazhh = Double(litrazhString) else { return }
         
@@ -145,4 +186,14 @@ class KonduktorViewController: UIViewController {
         }
 }
     
-
+// MARK: - Alert Controller
+extension KonduktorViewController {
+    private func showAlert(title: String, message: String? = nil, textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = nil
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}
