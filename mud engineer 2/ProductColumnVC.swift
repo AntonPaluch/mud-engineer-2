@@ -20,6 +20,7 @@ class ProductColumnVC: UIViewController {
     @IBOutlet weak var wallThickness: UITextField!
     @IBOutlet weak var pumpLiters: UITextField!
     @IBOutlet weak var resultButtonOutlet: UIButton!
+    @IBOutlet weak var resetButtonOutlet: UIButton!
     
     private var volumeColumn = ""
     private var volumeOpenBorehole = ""
@@ -37,6 +38,8 @@ class ProductColumnVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resultButtonOutlet.layer.cornerRadius = 15
+        resetButtonOutlet.layer.cornerRadius = resetButtonOutlet.frame.width / 2
+        resetButtonOutlet.layer.masksToBounds = true
         longColumn.text = userDef.string(forKey: "c1")
         inDiametrColumn.text = userDef.string(forKey: "c2")
         wellBottom.text = userDef.string(forKey: "c3")
@@ -138,6 +141,27 @@ class ProductColumnVC: UIViewController {
         userDef.setValue(pumpLiters.text, forKey: "c8")
         
         performSegue(withIdentifier: "column", sender: nil)
+    }
+    
+    
+    @IBAction func resetButton(_ sender: UIButton) {
+        longColumn.text = ""
+        inDiametrColumn.text = ""
+        wellBottom.text = ""
+        diametrDrilling.text = ""
+        kCavernosity.text = ""
+        diametrDrillingPipes.text = ""
+        wallThickness.text = ""
+        pumpLiters.text = ""
+        
+        userDef.removeObject(forKey: "c1")
+        userDef.removeObject(forKey: "c2")
+        userDef.removeObject(forKey: "c3")
+        userDef.removeObject(forKey: "c4")
+        userDef.removeObject(forKey: "c5")
+        userDef.removeObject(forKey: "c6")
+        userDef.removeObject(forKey: "c7")
+        userDef.removeObject(forKey: "c8")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

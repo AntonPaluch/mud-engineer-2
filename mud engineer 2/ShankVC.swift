@@ -20,23 +20,26 @@ class ShankVC: UIViewController {
     @IBOutlet weak var wallThickness: UITextField!
     @IBOutlet weak var pumpLiters: UITextField!
     @IBOutlet weak var resultButtonOutlet: UIButton!
+    @IBOutlet weak var resetOutlet: UIButton!
     
-    var volumeColumn = ""
-    var volumeOpenBorehole = ""
-    var volumePipe = ""
-    var volumeTotal = 0.0
-    var volumeincludingPipes = 0.0
-    var volumeInPipes = ""
-    var volumeBehindPipes = 0.0
-    var outputDownholePack = 0.0
-    var pumpingToBottomWell = 0.0
-    var wellFlushingCycle = 0.0
-    var wellFlushingCycleOneHalf = 0.0
-    var wellFlushingCycleTwo = 0.0
+    private var volumeColumn = ""
+    private var volumeOpenBorehole = ""
+    private var volumePipe = ""
+    private var volumeTotal = 0.0
+    private var volumeincludingPipes = 0.0
+    private var volumeInPipes = ""
+    private var volumeBehindPipes = 0.0
+    private var outputDownholePack = 0.0
+    private var pumpingToBottomWell = 0.0
+    private var wellFlushingCycle = 0.0
+    private var wellFlushingCycleOneHalf = 0.0
+    private var wellFlushingCycleTwo = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         resultButtonOutlet.layer.cornerRadius = 15
+        resetOutlet.layer.cornerRadius = resetOutlet.frame.width / 2
+        resetOutlet.layer.masksToBounds = true
         longColumn.text = userDef.string(forKey: "s1")
         inDiametrColumn.text = userDef.string(forKey: "s2")
         wellBottom.text = userDef.string(forKey: "s3")
@@ -140,7 +143,27 @@ class ShankVC: UIViewController {
         performSegue(withIdentifier: "shank", sender: nil)
         
     }
+    
+    @IBAction func resetButton(_ sender: UIButton) {
+        longColumn.text = ""
+        inDiametrColumn.text = ""
+        wellBottom.text = ""
+        diametrDrilling.text = ""
+        kCavernosity.text = ""
+        diametrDrillingPipes.text = ""
+        wallThickness.text = ""
+        pumpLiters.text = ""
         
+        userDef.removeObject(forKey: "s1")
+        userDef.removeObject(forKey: "s2")
+        userDef.removeObject(forKey: "s3")
+        userDef.removeObject(forKey: "s4")
+        userDef.removeObject(forKey: "s5")
+        userDef.removeObject(forKey: "s6")
+        userDef.removeObject(forKey: "s7")
+        userDef.removeObject(forKey: "s8")
+    }
+    
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard let tabBarController = segue.destination as? UITabBarController else {return}
             let timeVC = tabBarController.viewControllers?.first as! TimeKonduktorViewController

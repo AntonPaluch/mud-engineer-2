@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P5N-lH-G40">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -17,7 +18,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="D3a-m7-t0I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.86057428811524139" green="0.8594714496135083" blue="0.87873529123537464" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <color key="separatorColor" name="AccentColor"/>
                         <sections>
                             <tableViewSection id="Me1-Ji-jfA">
@@ -93,7 +94,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugn-0X-VdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="476" y="-675"/>
+            <point key="canvasLocation" x="474.375" y="-675"/>
         </scene>
         <!--Кондуктор-->
         <scene sceneID="Qof-3F-O3z">
@@ -312,7 +313,7 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="hG9-ec-XRi"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="vMn-SR-bPj"/>
+                                            <constraint firstAttribute="width" constant="50" id="vMn-SR-bPj"/>
                                         </constraints>
                                         <state key="normal" title="reset">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -352,7 +353,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Кондуктор" leftItemsSupplementBackButton="YES" id="2c8-a9-B4g">
-                        <barButtonItem key="leftBarButtonItem" title="Назад" image="arrow.uturn.backward.circle" catalog="system" id="Tuf-Hq-hpL">
+                        <barButtonItem key="leftBarButtonItem" title="Назад" image="arrowshape.turn.up.left.fill" catalog="system" id="Tuf-Hq-hpL">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="f2j-kM-pOF" kind="unwind" unwindAction="unwindSegueWithSegue:" id="fdy-4W-dTb"/>
@@ -541,7 +542,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="69 л/с" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mov-yv-X6K">
-                                        <rect key="frame" x="108" y="42" width="88" height="26.5"/>
+                                        <rect key="frame" x="108" y="40.5" width="88" height="26.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="JWb-3g-BBh"/>
                                         </constraints>
@@ -550,7 +551,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Полный цикл:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKp-g3-P3F">
-                                        <rect key="frame" x="88.5" y="86" width="127" height="24"/>
+                                        <rect key="frame" x="88.5" y="83.5" width="127" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="127" id="5an-1d-FFj"/>
                                             <constraint firstAttribute="height" constant="24" id="5rM-fX-TeB"/>
@@ -560,7 +561,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 мин." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmU-dw-DT2">
-                                        <rect key="frame" x="74" y="128" width="156" height="27"/>
+                                        <rect key="frame" x="74" y="124" width="156" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="156" id="7ii-zq-W2M"/>
                                             <constraint firstAttribute="height" constant="27" id="qOv-W4-ruG"/>
@@ -570,22 +571,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выход забойной пачки:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dD-Re-Axx">
-                                        <rect key="frame" x="48" y="173" width="208" height="23"/>
+                                        <rect key="frame" x="48" y="167.5" width="208" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 мин." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64l-8d-tMI">
-                                        <rect key="frame" x="77" y="214" width="150" height="24"/>
+                                        <rect key="frame" x="77" y="207" width="150" height="26.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="zUJ-uY-wv9"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Прокачка раствора  до забоя:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIr-Wl-Y3n">
-                                        <rect key="frame" x="19.5" y="255.5" width="265" height="23"/>
+                                        <rect key="frame" x="19.5" y="250" width="265" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="173" id="LL5-Pw-K6d"/>
                                         </constraints>
@@ -594,41 +595,41 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 мин." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yD-Ub-6Rb">
-                                        <rect key="frame" x="77" y="296.5" width="150" height="24"/>
+                                        <rect key="frame" x="77" y="289.5" width="150" height="26.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="I9o-Hz-jdn"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Полтора цикла:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugr-E2-qzd">
-                                        <rect key="frame" x="80.5" y="338.5" width="143.5" height="24"/>
+                                        <rect key="frame" x="80.5" y="332.5" width="143.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 ч. 30 мин." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVQ-0a-Kew">
-                                        <rect key="frame" x="77" y="380.5" width="150" height="21.5"/>
+                                        <rect key="frame" x="77" y="373" width="150" height="26.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="CSR-d8-7ra"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Два цикла промывки:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sn5-pJ-YCe">
-                                        <rect key="frame" x="53" y="419.5" width="198.5" height="24"/>
+                                        <rect key="frame" x="53" y="416" width="198.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 2ч. 50 мин." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9e-h5-rrs">
-                                        <rect key="frame" x="77" y="461.5" width="150" height="21.5"/>
+                                        <rect key="frame" x="77" y="456.5" width="150" height="26.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="C3c-Cc-86S"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -926,35 +927,55 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-5U-6YB">
-                                <rect key="frame" x="85" y="500" width="150" height="40"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="J5f-S9-TsA"/>
-                                    <constraint firstAttribute="height" constant="40" id="g9j-rv-7eK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                <state key="normal" title="Расчет">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="resultButton:" destination="6W3-02-Gdv" eventType="touchUpInside" id="Fe2-H5-9Dt"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="QYm-PP-fhe">
+                                <rect key="frame" x="35" y="486" width="250" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZe-aM-LMs">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="k7W-fE-Cxu"/>
+                                            <constraint firstAttribute="width" constant="50" id="ygZ-To-awV"/>
+                                        </constraints>
+                                        <state key="normal" title="reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetButton:" destination="6W3-02-Gdv" eventType="touchUpInside" id="cxj-xf-WZd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-5U-6YB">
+                                        <rect key="frame" x="100" y="5" width="150" height="40"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="J5f-S9-TsA"/>
+                                            <constraint firstAttribute="height" constant="40" id="g9j-rv-7eK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        <state key="normal" title="Расчет">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resultButton:" destination="6W3-02-Gdv" eventType="touchUpInside" id="Fe2-H5-9Dt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jVf-Gm-m9x"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
-                            <constraint firstItem="RQK-5U-6YB" firstAttribute="top" secondItem="8ZH-zc-fgG" secondAttribute="bottom" constant="30" id="0yN-wL-8aE"/>
                             <constraint firstItem="jVf-Gm-m9x" firstAttribute="trailing" secondItem="8ZH-zc-fgG" secondAttribute="trailing" constant="8" id="Fsd-Ma-2xL"/>
-                            <constraint firstItem="RQK-5U-6YB" firstAttribute="centerX" secondItem="jCi-fW-yOY" secondAttribute="centerX" id="MBW-VD-fQf"/>
-                            <constraint firstItem="RQK-5U-6YB" firstAttribute="width" secondItem="jCi-fW-yOY" secondAttribute="height" multiplier="75:284" id="WEU-0a-GnW"/>
+                            <constraint firstItem="QYm-PP-fhe" firstAttribute="centerX" secondItem="jCi-fW-yOY" secondAttribute="centerX" id="Vnc-fO-b6c"/>
                             <constraint firstItem="8ZH-zc-fgG" firstAttribute="leading" secondItem="jCi-fW-yOY" secondAttribute="leading" constant="8" id="a35-PT-z30"/>
+                            <constraint firstItem="QYm-PP-fhe" firstAttribute="width" secondItem="jCi-fW-yOY" secondAttribute="width" multiplier="0.78125" id="ecw-xn-OgC"/>
+                            <constraint firstItem="QYm-PP-fhe" firstAttribute="height" secondItem="jCi-fW-yOY" secondAttribute="height" multiplier="0.0880282" id="hVS-S7-YHd"/>
                             <constraint firstItem="8ZH-zc-fgG" firstAttribute="top" secondItem="jVf-Gm-m9x" secondAttribute="top" constant="8" id="m2K-rE-MvJ"/>
+                            <constraint firstItem="QYm-PP-fhe" firstAttribute="top" secondItem="8ZH-zc-fgG" secondAttribute="bottom" constant="16" id="p1W-8G-2Fd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Эксплуатационная колонна" leftItemsSupplementBackButton="YES" id="u0D-fq-fNK">
-                        <barButtonItem key="leftBarButtonItem" title="Назад" image="arrow.uturn.backward.circle" catalog="system" id="kzD-vG-f42">
+                        <barButtonItem key="leftBarButtonItem" title="Назад" image="arrowshape.turn.up.left.fill" catalog="system" id="kzD-vG-f42">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="4iw-xh-dvU" kind="unwind" unwindAction="unwindSegueWithSegue:" id="TgW-GL-8PY"/>
@@ -968,6 +989,7 @@
                         <outlet property="kCavernosity" destination="CKb-A7-KNy" id="bg9-1p-Xcn"/>
                         <outlet property="longColumn" destination="Z9u-Iv-Ucz" id="a8s-Pb-dRx"/>
                         <outlet property="pumpLiters" destination="6F0-VT-yOG" id="E2I-Ae-1Pi"/>
+                        <outlet property="resetButtonOutlet" destination="XZe-aM-LMs" id="Vb0-Sq-TBW"/>
                         <outlet property="resultButtonOutlet" destination="RQK-5U-6YB" id="tsi-td-G1P"/>
                         <outlet property="wallThickness" destination="5Im-Pu-PbI" id="Kbu-q6-RTG"/>
                         <outlet property="wellBottom" destination="FmZ-ov-qYN" id="QRq-39-tGJ"/>
@@ -1207,35 +1229,55 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGR-3x-O9s">
-                                <rect key="frame" x="85" y="500" width="150" height="40"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="2dG-s5-qDf"/>
-                                    <constraint firstAttribute="height" constant="40" id="Jil-xP-B5l"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                <state key="normal" title="Расчет">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="resultButton:" destination="hHc-9s-q0k" eventType="touchUpInside" id="dty-yo-8zW"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bhm-Fj-Y3z">
+                                <rect key="frame" x="35" y="486" width="250" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8z-D6-N8R">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="B8R-br-bZY"/>
+                                            <constraint firstAttribute="height" constant="50" id="lOr-jT-yKO"/>
+                                        </constraints>
+                                        <state key="normal" title="reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetButton:" destination="hHc-9s-q0k" eventType="touchUpInside" id="RXb-bE-ADl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGR-3x-O9s">
+                                        <rect key="frame" x="100" y="5" width="150" height="40"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="2dG-s5-qDf"/>
+                                            <constraint firstAttribute="height" constant="40" id="Jil-xP-B5l"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        <state key="normal" title="Расчет">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resultButton:" destination="hHc-9s-q0k" eventType="touchUpInside" id="dty-yo-8zW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dgD-Mq-tFl"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstItem="CdL-vn-IED" firstAttribute="leading" secondItem="psq-Md-NHt" secondAttribute="leading" constant="8" id="63p-IS-vRO"/>
+                            <constraint firstItem="bhm-Fj-Y3z" firstAttribute="centerX" secondItem="psq-Md-NHt" secondAttribute="centerX" id="RHA-VX-Fjg"/>
+                            <constraint firstItem="bhm-Fj-Y3z" firstAttribute="width" secondItem="psq-Md-NHt" secondAttribute="width" multiplier="0.78125" id="Xdk-NF-yrq"/>
+                            <constraint firstItem="bhm-Fj-Y3z" firstAttribute="top" secondItem="CdL-vn-IED" secondAttribute="bottom" constant="16" id="alo-wc-Pwj"/>
                             <constraint firstItem="dgD-Mq-tFl" firstAttribute="trailing" secondItem="CdL-vn-IED" secondAttribute="trailing" constant="8" id="dhM-br-ZJF"/>
-                            <constraint firstItem="cGR-3x-O9s" firstAttribute="width" secondItem="psq-Md-NHt" secondAttribute="height" multiplier="75:284" id="ie9-QO-dbD"/>
                             <constraint firstItem="CdL-vn-IED" firstAttribute="top" secondItem="dgD-Mq-tFl" secondAttribute="top" constant="8" id="ofI-p8-azZ"/>
-                            <constraint firstItem="cGR-3x-O9s" firstAttribute="top" secondItem="CdL-vn-IED" secondAttribute="bottom" constant="30" id="ruu-ct-Vml"/>
-                            <constraint firstItem="cGR-3x-O9s" firstAttribute="centerX" secondItem="psq-Md-NHt" secondAttribute="centerX" id="xlo-ye-C3S"/>
+                            <constraint firstItem="bhm-Fj-Y3z" firstAttribute="height" secondItem="psq-Md-NHt" secondAttribute="height" multiplier="0.0880282" id="qtA-Zg-ofa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Хвостовик" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="kUP-XU-NbS">
-                        <barButtonItem key="leftBarButtonItem" title="Назад" image="arrow.uturn.backward.circle" catalog="system" id="hvX-5v-xMR">
+                        <barButtonItem key="leftBarButtonItem" title="Назад" image="arrowshape.turn.up.left.fill" catalog="system" id="hvX-5v-xMR">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="vnR-U6-6Og" kind="unwind" unwindAction="unwindSegueWithSegue:" id="TtH-Je-yoB"/>
@@ -1249,6 +1291,7 @@
                         <outlet property="kCavernosity" destination="kx8-YF-18Q" id="KiE-i9-yJU"/>
                         <outlet property="longColumn" destination="Skj-gD-YOU" id="eec-tI-IMI"/>
                         <outlet property="pumpLiters" destination="nxh-lN-aHZ" id="weV-Nl-WaV"/>
+                        <outlet property="resetOutlet" destination="f8z-D6-N8R" id="bsi-Lb-nyd"/>
                         <outlet property="resultButtonOutlet" destination="cGR-3x-O9s" id="9ge-Cg-nK5"/>
                         <outlet property="wallThickness" destination="SRx-V9-Omd" id="VoJ-N3-HV1"/>
                         <outlet property="wellBottom" destination="Bsi-cw-Rrw" id="I3B-E8-zRp"/>
@@ -1281,10 +1324,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5nK-Qf-DOt"/>
+        <segue reference="Fzz-SU-UPZ"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow.uturn.backward.circle" catalog="system" width="128" height="121"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="drop.triangle.fill" catalog="system" width="128" height="112"/>
         <namedColor name="AccentColor">
@@ -1295,6 +1338,9 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
