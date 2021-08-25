@@ -28,6 +28,7 @@ class ObyemKonduktorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startObserving(&UserInterfaceStyleManager.shared)
         
         let sYchetom = string(from: sYchetomInstrumentaD ?? 0)
         sYchetomInstrumenta.text = "\(sYchetom) м3"

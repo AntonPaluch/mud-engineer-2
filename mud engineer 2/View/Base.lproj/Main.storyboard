@@ -15,7 +15,7 @@
         <scene sceneID="TKm-c5-j28">
             <objects>
                 <tableViewController id="Gu6-Ja-Fp3" customClass="FirstTableViewController" customModule="mud_engineer_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="D3a-m7-t0I">
+                    <tableView key="view" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="D3a-m7-t0I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
@@ -88,6 +88,31 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="b1c-9F-Blf">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cell4" rowHeight="60" id="Q1f-EW-d8y">
+                                        <rect key="frame" x="16" y="234" width="288" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q1f-EW-d8y" id="0RI-jQ-P2w">
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Настройки" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O1p-2C-Aqt">
+                                                    <rect key="frame" x="20" y="0.0" width="284" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Aed-CP-rLU" kind="presentation" modalPresentationStyle="fullScreen" id="Yzp-xC-rCZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Промывка скважины" largeTitleDisplayMode="always" id="pzZ-GT-Dlo"/>
@@ -99,8 +124,8 @@
         <!--Кондуктор-->
         <scene sceneID="Qof-3F-O3z">
             <objects>
-                <viewController id="T3G-T8-7L7" customClass="KonduktorViewController" customModule="mud_engineer_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="m0m-ja-epf">
+                <viewController id="T3G-T8-7L7" customClass="KonduktorViewController" customModule="mud_engineer_2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m0m-ja-epf" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -508,7 +533,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Объемы" id="DPD-Tz-Y64">
-                        <imageReference key="image" image="drop.triangle.fill" catalog="system" symbolScale="default"/>
+                        <imageReference key="image" image="drop.triangle.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="sYchetomInstrumenta" destination="nNa-4g-ush" id="qua-uL-aA7"/>
@@ -524,7 +549,7 @@
             </objects>
             <point key="canvasLocation" x="4991" y="-675"/>
         </scene>
-        <!--Time-->
+        <!--Время-->
         <scene sceneID="z88-Cn-QcD">
             <objects>
                 <viewController storyboardIdentifier="TimeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3mB-ug-LdW" customClass="TimeKonduktorViewController" customModule="mud_engineer_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -645,7 +670,9 @@
                             <constraint firstItem="MKH-0Z-3gQ" firstAttribute="leading" secondItem="A0v-M1-A7c" secondAttribute="leading" constant="8" id="tFD-OI-mRi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Time" image="clock" catalog="system" id="L97-yy-i9G"/>
+                    <tabBarItem key="tabBarItem" title="Время" id="L97-yy-i9G">
+                        <imageReference key="image" image="clock" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="chiklLabel" destination="pmU-dw-DT2" id="aat-aT-KnJ"/>
                         <outlet property="dvaChiklaLabel" destination="b9e-h5-rrs" id="0cU-z8-Zlq"/>
@@ -668,6 +695,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <color key="barTintColor" systemColor="systemGray4Color"/>
+                        <color key="selectedImageTintColor" name="AccentColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="3mB-ug-LdW" kind="relationship" relationship="viewControllers" id="n9C-Qa-g3b"/>
@@ -722,7 +751,7 @@
         <scene sceneID="Lj0-6Z-Hqt">
             <objects>
                 <viewController id="6W3-02-Gdv" customClass="ProductColumnVC" customModule="mud_engineer_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jCi-fW-yOY">
+                    <view key="view" contentMode="scaleToFill" id="jCi-fW-yOY" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1024,7 +1053,7 @@
         <scene sceneID="PCd-rD-QPb">
             <objects>
                 <viewController id="hHc-9s-q0k" customClass="ShankVC" customModule="mud_engineer_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="psq-Md-NHt">
+                    <view key="view" contentMode="scaleToFill" id="psq-Md-NHt" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1301,7 +1330,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CE8-JI-AlH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="vnR-U6-6Og" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2726" y="154"/>
+            <point key="canvasLocation" x="3721.875" y="153.16901408450704"/>
+        </scene>
+        <!--Настройки-->
+        <scene sceneID="9hN-1o-Stj">
+            <objects>
+                <viewController id="TJ0-C7-3jz" customClass="PreferencesVC" customModule="mud_engineer_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ozx-Yv-xzj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="103" translatesAutoresizingMaskIntoConstraints="NO" id="QGR-Ec-fJv">
+                                <rect key="frame" x="28" y="268.5" width="264" height="31"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="0CB-FZ-ucu">
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jW6-21-w3T">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="80v-U6-ItS"/>
+                                                    <constraint firstAttribute="width" constant="142" id="JTw-W1-9kE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="soT-AQ-Puc">
+                                                <rect key="frame" x="215" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchAction:" destination="TJ0-C7-3jz" eventType="valueChanged" id="Owb-LR-CXs"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XYD-wD-w7f"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="QGR-Ec-fJv" firstAttribute="centerY" secondItem="ozx-Yv-xzj" secondAttribute="centerY" id="VA8-0k-mIx"/>
+                            <constraint firstItem="QGR-Ec-fJv" firstAttribute="centerX" secondItem="ozx-Yv-xzj" secondAttribute="centerX" id="xM7-lT-OJk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Настройки" leftItemsSupplementBackButton="YES" id="emN-9j-y5x">
+                        <barButtonItem key="leftBarButtonItem" title="Назад" image="arrowshape.turn.up.left.fill" catalog="system" id="ZTB-Mr-zsU">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="sWZ-bc-B64" kind="unwind" unwindAction="unwindSegueWithSegue:" id="fDV-mu-m2X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="switchOutlet" destination="soT-AQ-Puc" id="VCt-Tj-D4o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EP6-gY-rGB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="sWZ-bc-B64" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1741.875" y="1054.2253521126761"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AYb-nx-X4u">
@@ -1320,11 +1408,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2R-zd-6h1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="155"/>
+            <point key="canvasLocation" x="2739.375" y="154.22535211267606"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BHd-Ia-BtG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Aed-CP-rLU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="G7E-2a-j4c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="AccentColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TJ0-C7-3jz" kind="relationship" relationship="rootViewController" id="4oy-dP-Nuj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r3z-Sy-Mvl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="474" y="254"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Fzz-SU-UPZ"/>
+        <segue reference="5nK-Qf-DOt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>

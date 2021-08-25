@@ -37,11 +37,12 @@ class KonduktorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startObserving(&UserInterfaceStyleManager.shared)
         buttonOutlet.layer.cornerRadius = 15
         
         resetButtonOutlet.layer.cornerRadius = resetButtonOutlet.frame.width / 2
         resetButtonOutlet.layer.masksToBounds = true
-            
+        
         dlinaPredKolonni.text = userDef.string(forKey: "k1")
         vnDiametrKolonni.text = userDef.string(forKey: "k2")
         dolotoMM.text = userDef.string(forKey: "k3")
@@ -110,8 +111,8 @@ class KonduktorViewController: UIViewController {
         vOtkrtStvol = CalculationManager().vOtkritiStvol(
             dDolota: dolotoMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
             zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1" ,
-            dlinaKolonni: dlinaPredKolonni.text ?? "1",
-            kKavernoznosty: kKavernoznosty.text ?? "1"
+            dlinaKolonni: dlinaPredKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
+            kKavernoznosty: kKavernoznosty.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
         )
         metalSbt = CalculationManager().metalSbt(
             dInstrumenta: diametrInstrumenta.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
@@ -142,6 +143,7 @@ class KonduktorViewController: UIViewController {
         userDef.setValue(litrazh.text, forKey: "k8")
         
         performSegue(withIdentifier: "qwerty", sender: nil)
+        print(vOtkrtStvol)
     }
     
     

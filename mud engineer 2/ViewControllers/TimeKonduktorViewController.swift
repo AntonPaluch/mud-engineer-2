@@ -25,6 +25,7 @@ class TimeKonduktorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startObserving(&UserInterfaceStyleManager.shared)
         let chiklRound = string(from: chikl ?? 0)
         chiklLabel.text = "\(chiklRound ) минут"
         litrazhLabel.text = "\(litrazh ?? "0") л/с"

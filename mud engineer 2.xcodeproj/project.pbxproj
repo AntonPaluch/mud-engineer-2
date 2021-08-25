@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		7E1435CB26B1A07000EFE812 /* ObyemKonduktorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */; };
 		7E1435DB26C80A0000EFE812 /* ProductColumnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */; };
 		7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435DC26CC0A6800EFE812 /* ShankVC.swift */; };
+		7E8A357F26D2189200200ACC /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A357E26D2189200200ACC /* PreferencesVC.swift */; };
 		7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42980264D7C0B00E0B269 /* AppDelegate.swift */; };
 		7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */; };
 		7ED42988264D7C0B00E0B269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED42986264D7C0B00E0B269 /* Main.storyboard */; };
@@ -19,23 +20,34 @@
 		7ED42996264D7F9200E0B269 /* FirstTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */; };
 		7ED42999264FEA4C00E0B269 /* KonduktorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */; };
 		7ED429A0264FEF9E00E0B269 /* CalculatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */; };
+		7EF8E8E626D2679000CDB7B2 /* UserInterfaceStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8E8E526D2679000CDB7B2 /* UserInterfaceStyleManager.swift */; };
+		7EF8E8E826D2679900CDB7B2 /* UserInterfaceStyleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8E8E726D2679900CDB7B2 /* UserInterfaceStyleObserver.swift */; };
+		7EF8E8EA26D2679F00CDB7B2 /* WeakStyleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8E8E926D2679F00CDB7B2 /* WeakStyleObserver.swift */; };
+		F83B3353CA9CC0FF32F8F412 /* Pods_mud_engineer_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E471974F61B30353DD7D3D6 /* Pods_mud_engineer_2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E471974F61B30353DD7D3D6 /* Pods_mud_engineer_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mud_engineer_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A42A5FB121F177F82A1C2BC /* Pods-mud engineer 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mud engineer 2.debug.xcconfig"; path = "Target Support Files/Pods-mud engineer 2/Pods-mud engineer 2.debug.xcconfig"; sourceTree = "<group>"; };
 		7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKonduktorViewController.swift; sourceTree = "<group>"; };
 		7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObyemKonduktorViewController.swift; sourceTree = "<group>"; };
 		7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductColumnVC.swift; sourceTree = "<group>"; };
 		7E1435DC26CC0A6800EFE812 /* ShankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShankVC.swift; sourceTree = "<group>"; };
+		7E8A357E26D2189200200ACC /* PreferencesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
 		7ED4297D264D7C0B00E0B269 /* mud engineer 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mud engineer 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED42980264D7C0B00E0B269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7ED42987264D7C0B00E0B269 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7ED42989264D7C0D00E0B269 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ED4298C264D7C0D00E0B269 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7ED4298E264D7C0D00E0B269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ED4298E264D7C0D00E0B269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "mud engineer 2/Info.plist"; sourceTree = "<group>"; };
 		7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTableViewController.swift; sourceTree = "<group>"; };
 		7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonduktorViewController.swift; sourceTree = "<group>"; };
 		7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorManager.swift; sourceTree = "<group>"; };
+		7EF8E8E526D2679000CDB7B2 /* UserInterfaceStyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceStyleManager.swift; sourceTree = "<group>"; };
+		7EF8E8E726D2679900CDB7B2 /* UserInterfaceStyleObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceStyleObserver.swift; sourceTree = "<group>"; };
+		7EF8E8E926D2679F00CDB7B2 /* WeakStyleObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakStyleObserver.swift; sourceTree = "<group>"; };
+		C8C2DB56F549A33CF020290C /* Pods-mud engineer 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mud engineer 2.release.xcconfig"; path = "Target Support Files/Pods-mud engineer 2/Pods-mud engineer 2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +55,74 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83B3353CA9CC0FF32F8F412 /* Pods_mud_engineer_2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		383B8462EB4E7375B159CFB4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A42A5FB121F177F82A1C2BC /* Pods-mud engineer 2.debug.xcconfig */,
+				C8C2DB56F549A33CF020290C /* Pods-mud engineer 2.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7E8A357926D2099900200ACC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */,
+				7ED42980264D7C0B00E0B269 /* AppDelegate.swift */,
+				7ED42989264D7C0D00E0B269 /* Assets.xcassets */,
+				7ED4298B264D7C0D00E0B269 /* LaunchScreen.storyboard */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		7E8A357A26D209B500200ACC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7ED42986264D7C0B00E0B269 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7E8A357B26D209CD00200ACC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */,
+				7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */,
+				7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */,
+				7E1435DC26CC0A6800EFE812 /* ShankVC.swift */,
+				7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */,
+				7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */,
+				7E8A357E26D2189200200ACC /* PreferencesVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7E8A357C26D209EC00200ACC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7EF8E8E526D2679000CDB7B2 /* UserInterfaceStyleManager.swift */,
+				7EF8E8E726D2679900CDB7B2 /* UserInterfaceStyleObserver.swift */,
+				7EF8E8E926D2679F00CDB7B2 /* WeakStyleObserver.swift */,
+				7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		7ED42974264D7C0B00E0B269 = {
 			isa = PBXGroup;
 			children = (
 				7ED4297F264D7C0B00E0B269 /* mud engineer 2 */,
+				7ED4298E264D7C0D00E0B269 /* Info.plist */,
 				7ED4297E264D7C0B00E0B269 /* Products */,
+				383B8462EB4E7375B159CFB4 /* Pods */,
+				DA40D7EFB4AE18A29CC089E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,21 +137,20 @@
 		7ED4297F264D7C0B00E0B269 /* mud engineer 2 */ = {
 			isa = PBXGroup;
 			children = (
-				7ED42980264D7C0B00E0B269 /* AppDelegate.swift */,
-				7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */,
-				7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */,
-				7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */,
-				7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */,
-				7E1435DC26CC0A6800EFE812 /* ShankVC.swift */,
-				7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */,
-				7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */,
-				7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */,
-				7ED42986264D7C0B00E0B269 /* Main.storyboard */,
-				7ED42989264D7C0D00E0B269 /* Assets.xcassets */,
-				7ED4298B264D7C0D00E0B269 /* LaunchScreen.storyboard */,
-				7ED4298E264D7C0D00E0B269 /* Info.plist */,
+				7E8A357926D2099900200ACC /* Helper */,
+				7E8A357B26D209CD00200ACC /* ViewControllers */,
+				7E8A357C26D209EC00200ACC /* Manager */,
+				7E8A357A26D209B500200ACC /* View */,
 			);
 			path = "mud engineer 2";
+			sourceTree = "<group>";
+		};
+		DA40D7EFB4AE18A29CC089E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E471974F61B30353DD7D3D6 /* Pods_mud_engineer_2.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7ED42991264D7C0D00E0B269 /* Build configuration list for PBXNativeTarget "mud engineer 2" */;
 			buildPhases = (
+				8E10E757BA4632BEBDE60EFF /* [CP] Check Pods Manifest.lock */,
 				7ED42979264D7C0B00E0B269 /* Sources */,
 				7ED4297A264D7C0B00E0B269 /* Frameworks */,
 				7ED4297B264D7C0B00E0B269 /* Resources */,
+				C49B4B8F1518005FD9869CF2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,19 +220,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8E10E757BA4632BEBDE60EFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mud engineer 2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C49B4B8F1518005FD9869CF2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mud engineer 2/Pods-mud engineer 2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mud engineer 2/Pods-mud engineer 2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mud engineer 2/Pods-mud engineer 2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7ED42979264D7C0B00E0B269 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF8E8E826D2679900CDB7B2 /* UserInterfaceStyleObserver.swift in Sources */,
 				7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */,
 				7ED42996264D7F9200E0B269 /* FirstTableViewController.swift in Sources */,
 				7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */,
+				7EF8E8E626D2679000CDB7B2 /* UserInterfaceStyleManager.swift in Sources */,
 				7E1435A326A9BB8A00EFE812 /* TimeKonduktorViewController.swift in Sources */,
 				7ED429A0264FEF9E00E0B269 /* CalculatorManager.swift in Sources */,
+				7E8A357F26D2189200200ACC /* PreferencesVC.swift in Sources */,
 				7E1435CB26B1A07000EFE812 /* ObyemKonduktorViewController.swift in Sources */,
 				7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */,
 				7ED42999264FEA4C00E0B269 /* KonduktorViewController.swift in Sources */,
+				7EF8E8EA26D2679F00CDB7B2 /* WeakStyleObserver.swift in Sources */,
 				7E1435DB26C80A0000EFE812 /* ProductColumnVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,10 +423,12 @@
 		};
 		7ED42992264D7C0D00E0B269 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A42A5FB121F177F82A1C2BC /* Pods-mud engineer 2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 28QY9NT6W3;
 				INFOPLIST_FILE = "mud engineer 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -318,7 +436,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer-2";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -327,10 +446,12 @@
 		};
 		7ED42993264D7C0D00E0B269 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8C2DB56F549A33CF020290C /* Pods-mud engineer 2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 28QY9NT6W3;
 				INFOPLIST_FILE = "mud engineer 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -338,7 +459,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer-2";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

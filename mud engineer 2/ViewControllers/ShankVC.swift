@@ -1,13 +1,13 @@
 //
-//  ProductColumnVC.swift
+//  ShankVC.swift
 //  mud engineer 2
 //
-//  Created by Pandos on 14.08.2021.
+//  Created by Pandos on 17.08.2021.
 //
 
 import UIKit
 
-class ProductColumnVC: UIViewController {
+class ShankVC: UIViewController {
     
     private let userDef = UserDefaults.standard
     
@@ -20,7 +20,7 @@ class ProductColumnVC: UIViewController {
     @IBOutlet weak var wallThickness: UITextField!
     @IBOutlet weak var pumpLiters: UITextField!
     @IBOutlet weak var resultButtonOutlet: UIButton!
-    @IBOutlet weak var resetButtonOutlet: UIButton!
+    @IBOutlet weak var resetOutlet: UIButton!
     
     private var volumeColumn = ""
     private var volumeOpenBorehole = ""
@@ -34,28 +34,29 @@ class ProductColumnVC: UIViewController {
     private var wellFlushingCycle = 0.0
     private var wellFlushingCycleOneHalf = 0.0
     private var wellFlushingCycleTwo = 0.0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        startObserving(&UserInterfaceStyleManager.shared)
         resultButtonOutlet.layer.cornerRadius = 15
-        resetButtonOutlet.layer.cornerRadius = resetButtonOutlet.frame.width / 2
-        resetButtonOutlet.layer.masksToBounds = true
-        longColumn.text = userDef.string(forKey: "c1")
-        inDiametrColumn.text = userDef.string(forKey: "c2")
-        wellBottom.text = userDef.string(forKey: "c3")
-        diametrDrilling.text = userDef.string(forKey: "c4")
-        kCavernosity.text = userDef.string(forKey: "c5")
-        diametrDrillingPipes.text = userDef.string(forKey: "c6")
-        wallThickness.text = userDef.string(forKey: "c7")
-        pumpLiters.text = userDef.string(forKey: "c8")
+        resetOutlet.layer.cornerRadius = resetOutlet.frame.width / 2
+        resetOutlet.layer.masksToBounds = true
+        longColumn.text = userDef.string(forKey: "s1")
+        inDiametrColumn.text = userDef.string(forKey: "s2")
+        wellBottom.text = userDef.string(forKey: "s3")
+        diametrDrilling.text = userDef.string(forKey: "s4")
+        kCavernosity.text = userDef.string(forKey: "s5")
+        diametrDrillingPipes.text = userDef.string(forKey: "s6")
+        wallThickness.text = userDef.string(forKey: "s7")
+        pumpLiters.text = userDef.string(forKey: "s8")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
       super.touchesBegan(touches, with: event)
       view.endEditing(true)
     }
-    
-    @IBAction func resultButton(_ sender: Any) {
+   
+    @IBAction func resultButton(_ sender: UIButton) {
         
         guard wellBottom.text != "" else {
             showAlert(
@@ -98,7 +99,7 @@ class ProductColumnVC: UIViewController {
         )
         return
         }
-            
+        
         guard let pumpLitersString = pumpLiters.text,
         let pumpLitersDouble = Double(pumpLitersString) else { return }
     
@@ -131,18 +132,18 @@ class ProductColumnVC: UIViewController {
         wellFlushingCycleOneHalf = wellFlushingCycle * 1.5
         wellFlushingCycleTwo = wellFlushingCycle * 2
         
-        userDef.setValue(longColumn.text, forKey: "c1")
-        userDef.setValue(inDiametrColumn.text, forKey: "c2")
-        userDef.setValue(wellBottom.text, forKey: "c3")
-        userDef.setValue(diametrDrilling.text, forKey: "c4")
-        userDef.setValue(kCavernosity.text, forKey: "c5")
-        userDef.setValue(diametrDrillingPipes.text, forKey: "c6")
-        userDef.setValue(wallThickness.text, forKey: "c7")
-        userDef.setValue(pumpLiters.text, forKey: "c8")
+        userDef.setValue(longColumn.text, forKey: "s1")
+        userDef.setValue(inDiametrColumn.text, forKey: "s2")
+        userDef.setValue(wellBottom.text, forKey: "s3")
+        userDef.setValue(diametrDrilling.text, forKey: "s4")
+        userDef.setValue(kCavernosity.text, forKey: "s5")
+        userDef.setValue(diametrDrillingPipes.text, forKey: "s6")
+        userDef.setValue(wallThickness.text, forKey: "s7")
+        userDef.setValue(pumpLiters.text, forKey: "s8")
         
-        performSegue(withIdentifier: "column", sender: nil)
+        performSegue(withIdentifier: "shank", sender: nil)
+        
     }
-    
     
     @IBAction func resetButton(_ sender: UIButton) {
         longColumn.text = ""
@@ -154,43 +155,42 @@ class ProductColumnVC: UIViewController {
         wallThickness.text = ""
         pumpLiters.text = ""
         
-        userDef.removeObject(forKey: "c1")
-        userDef.removeObject(forKey: "c2")
-        userDef.removeObject(forKey: "c3")
-        userDef.removeObject(forKey: "c4")
-        userDef.removeObject(forKey: "c5")
-        userDef.removeObject(forKey: "c6")
-        userDef.removeObject(forKey: "c7")
-        userDef.removeObject(forKey: "c8")
+        userDef.removeObject(forKey: "s1")
+        userDef.removeObject(forKey: "s2")
+        userDef.removeObject(forKey: "s3")
+        userDef.removeObject(forKey: "s4")
+        userDef.removeObject(forKey: "s5")
+        userDef.removeObject(forKey: "s6")
+        userDef.removeObject(forKey: "s7")
+        userDef.removeObject(forKey: "s8")
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tabBarController = segue.destination as? UITabBarController else {return}
-        let timeVC = tabBarController.viewControllers?.first as! TimeKonduktorViewController
-        timeVC.chikl = wellFlushingCycle
-        timeVC.litrazh = pumpLiters.text
-        timeVC.prokachkaDoZaboy = pumpingToBottomWell
-        timeVC.zaboynayaPachka = outputDownholePack
-        timeVC.poltoraChikla = wellFlushingCycleOneHalf
-        timeVC.dvaChikla = wellFlushingCycleTwo
-        let obyemVC = tabBarController.viewControllers?.last as! ObyemKonduktorViewController
-        obyemVC.sYchetomInstrumentaD = volumeincludingPipes
-        obyemVC.vInstrumenteD = Double(volumeInPipes)
-        obyemVC.vZatrubeD = volumeBehindPipes
-        obyemVC.vSkvazhineBezInstrumentaD = volumeTotal
-        obyemVC.vMetallaD = Double(volumePipe)
-        obyemVC.vKolonniD = Double(volumeColumn)
-        obyemVC.vOtkritiyStvolD = Double(volumeOpenBorehole)
-    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard let tabBarController = segue.destination as? UITabBarController else {return}
+            let timeVC = tabBarController.viewControllers?.first as! TimeKonduktorViewController
+            timeVC.chikl = wellFlushingCycle
+            timeVC.litrazh = pumpLiters.text
+            timeVC.prokachkaDoZaboy = pumpingToBottomWell
+            timeVC.zaboynayaPachka = outputDownholePack
+            timeVC.poltoraChikla = wellFlushingCycleOneHalf
+            timeVC.dvaChikla = wellFlushingCycleTwo
+            let obyemVC = tabBarController.viewControllers?.last as! ObyemKonduktorViewController
+            obyemVC.sYchetomInstrumentaD = volumeincludingPipes
+            obyemVC.vInstrumenteD = Double(volumeInPipes)
+            obyemVC.vZatrubeD = volumeBehindPipes
+            obyemVC.vSkvazhineBezInstrumentaD = volumeTotal
+            obyemVC.vMetallaD = Double(volumePipe)
+            obyemVC.vKolonniD = Double(volumeColumn)
+            obyemVC.vOtkritiyStvolD = Double(volumeOpenBorehole)
+        }
+        
 }
 
 // MARK: - Alert Controller
-extension ProductColumnVC {
+extension ShankVC {
     private func showAlert(title: String, message: String? = nil, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            textField?.text = nil
-        }
+        let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
     }
