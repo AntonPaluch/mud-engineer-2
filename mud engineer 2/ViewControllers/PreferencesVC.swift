@@ -9,13 +9,33 @@ import UIKit
 
 class PreferencesVC: UIViewController {
     
+
+    
+    
+    @IBOutlet weak var stackViewOutlet: UIStackView!
+    
+
+    @IBOutlet weak var buttonOutlet: UIButton!
+    
     @IBOutlet weak var switchOutlet: UISwitch!
     
+    private lazy var backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBlue
+        view.layer.cornerRadius = 10
+        return view
+    } ()
    
+    private func pinBacground(_ view: UIView, to stackView: UIStackView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        stackView.insertSubview(view, at: 0)
+        view.pin(to: stackView)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        pinBacground(backgroundView, to: stackViewOutlet)
+        buttonOutlet.layer.cornerRadius = 10
         
         // Set switch status
         switchOutlet.isOn = UserInterfaceStyleManager.shared.currentStyle == .dark
@@ -38,9 +58,19 @@ class PreferencesVC: UIViewController {
         
         
     }
+    
+    @IBAction func donatButtonAction(_ sender: UIButton) {
         
-    override func viewDidAppear(_ animated: Bool) {
-        
+        sender.pulsate()
     }
     
+    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        
+    }
+
+        
+
 }
+
+

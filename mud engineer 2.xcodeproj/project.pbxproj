@@ -12,6 +12,10 @@
 		7E1435DB26C80A0000EFE812 /* ProductColumnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */; };
 		7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435DC26CC0A6800EFE812 /* ShankVC.swift */; };
 		7E8A357F26D2189200200ACC /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A357E26D2189200200ACC /* PreferencesVC.swift */; };
+		7E9F78EF26DA9B23004A9450 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F78EE26DA9B23004A9450 /* StoreKit.framework */; };
+		7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */; };
+		7EB376D426E7BE1700F71DBF /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376D326E7BE1700F71DBF /* UIButtonExtensions.swift */; };
+		7EB376D826E7C51700F71DBF /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376D726E7C51700F71DBF /* PurchaseVC.swift */; };
 		7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42980264D7C0B00E0B269 /* AppDelegate.swift */; };
 		7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */; };
 		7ED42988264D7C0B00E0B269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED42986264D7C0B00E0B269 /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 		7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductColumnVC.swift; sourceTree = "<group>"; };
 		7E1435DC26CC0A6800EFE812 /* ShankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShankVC.swift; sourceTree = "<group>"; };
 		7E8A357E26D2189200200ACC /* PreferencesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
+		7E9F78EE26DA9B23004A9450 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		7EB376D326E7BE1700F71DBF /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		7EB376D726E7C51700F71DBF /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 		7ED4297D264D7C0B00E0B269 /* mud engineer 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mud engineer 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED42980264D7C0B00E0B269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83B3353CA9CC0FF32F8F412 /* Pods_mud_engineer_2.framework in Frameworks */,
+				7E9F78EF26DA9B23004A9450 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +109,8 @@
 				7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */,
 				7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */,
 				7E8A357E26D2189200200ACC /* PreferencesVC.swift */,
+				7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */,
+				7EB376D726E7C51700F71DBF /* PurchaseVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -111,6 +122,7 @@
 				7EF8E8E726D2679900CDB7B2 /* UserInterfaceStyleObserver.swift */,
 				7EF8E8E926D2679F00CDB7B2 /* WeakStyleObserver.swift */,
 				7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */,
+				7EB376D326E7BE1700F71DBF /* UIButtonExtensions.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -148,6 +160,7 @@
 		DA40D7EFB4AE18A29CC089E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E9F78EE26DA9B23004A9450 /* StoreKit.framework */,
 				0E471974F61B30353DD7D3D6 /* Pods_mud_engineer_2.framework */,
 			);
 			name = Frameworks;
@@ -268,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EF8E8E826D2679900CDB7B2 /* UserInterfaceStyleObserver.swift in Sources */,
+				7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */,
 				7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */,
 				7ED42996264D7F9200E0B269 /* FirstTableViewController.swift in Sources */,
 				7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */,
@@ -278,6 +292,8 @@
 				7E1435CB26B1A07000EFE812 /* ObyemKonduktorViewController.swift in Sources */,
 				7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */,
 				7ED42999264FEA4C00E0B269 /* KonduktorViewController.swift in Sources */,
+				7EB376D826E7C51700F71DBF /* PurchaseVC.swift in Sources */,
+				7EB376D426E7BE1700F71DBF /* UIButtonExtensions.swift in Sources */,
 				7EF8E8EA26D2679F00CDB7B2 /* WeakStyleObserver.swift in Sources */,
 				7E1435DB26C80A0000EFE812 /* ProductColumnVC.swift in Sources */,
 			);
@@ -356,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -411,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -428,7 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 28QY9NT6W3;
 				INFOPLIST_FILE = "mud engineer 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -436,7 +452,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -451,7 +467,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 28QY9NT6W3;
 				INFOPLIST_FILE = "mud engineer 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -459,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

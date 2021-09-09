@@ -10,15 +10,21 @@ import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
 
-
+//    var priceManager = PriceManager()
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 0.5)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
         
-        // Override point for customization after application launch.
+//        priceManager.getPriceForProduct(idProduct:
+//            "MudFluidDonata1")
+//        priceManager.requestProducts()
+        
         return true
     }
 
