@@ -62,4 +62,6 @@ class CalculationManager {
         return String(format: "%.2f", summaString)
     }
     
+//    func Weighting(
+    
 }

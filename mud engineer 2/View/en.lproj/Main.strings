@@ -1,0 +1,252 @@
+
+/* Class = "UILabel"; text = "d, долота (мм)"; ObjectID = "0eK-1g-fcH"; */
+"0eK-1g-fcH.text" = "d, долота (мм)";
+
+/* Class = "UILabel"; text = "15 мин."; ObjectID = "0yD-Ub-6Rb"; */
+"0yD-Ub-6Rb.text" = "15 мин.";
+
+/* Class = "UILabel"; text = "100м3"; ObjectID = "1pZ-Va-B7g"; */
+"1pZ-Va-B7g.text" = "100м3";
+
+/* Class = "UILabel"; text = "Длина (м)"; ObjectID = "1qt-aR-uJQ"; */
+"1qt-aR-uJQ.text" = "Длина (м)";
+
+/* Class = "UINavigationItem"; title = "Кондуктор"; ObjectID = "2c8-a9-B4g"; */
+"2c8-a9-B4g.title" = "Кондуктор";
+
+/* Class = "UILabel"; text = "Выход забойной пачки:"; ObjectID = "2dD-Re-Axx"; */
+"2dD-Re-Axx.text" = "Выход забойной пачки:";
+
+/* Class = "UILabel"; text = "Утяжеление бурового раствора"; ObjectID = "3pR-KI-PbY"; */
+"3pR-KI-PbY.text" = "Утяжеление бурового раствора";
+
+/* Class = "UIButton"; normalTitle = "Расчет"; ObjectID = "4LP-8x-qJ2"; */
+"4LP-8x-qJ2.normalTitle" = "Расчет";
+
+/* Class = "UILabel"; text = "100 м3"; ObjectID = "4oF-2K-NnK"; */
+"4oF-2K-NnK.text" = "100 м3";
+
+/* Class = "UILabel"; text = "20 мин."; ObjectID = "64l-8d-tMI"; */
+"64l-8d-tMI.text" = "20 мин.";
+
+/* Class = "UILabel"; text = "Объем в колонне:"; ObjectID = "6FS-kh-2wd"; */
+"6FS-kh-2wd.text" = "Объем в колонне:";
+
+/* Class = "UINavigationItem"; title = "Mud fluid"; ObjectID = "7Gr-Ty-HjU"; */
+"7Gr-Ty-HjU.title" = "Mud fluid";
+
+/* Class = "UILabel"; text = "d, СБТ (мм)"; ObjectID = "7TY-HJ-chN"; */
+"7TY-HJ-chN.text" = "d, СБТ (мм)";
+
+/* Class = "UILabel"; text = "Эксплуатационная колонна"; ObjectID = "8LC-vg-KV0"; */
+"8LC-vg-KV0.text" = "Эксплуатационная колонна";
+
+/* Class = "UILabel"; text = "Открытый ствол"; ObjectID = "8eL-hU-TNN"; */
+"8eL-hU-TNN.text" = "Открытый ствол";
+
+/* Class = "UILabel"; text = "Литраж (л/с)"; ObjectID = "8oH-pi-er4"; */
+"8oH-pi-er4.text" = "Литраж (л/с)";
+
+/* Class = "UILabel"; text = "Забой (м)"; ObjectID = "9KF-1b-MUx"; */
+"9KF-1b-MUx.text" = "Забой (м)";
+
+/* Class = "UILabel"; text = "Предыдущая колонна:"; ObjectID = "9tC-Bh-YSR"; */
+"9tC-Bh-YSR.text" = "Предыдущая колонна:";
+
+/* Class = "UINavigationItem"; title = "Чаевые"; ObjectID = "AI6-G0-PeV"; */
+"AI6-G0-PeV.title" = "Чаевые";
+
+/* Class = "UILabel"; text = "d, долота (мм)"; ObjectID = "AoQ-iS-MD2"; */
+"AoQ-iS-MD2.text" = "d, долота (мм)";
+
+/* Class = "UILabel"; text = "Объем инструмента:"; ObjectID = "CDr-l7-Atv"; */
+"CDr-l7-Atv.text" = "Объем инструмента:";
+
+/* Class = "UILabel"; text = "Толщина стенки (мм)"; ObjectID = "CHE-9F-E9G"; */
+"CHE-9F-E9G.text" = "Толщина стенки (мм)";
+
+/* Class = "UILabel"; text = "Кондуктор"; ObjectID = "CWR-Os-sbO"; */
+"CWR-Os-sbO.text" = "Кондуктор";
+
+/* Class = "UITabBarItem"; title = "Объемы"; ObjectID = "DPD-Tz-Y64"; */
+"DPD-Tz-Y64.title" = "Объемы";
+
+/* Class = "UILabel"; text = "В скважине без инструмента:"; ObjectID = "FFn-wh-aKz"; */
+"FFn-wh-aKz.text" = "В скважине без инструмента:";
+
+/* Class = "UILabel"; text = "Забой (м)"; ObjectID = "GWj-Cq-ho2"; */
+"GWj-Cq-ho2.text" = "Забой (м)";
+
+/* Class = "UILabel"; text = "Литраж (л/с)"; ObjectID = "HL9-qD-n1H"; */
+"HL9-qD-n1H.text" = "Литраж (л/с)";
+
+/* Class = "UITabBarItem"; title = "Время"; ObjectID = "L97-yy-i9G"; */
+"L97-yy-i9G.title" = "Время";
+
+/* Class = "UILabel"; text = "В затрубе :"; ObjectID = "M5b-53-smK"; */
+"M5b-53-smK.text" = "В затрубе :";
+
+/* Class = "UILabel"; text = "100 м3"; ObjectID = "MWb-Rm-Xmi"; */
+"MWb-Rm-Xmi.text" = "100 м3";
+
+/* Class = "UILabel"; text = "d, долота (мм)"; ObjectID = "Nci-Wp-bO7"; */
+"Nci-Wp-bO7.text" = "d, долота (мм)";
+
+/* Class = "UILabel"; text = "Внутренний диаметр (мм)"; ObjectID = "Nek-2w-xnm"; */
+"Nek-2w-xnm.text" = "Внутренний диаметр (мм)";
+
+/* Class = "UILabel"; text = "Хвостовик"; ObjectID = "NvJ-Zc-xHV"; */
+"NvJ-Zc-xHV.text" = "Хвостовик";
+
+/* Class = "UILabel"; text = "Настройки"; ObjectID = "O1p-2C-Aqt"; */
+"O1p-2C-Aqt.text" = "Настройки";
+
+/* Class = "UILabel"; text = "Внутренний диаметр (мм)"; ObjectID = "OwW-un-qqs"; */
+"OwW-un-qqs.text" = "Внутренний диаметр (мм)";
+
+/* Class = "UILabel"; text = "Внутренний диаметр (мм)"; ObjectID = "Pcj-rT-9oS"; */
+"Pcj-rT-9oS.text" = "Внутренний диаметр (мм)";
+
+/* Class = "UILabel"; text = "К, кавернозности"; ObjectID = "PvJ-yB-5FA"; */
+"PvJ-yB-5FA.text" = "К, кавернозности";
+
+/* Class = "UIButton"; normalTitle = "Расчет"; ObjectID = "RQK-5U-6YB"; */
+"RQK-5U-6YB.normalTitle" = "Расчет";
+
+/* Class = "UILabel"; text = "Два цикла промывки:"; ObjectID = "Sn5-pJ-YCe"; */
+"Sn5-pJ-YCe.text" = "Два цикла промывки:";
+
+/* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "Tuf-Hq-hpL"; */
+"Tuf-Hq-hpL.title" = "Назад";
+
+/* Class = "UILabel"; text = "Полтора цикла:"; ObjectID = "Ugr-E2-qzd"; */
+"Ugr-E2-qzd.text" = "Полтора цикла:";
+
+/* Class = "UILabel"; text = "Длина (м)"; ObjectID = "XC0-So-jOD"; */
+"XC0-So-jOD.text" = "Длина (м)";
+
+/* Class = "UIButton"; normalTitle = "reset"; ObjectID = "XZe-aM-LMs"; */
+"XZe-aM-LMs.normalTitle" = "reset";
+
+/* Class = "UILabel"; text = "Открытый ствол"; ObjectID = "ZWG-bl-hHE"; */
+"ZWG-bl-hHE.text" = "Открытый ствол";
+
+/* Class = "UILabel"; text = "Забой (м)"; ObjectID = "aE1-RI-tjU"; */
+"aE1-RI-tjU.text" = "Забой (м)";
+
+/* Class = "UILabel"; text = "100 м3"; ObjectID = "agg-4w-OCp"; */
+"agg-4w-OCp.text" = "100 м3";
+
+/* Class = "UILabel"; text = " 2ч. 50 мин."; ObjectID = "b9e-h5-rrs"; */
+"b9e-h5-rrs.text" = " 2ч. 50 мин.";
+
+/* Class = "UILabel"; text = "К, кавернозности"; ObjectID = "bua-vN-phm"; */
+"bua-vN-phm.text" = "К, кавернозности";
+
+/* Class = "UIButton"; normalTitle = "Расчет"; ObjectID = "cGR-3x-O9s"; */
+"cGR-3x-O9s.normalTitle" = "Расчет";
+
+/* Class = "UILabel"; text = "Промывка скважины"; ObjectID = "cRe-Xs-3QM"; */
+"cRe-Xs-3QM.text" = "Промывка скважины";
+
+/* Class = "UILabel"; text = "Открытый ствол:"; ObjectID = "crK-9J-3hW"; */
+"crK-9J-3hW.text" = "Открытый ствол:";
+
+/* Class = "UILabel"; text = "Длина (м)"; ObjectID = "dKm-PX-0fS"; */
+"dKm-PX-0fS.text" = "Длина (м)";
+
+/* Class = "UILabel"; text = "Полный цикл:"; ObjectID = "dKp-g3-P3F"; */
+"dKp-g3-P3F.text" = "Полный цикл:";
+
+/* Class = "UILabel"; text = "Разбавление раствора"; ObjectID = "dqG-BP-P0J"; */
+"dqG-BP-P0J.text" = "Разбавление раствора";
+
+/* Class = "UINavigationItem"; title = "Настройки"; ObjectID = "emN-9j-y5x"; */
+"emN-9j-y5x.title" = "Настройки";
+
+/* Class = "UILabel"; text = "Предыдущая колонна:"; ObjectID = "exu-uu-MYE"; */
+"exu-uu-MYE.text" = "Предыдущая колонна:";
+
+/* Class = "UIButton"; normalTitle = "reset"; ObjectID = "f8z-D6-N8R"; */
+"f8z-D6-N8R.normalTitle" = "reset";
+
+/* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "fHi-cD-FWP"; */
+"fHi-cD-FWP.title" = "Назад";
+
+/* Class = "UILabel"; text = "К, кавернозности"; ObjectID = "hhe-Bx-fuB"; */
+"hhe-Bx-fuB.text" = "К, кавернозности";
+
+/* Class = "UILabel"; text = "100 м3"; ObjectID = "hpu-GJ-uB2"; */
+"hpu-GJ-uB2.text" = "100 м3";
+
+/* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "hvX-5v-xMR"; */
+"hvX-5v-xMR.title" = "Назад";
+
+/* Class = "UILabel"; text = "Dark Mode"; ObjectID = "jW6-21-w3T"; */
+"jW6-21-w3T.text" = "Dark Mode";
+
+/* Class = "UIButton"; normalTitle = "reset"; ObjectID = "k3Q-pA-xLm"; */
+"k3Q-pA-xLm.normalTitle" = "reset";
+
+/* Class = "UILabel"; text = "В инструменте:"; ObjectID = "k4z-E1-ED0"; */
+"k4z-E1-ED0.text" = "В инструменте:";
+
+/* Class = "UINavigationItem"; title = "Хвостовик"; ObjectID = "kUP-XU-NbS"; */
+"kUP-XU-NbS.title" = "Хвостовик";
+
+/* Class = "UILabel"; text = "1 ч. 30 мин."; ObjectID = "kVQ-0a-Kew"; */
+"kVQ-0a-Kew.text" = "1 ч. 30 мин.";
+
+/* Class = "UIButton"; normalTitle = "Чаевые разработчику"; ObjectID = "kZb-aP-lfQ"; */
+"kZb-aP-lfQ.normalTitle" = "Чаевые разработчику";
+
+/* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "kzD-vG-f42"; */
+"kzD-vG-f42.title" = "Назад";
+
+/* Class = "UILabel"; text = "Прокачка раствора  до забоя:"; ObjectID = "lIr-Wl-Y3n"; */
+"lIr-Wl-Y3n.text" = "Прокачка раствора  до забоя:";
+
+/* Class = "UILabel"; text = "100 м3"; ObjectID = "mcD-Ee-5Py"; */
+"mcD-Ee-5Py.text" = "100 м3";
+
+/* Class = "UILabel"; text = "69 л/с"; ObjectID = "mov-yv-X6K"; */
+"mov-yv-X6K.text" = "69 л/с";
+
+/* Class = "UILabel"; text = "100 м3"; ObjectID = "nNa-4g-ush"; */
+"nNa-4g-ush.text" = "100 м3";
+
+/* Class = "UILabel"; text = "120 мин."; ObjectID = "pmU-dw-DT2"; */
+"pmU-dw-DT2.text" = "120 мин.";
+
+/* Class = "UINavigationItem"; title = "Промывка скважины"; ObjectID = "pzZ-GT-Dlo"; */
+"pzZ-GT-Dlo.title" = "Промывка скважины";
+
+/* Class = "UILabel"; text = "Литраж (л/с)"; ObjectID = "q8a-4M-x4d"; */
+"q8a-4M-x4d.text" = "Литраж (л/с)";
+
+/* Class = "UILabel"; text = "Толщина стенки (мм)"; ObjectID = "rNy-3f-ZXk"; */
+"rNy-3f-ZXk.text" = "Толщина стенки (мм)";
+
+/* Class = "UILabel"; text = "d, СБТ (мм)"; ObjectID = "rY8-v6-kcp"; */
+"rY8-v6-kcp.text" = "d, СБТ (мм)";
+
+/* Class = "UILabel"; text = "Открытый ствол"; ObjectID = "rwp-60-Cts"; */
+"rwp-60-Cts.text" = "Открытый ствол";
+
+/* Class = "UILabel"; text = "С учетом инструмента:"; ObjectID = "tgX-Kk-07Q"; */
+"tgX-Kk-07Q.text" = "С учетом инструмента:";
+
+/* Class = "UINavigationItem"; title = "Эксплуатационная колонна"; ObjectID = "u0D-fq-fNK"; */
+"u0D-fq-fNK.title" = "Эксплуатационная колонна";
+
+/* Class = "UILabel"; text = "Предыдущая колонна:"; ObjectID = "x5H-Iv-BnB"; */
+"x5H-Iv-BnB.text" = "Предыдущая колонна:";
+
+/* Class = "UILabel"; text = "Толщина стенки (мм)"; ObjectID = "ybC-0u-2Ew"; */
+"ybC-0u-2Ew.text" = "Толщина стенки (мм)";
+
+/* Class = "UILabel"; text = "d, СБТ (мм)"; ObjectID = "zHp-us-v2o"; */
+"zHp-us-v2o.text" = "d, СБТ (мм)";
+
+/* Class = "UILabel"; text = "При литраже:"; ObjectID = "zOx-Fq-JsB"; */
+"zOx-Fq-JsB.text" = "При литраже:";

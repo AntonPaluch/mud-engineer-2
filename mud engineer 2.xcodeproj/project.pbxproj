@@ -16,6 +16,10 @@
 		7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */; };
 		7EB376D426E7BE1700F71DBF /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376D326E7BE1700F71DBF /* UIButtonExtensions.swift */; };
 		7EB376D826E7C51700F71DBF /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376D726E7C51700F71DBF /* PurchaseVC.swift */; };
+		7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376DA26ECBC1B00F71DBF /* MainVC.swift */; };
+		7EB376DD26ECC3CB00F71DBF /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376DC26ECC3CB00F71DBF /* UserActionCell.swift */; };
+		7EB376E326ED19E700F71DBF /* IntervalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376E226ED19E700F71DBF /* IntervalCell.swift */; };
+		7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376E426ED1A1900F71DBF /* DoubleVC.swift */; };
 		7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42980264D7C0B00E0B269 /* AppDelegate.swift */; };
 		7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */; };
 		7ED42988264D7C0B00E0B269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED42986264D7C0B00E0B269 /* Main.storyboard */; };
@@ -42,6 +46,10 @@
 		7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7EB376D326E7BE1700F71DBF /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		7EB376D726E7C51700F71DBF /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
+		7EB376DA26ECBC1B00F71DBF /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		7EB376DC26ECC3CB00F71DBF /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
+		7EB376E226ED19E700F71DBF /* IntervalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCell.swift; sourceTree = "<group>"; };
+		7EB376E426ED1A1900F71DBF /* DoubleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleVC.swift; sourceTree = "<group>"; };
 		7ED4297D264D7C0B00E0B269 /* mud engineer 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mud engineer 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED42980264D7C0B00E0B269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +119,10 @@
 				7E8A357E26D2189200200ACC /* PreferencesVC.swift */,
 				7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */,
 				7EB376D726E7C51700F71DBF /* PurchaseVC.swift */,
+				7EB376DA26ECBC1B00F71DBF /* MainVC.swift */,
+				7EB376DC26ECC3CB00F71DBF /* UserActionCell.swift */,
+				7EB376E426ED1A1900F71DBF /* DoubleVC.swift */,
+				7EB376E226ED19E700F71DBF /* IntervalCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -281,12 +293,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EF8E8E826D2679900CDB7B2 /* UserInterfaceStyleObserver.swift in Sources */,
+				7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */,
+				7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */,
 				7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */,
 				7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */,
 				7ED42996264D7F9200E0B269 /* FirstTableViewController.swift in Sources */,
 				7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */,
+				7EB376E326ED19E700F71DBF /* IntervalCell.swift in Sources */,
 				7EF8E8E626D2679000CDB7B2 /* UserInterfaceStyleManager.swift in Sources */,
 				7E1435A326A9BB8A00EFE812 /* TimeKonduktorViewController.swift in Sources */,
+				7EB376DD26ECC3CB00F71DBF /* UserActionCell.swift in Sources */,
 				7ED429A0264FEF9E00E0B269 /* CalculatorManager.swift in Sources */,
 				7E8A357F26D2189200200ACC /* PreferencesVC.swift in Sources */,
 				7E1435CB26B1A07000EFE812 /* ObyemKonduktorViewController.swift in Sources */,
