@@ -16,7 +16,9 @@ class MudWeightVC: UIViewController {
     @IBOutlet weak var weightFinishSliderOutlet: UISlider!
     @IBOutlet weak var weightFinishLabel: UILabel!
     
-    @IBOutlet weak var volumeTF: UITextField!
+
+    @IBOutlet weak var volumeOutlet: UISlider!
+    @IBOutlet weak var volumeLabel: UILabel!
     
     @IBOutlet weak var weightStartSliderOutlet: UISlider!
     @IBOutlet weak var weightStartLabel: UILabel!
@@ -37,6 +39,7 @@ class MudWeightVC: UIViewController {
         resultOtletButton.layer.cornerRadius = resultOtletButton.frame.width / 2
         setValue(for: weightFinishLabel)
         setValue(for: weightStartLabel)
+        volumeLabel.text = String(format: "%.0f", volumeOutlet.value) + String(" м3")
     }
     
     private func setValue(for labels: UILabel...) {
@@ -48,13 +51,21 @@ class MudWeightVC: UIViewController {
             }
         }
     }
-    
+        
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value) + String(" г/см3")
     }
+    
+    
 
     @IBAction func finishWeightSlider(_ sender: UISlider) {
         weightFinishLabel.text = string(from: sender)
+    }
+    
+    
+    @IBAction func volumeSlider(_ sender: UISlider) {
+        volumeLabel.text = String(format: "%.0f", volumeOutlet.value) + String(" м3")
+        
     }
     
     @IBAction func startWeightSlider(_ sender: UISlider) {
@@ -67,22 +78,19 @@ class MudWeightVC: UIViewController {
     }
     
     @IBAction func resultButton(_ sender: UIButton) {
-        if volumeTF.text == ""{
-            showAlert(title: "Введите объем раствора")
-        } else {
         if weightFinishSliderOutlet.value < weightStartSliderOutlet.value {
             showAlert(title: "Ошибка ввода", message: "Плотность утяжеленного раствора должна быть больше исходного ")
         } else {
         weightBaritOutlet.text = ("\(resultWeight()) кг")
         print(resultWeight())
         }
-      }
+      
         vFinishLabel.text = ("\(volumeFinish()) м3")
-        
     }
     
+    
     func resultWeight() -> String {
-        let volume = Double(volumeTF.text ?? "1") ?? 1
+        let volume = Double(volumeOutlet.value)
         let numberOne = weightComponent * 1000
         let numberTwo = Double(weightFinishSliderOutlet.value)
         let numberThree = Double(weightStartSliderOutlet.value)
@@ -91,10 +99,13 @@ class MudWeightVC: UIViewController {
     }
     
     func volumeFinish() -> String {
-        let volume = Double(volumeTF.text ?? "1") ?? 1
+        let volume = Double(volumeOutlet.value)
+        print(volume)
         let barit = resultWeight()
         let numberOne = weightComponent * 1000
-        let Vvolume = volume + (Double(barit) ?? 1 / numberOne)
+        print(numberOne)
+        let Vvolume = Int(volume + ((Double(barit) ?? 1) / numberOne))
+        print(Vvolume)
         return String(Vvolume)
         
     }

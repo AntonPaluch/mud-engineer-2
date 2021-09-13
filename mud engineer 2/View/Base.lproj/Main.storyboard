@@ -1543,7 +1543,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="tMb-5w-0EF">
-                                <rect key="frame" x="17.5" y="60" width="340" height="573"/>
+                                <rect key="frame" x="17.5" y="60" width="340" height="569"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Плотность при утяжелении:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boM-rn-q3d">
                                         <rect key="frame" x="19" y="0.0" width="302" height="23.5"/>
@@ -1582,7 +1582,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Объем раствора исходный, м3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAl-An-Ha5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Объем раствора исходный:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAl-An-Ha5">
                                         <rect key="frame" x="0.0" y="87.5" width="340" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="Lmk-5Z-35i"/>
@@ -1592,22 +1592,34 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="WI8-Eq-nnW">
-                                        <rect key="frame" x="121.5" y="128.5" width="97" height="34"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="0n0-W6-Cyd">
+                                        <rect key="frame" x="4" y="128.5" width="332" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BlI-8Y-vp2">
-                                                <rect key="frame" x="0.0" y="0.0" width="97" height="34"/>
+                                            <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="gSb-R6-soN">
+                                                <rect key="frame" x="-2" y="0.0" width="204" height="31"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="97" id="AMz-pM-MnF"/>
-                                                    <constraint firstAttribute="height" constant="34" id="rKV-JB-JHZ"/>
+                                                    <constraint firstAttribute="width" constant="200" id="uZw-ul-VFZ"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
+                                                <color key="maximumTrackTintColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <color key="thumbTintColor" systemColor="linkColor"/>
+                                                <connections>
+                                                    <action selector="volumeSlider:" destination="orX-AK-rVb" eventType="valueChanged" id="0gh-bx-a61"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 м3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc5-mK-61v">
+                                                <rect key="frame" x="232" y="3" width="100" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Oys-KU-M4l"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Плотность исходного раствора:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJA-xD-mbU">
-                                        <rect key="frame" x="39.5" y="179.5" width="261" height="72"/>
+                                        <rect key="frame" x="39.5" y="175.5" width="261" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="261" id="GSb-o5-2up"/>
                                             <constraint firstAttribute="height" constant="72" id="IfD-le-BTZ"/>
@@ -1617,7 +1629,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Ojr-ps-4Oi">
-                                        <rect key="frame" x="8" y="268.5" width="324" height="30"/>
+                                        <rect key="frame" x="8" y="264.5" width="324" height="30"/>
                                         <subviews>
                                             <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="Gy0-1b-ZtJ">
                                                 <rect key="frame" x="-2" y="0.0" width="204" height="31"/>
@@ -1644,7 +1656,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rr2-Ao-taE">
-                                        <rect key="frame" x="20" y="315.5" width="300" height="36"/>
+                                        <rect key="frame" x="20" y="311.5" width="300" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-J8-rsn">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="36"/>
@@ -1664,7 +1676,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eg1-4G-IQl">
-                                        <rect key="frame" x="130" y="368.5" width="80" height="80"/>
+                                        <rect key="frame" x="130" y="364.5" width="80" height="80"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="42K-fk-EQr"/>
@@ -1679,7 +1691,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="icl-RW-YjJ">
-                                        <rect key="frame" x="19.5" y="465.5" width="301" height="24"/>
+                                        <rect key="frame" x="19.5" y="461.5" width="301" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Конечный объем:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9og-X0-BP9">
                                                 <rect key="frame" x="0.0" y="0.0" width="181" height="24"/>
@@ -1704,7 +1716,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество утяжелителя:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hj-hA-gac">
-                                        <rect key="frame" x="31.5" y="506.5" width="277" height="23.5"/>
+                                        <rect key="frame" x="31.5" y="502.5" width="277" height="23.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="277" id="YXQ-Ur-CLp"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="277" id="ia4-Rj-iGO"/>
@@ -1714,7 +1726,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123441 кг." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ueu-9a-n5x">
-                                        <rect key="frame" x="121.5" y="547" width="97" height="26"/>
+                                        <rect key="frame" x="121.5" y="543" width="97" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26" id="dfw-FW-z5d"/>
                                             <constraint firstAttribute="width" constant="97" id="vfn-Ge-7ag"/>
@@ -1737,7 +1749,8 @@
                     <connections>
                         <outlet property="resultOtletButton" destination="eg1-4G-IQl" id="bKj-JS-hz8"/>
                         <outlet property="vFinishLabel" destination="lK7-4R-YfG" id="oLg-q0-yQn"/>
-                        <outlet property="volumeTF" destination="BlI-8Y-vp2" id="DgA-Nf-25F"/>
+                        <outlet property="volumeLabel" destination="hc5-mK-61v" id="H08-ue-ibF"/>
+                        <outlet property="volumeOutlet" destination="gSb-R6-soN" id="Wgc-eP-C7L"/>
                         <outlet property="weightBaritOutlet" destination="Ueu-9a-n5x" id="Y78-6b-MeE"/>
                         <outlet property="weightComponentsOutlet" destination="dKK-J8-rsn" id="F6m-Z4-hD6"/>
                         <outlet property="weightFinishLabel" destination="8Bb-aa-RYN" id="HsV-FM-9gQ"/>
