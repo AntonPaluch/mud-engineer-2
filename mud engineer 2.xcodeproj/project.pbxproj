@@ -20,6 +20,8 @@
 		7EB376DD26ECC3CB00F71DBF /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376DC26ECC3CB00F71DBF /* UserActionCell.swift */; };
 		7EB376E326ED19E700F71DBF /* IntervalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376E226ED19E700F71DBF /* IntervalCell.swift */; };
 		7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376E426ED1A1900F71DBF /* DoubleVC.swift */; };
+		7EB376EB26EF4DE300F71DBF /* MudWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */; };
+		7EB376ED26EF5ABB00F71DBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376EC26EF5ABB00F71DBF /* Enums.swift */; };
 		7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42980264D7C0B00E0B269 /* AppDelegate.swift */; };
 		7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */; };
 		7ED42988264D7C0B00E0B269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED42986264D7C0B00E0B269 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		7EB376DC26ECC3CB00F71DBF /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		7EB376E226ED19E700F71DBF /* IntervalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCell.swift; sourceTree = "<group>"; };
 		7EB376E426ED1A1900F71DBF /* DoubleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleVC.swift; sourceTree = "<group>"; };
+		7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MudWeightVC.swift; sourceTree = "<group>"; };
+		7EB376EC26EF5ABB00F71DBF /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7ED4297D264D7C0B00E0B269 /* mud engineer 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mud engineer 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED42980264D7C0B00E0B269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				7EB376DC26ECC3CB00F71DBF /* UserActionCell.swift */,
 				7EB376E426ED1A1900F71DBF /* DoubleVC.swift */,
 				7EB376E226ED19E700F71DBF /* IntervalCell.swift */,
+				7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */,
+				7EB376EC26EF5ABB00F71DBF /* Enums.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -130,10 +136,10 @@
 		7E8A357C26D209EC00200ACC /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */,
 				7EF8E8E526D2679000CDB7B2 /* UserInterfaceStyleManager.swift */,
 				7EF8E8E726D2679900CDB7B2 /* UserInterfaceStyleObserver.swift */,
 				7EF8E8E926D2679F00CDB7B2 /* WeakStyleObserver.swift */,
-				7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */,
 				7EB376D326E7BE1700F71DBF /* UIButtonExtensions.swift */,
 			);
 			path = Manager;
@@ -295,12 +301,14 @@
 				7EF8E8E826D2679900CDB7B2 /* UserInterfaceStyleObserver.swift in Sources */,
 				7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */,
 				7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */,
+				7EB376EB26EF4DE300F71DBF /* MudWeightVC.swift in Sources */,
 				7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */,
 				7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */,
 				7ED42996264D7F9200E0B269 /* FirstTableViewController.swift in Sources */,
 				7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */,
 				7EB376E326ED19E700F71DBF /* IntervalCell.swift in Sources */,
 				7EF8E8E626D2679000CDB7B2 /* UserInterfaceStyleManager.swift in Sources */,
+				7EB376ED26EF5ABB00F71DBF /* Enums.swift in Sources */,
 				7E1435A326A9BB8A00EFE812 /* TimeKonduktorViewController.swift in Sources */,
 				7EB376DD26ECC3CB00F71DBF /* UserActionCell.swift in Sources */,
 				7ED429A0264FEF9E00E0B269 /* CalculatorManager.swift in Sources */,
