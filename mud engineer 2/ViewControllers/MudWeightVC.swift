@@ -10,10 +10,13 @@ import UIKit
 class MudWeightVC: UIViewController {
     
     private var weightComponent = 2.7
+    private var segmentPosition = 0
 
     
+    @IBOutlet weak var segmentP: UISegmentedControl!
     
     @IBOutlet weak var weightFinishSliderOutlet: UISlider!
+    
     @IBOutlet weak var weightFinishLabel: UILabel!
     
 
@@ -42,6 +45,8 @@ class MudWeightVC: UIViewController {
         volumeLabel.text = String(format: "%.0f", volumeOutlet.value) + String(" м3")
     }
     
+    
+    
     private func setValue(for labels: UILabel...) {
         labels.forEach { label in
             switch label.tag {
@@ -60,7 +65,10 @@ class MudWeightVC: UIViewController {
 
     @IBAction func finishWeightSlider(_ sender: UISlider) {
         weightFinishLabel.text = string(from: sender)
-    }
+ 
+        }
+        
+    
     
     
     @IBAction func volumeSlider(_ sender: UISlider) {
@@ -90,29 +98,30 @@ class MudWeightVC: UIViewController {
     
     
     func resultWeight() -> String {
-        let volume = Double(volumeOutlet.value)
+        let volume = Double(round(volumeOutlet.value))
         let numberOne = weightComponent * 1000
-        let numberTwo = Double(weightFinishSliderOutlet.value)
-        let numberThree = Double(weightStartSliderOutlet.value)
+//        let numberTwo = Double(weightFinishSliderOutlet.value)
+        let numberTwo = roundOn(value: Double(weightFinishSliderOutlet.value), toNearest: 0.01)
+//        let numberThree = Double(weightStartSliderOutlet.value)
+        let numberThree = roundOn(value: Double(weightStartSliderOutlet.value), toNearest: 0.01)
         let delta = numberOne * (numberTwo - numberThree) / (weightComponent - numberTwo) * volume
         return String(Int(delta))
     }
     
     func volumeFinish() -> String {
-        let volume = Double(volumeOutlet.value)
-        print(volume)
+        let volume = Double(round(volumeOutlet.value))
         let barit = resultWeight()
         let numberOne = weightComponent * 1000
-        print(numberOne)
         let Vvolume = Int(volume + ((Double(barit) ?? 1) / numberOne))
-        print(Vvolume)
         return String(Vvolume)
         
     }
     
+    func roundOn( value: Double, toNearest: Double) -> Double {
+        return round(value / toNearest) * toNearest
+    }
+    
 }
-    
-    
     
 extension MudWeightVC {
     

@@ -22,12 +22,12 @@
 		7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376E426ED1A1900F71DBF /* DoubleVC.swift */; };
 		7EB376EB26EF4DE300F71DBF /* MudWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */; };
 		7EB376ED26EF5ABB00F71DBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376EC26EF5ABB00F71DBF /* Enums.swift */; };
+		7EB376EF26F0D57500F71DBF /* DilutionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376EE26F0D57400F71DBF /* DilutionVC.swift */; };
 		7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42980264D7C0B00E0B269 /* AppDelegate.swift */; };
 		7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */; };
 		7ED42988264D7C0B00E0B269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED42986264D7C0B00E0B269 /* Main.storyboard */; };
 		7ED4298A264D7C0D00E0B269 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ED42989264D7C0D00E0B269 /* Assets.xcassets */; };
 		7ED4298D264D7C0D00E0B269 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED4298B264D7C0D00E0B269 /* LaunchScreen.storyboard */; };
-		7ED42996264D7F9200E0B269 /* FirstTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */; };
 		7ED42999264FEA4C00E0B269 /* KonduktorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */; };
 		7ED429A0264FEF9E00E0B269 /* CalculatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */; };
 		7EF8E8E626D2679000CDB7B2 /* UserInterfaceStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8E8E526D2679000CDB7B2 /* UserInterfaceStyleManager.swift */; };
@@ -54,6 +54,7 @@
 		7EB376E426ED1A1900F71DBF /* DoubleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleVC.swift; sourceTree = "<group>"; };
 		7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MudWeightVC.swift; sourceTree = "<group>"; };
 		7EB376EC26EF5ABB00F71DBF /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		7EB376EE26F0D57400F71DBF /* DilutionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DilutionVC.swift; sourceTree = "<group>"; };
 		7ED4297D264D7C0B00E0B269 /* mud engineer 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mud engineer 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED42980264D7C0B00E0B269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		7ED42989264D7C0D00E0B269 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ED4298C264D7C0D00E0B269 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7ED4298E264D7C0D00E0B269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "mud engineer 2/Info.plist"; sourceTree = "<group>"; };
-		7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTableViewController.swift; sourceTree = "<group>"; };
 		7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonduktorViewController.swift; sourceTree = "<group>"; };
 		7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorManager.swift; sourceTree = "<group>"; };
 		7EF8E8E526D2679000CDB7B2 /* UserInterfaceStyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceStyleManager.swift; sourceTree = "<group>"; };
@@ -114,7 +114,6 @@
 		7E8A357B26D209CD00200ACC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7ED42995264D7F9200E0B269 /* FirstTableViewController.swift */,
 				7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */,
 				7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */,
 				7E1435DC26CC0A6800EFE812 /* ShankVC.swift */,
@@ -129,6 +128,7 @@
 				7EB376E226ED19E700F71DBF /* IntervalCell.swift */,
 				7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */,
 				7EB376EC26EF5ABB00F71DBF /* Enums.swift */,
+				7EB376EE26F0D57400F71DBF /* DilutionVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,12 +299,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EF8E8E826D2679900CDB7B2 /* UserInterfaceStyleObserver.swift in Sources */,
+				7EB376EF26F0D57500F71DBF /* DilutionVC.swift in Sources */,
 				7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */,
 				7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */,
 				7EB376EB26EF4DE300F71DBF /* MudWeightVC.swift in Sources */,
 				7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */,
 				7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */,
-				7ED42996264D7F9200E0B269 /* FirstTableViewController.swift in Sources */,
 				7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */,
 				7EB376E326ED19E700F71DBF /* IntervalCell.swift in Sources */,
 				7EF8E8E626D2679000CDB7B2 /* UserInterfaceStyleManager.swift in Sources */,
@@ -468,7 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 28QY9NT6W3;
 				INFOPLIST_FILE = "mud engineer 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -476,11 +476,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -491,7 +491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 28QY9NT6W3;
 				INFOPLIST_FILE = "mud engineer 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -499,11 +499,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
