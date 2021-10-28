@@ -12,7 +12,7 @@ enum UserActions: String, CaseIterable {
     case dilutionFluid = "Разбавление раствора"
     case weighting = "Утяжеление раствора"
     case preferenceVC = "Настройки"
-    
+      
 }
 
 class MainVC: UICollectionViewController {

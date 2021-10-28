@@ -10,10 +10,8 @@ import UIKit
 class MudWeightVC: UIViewController {
     
     private var weightComponent = 2.7
-    private var segmentPosition = 0
 
     
-    @IBOutlet weak var segmentP: UISegmentedControl!
     
     @IBOutlet weak var weightFinishSliderOutlet: UISlider!
     
