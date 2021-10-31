@@ -11,9 +11,25 @@ enum AllInterval: String, CaseIterable {
     case konduktor = "Кондуктор"
     case kolonna = "Эксплуатационная колонна"
     case hvost = "Хвостовик"
+    
+    func convertString() -> String {
+        switch self {
+        case .konduktor:
+            return NSLocalizedString("konduktor", comment: "")
+        case .kolonna:
+            return NSLocalizedString("kolonna", comment: "")
+        case .hvost:
+            return NSLocalizedString("hvost", comment: "")
+        }
+    }
 }
 
 class DoubleVC: UICollectionViewController {
+    
+    let intervalsMassiv = [AllInterval.konduktor.convertString(),
+                           AllInterval.kolonna.convertString(),
+                           AllInterval.hvost.convertString()
+                          ]
     
     let intervals = AllInterval.allCases
 
@@ -27,13 +43,14 @@ class DoubleVC: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        intervals.count
+        intervalsMassiv.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! IntervalCell
-        let interval = intervals[indexPath.item]
-        cell.intervalCellOutlet.text = interval.rawValue
+//        let interval = intervals[indexPath.item]
+//        cell.intervalCellOutlet.text = interval.rawValue
+        cell.intervalCellOutlet.text = intervalsMassiv[indexPath.item]
         return cell
     }
 

@@ -31,10 +31,11 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Наблюдатель за транзакцией
-        SKPaymentQueue.default().add(self)
         startObserving(&UserInterfaceStyleManager.shared)
         view.addSubview(tableView)
+//        tableView.isScrollEnabled = false;
+        // Наблюдатель за транзакцией
+        SKPaymentQueue.default().add(self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
@@ -73,6 +74,9 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
             
         }
     }
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
     
     private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {

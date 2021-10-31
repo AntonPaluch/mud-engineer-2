@@ -31,34 +31,33 @@ class DilutionVC: UIViewController {
         startObserving(&UserInterfaceStyleManager.shared)
         resultOutlet.layer.cornerRadius = resultOutlet.frame.width / 2
         //Методы отвечают чтобы при загрузке экрана значения лейбла соответствовали значениям на слайдере
-        addVolumeLabel.text = String(format: "%.0f", addVolumeSliderOutlet.value) + String(" м3")
-        addWeightMudLabel.text = String(format: "%.2f", addWeightMudSliderOutlet.value) + String(" г/см3")
-        startVolumeLabelOutlet.text = String(format: "%.0f", startVolumeSliderOutlet.value) + String(" м3")
-        startWeightLabel.text = String(format: "%.2f", startWightSlider.value) + String(" г/см3")
+        addVolumeLabel.text = String(format: "%.0f", addVolumeSliderOutlet.value) + String(NSLocalizedString("metr3", comment: ""))
+        addWeightMudLabel.text = String(format: "%.2f", addWeightMudSliderOutlet.value) + String(NSLocalizedString("grammSm3", comment: ""))
+        startVolumeLabelOutlet.text = String(format: "%.0f", startVolumeSliderOutlet.value) + String(NSLocalizedString("metr3", comment: ""))
+        startWeightLabel.text = String(format: "%.2f", startWightSlider.value) + String(NSLocalizedString("grammSm3", comment: ""))
  
     }
     
     @IBAction func addVolumeSliderAction(_ sender: UISlider) {
-        addVolumeLabel.text = String(format: "%.0f", addVolumeSliderOutlet.value) + String(" м3")
+        addVolumeLabel.text = String(format: "%.0f", addVolumeSliderOutlet.value) + String(NSLocalizedString("metr3", comment: ""))
     }
     
     @IBAction func weightAddSliderAction(_ sender: UISlider) {
-        addWeightMudLabel.text = String(format: "%.2f", addWeightMudSliderOutlet.value) + String(" г/см3")
+        addWeightMudLabel.text = String(format: "%.2f", addWeightMudSliderOutlet.value) + String(NSLocalizedString("grammSm3", comment: ""))
     }
     
     
     @IBAction func startVolumeSliderAction(_ sender: UISlider) {
-        startVolumeLabelOutlet.text = String(format: "%.0f", startVolumeSliderOutlet.value) + String(" м3")
+        startVolumeLabelOutlet.text = String(format: "%.0f", startVolumeSliderOutlet.value) + String(NSLocalizedString("metr3", comment: ""))
     }
     
     @IBAction func weightStartSliderAction(_ sender: UISlider) {
-        startWeightLabel.text = String(format: "%.2f", startWightSlider.value) + String(" г/см3")
+        startWeightLabel.text = String(format: "%.2f", startWightSlider.value) + String(NSLocalizedString("grammSm3", comment: ""))
     }
     
     @IBAction func resultButton(_ sender: UIButton) {
-        weightFinishLabel.text = String("\(dilutionWeight()) г/см3")
-        finishLabel.text = String("\(allMud()) м3")
-        
+        weightFinishLabel.text = String(dilutionWeight()) + String(NSLocalizedString("grammSm3", comment: ""))
+        finishLabel.text = String(allMud()) + String(NSLocalizedString("metr3", comment: ""))
     }
     
     func dilutionWeight() -> String {

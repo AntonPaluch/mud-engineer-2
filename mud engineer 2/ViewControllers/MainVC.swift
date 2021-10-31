@@ -8,20 +8,46 @@
 import UIKit
 
 enum UserActions: String, CaseIterable {
-    case wellFlushing = "Промывка скважины"
-    case dilutionFluid = "Разбавление раствора"
-    case weighting = "Утяжеление раствора"
-    case preferenceVC = "Настройки"
-      
+    case wellFlushing
+    case dilutionFluid
+    case weighting
+    case preferenceVC
+    
+//    func localizedString() -> String {
+//        return NSLocalizedString(self.rawValue, comment: "")
+//    }
+    
+    func labelEnum() -> String {
+        switch self {
+        case .wellFlushing:
+            return NSLocalizedString("wellFlushing", comment: "")
+        case .dilutionFluid:
+            return NSLocalizedString("dilutionFluid", comment: "")
+        case .weighting:
+            return NSLocalizedString("weighting", comment: "")
+        case .preferenceVC:
+            return NSLocalizedString("preferenceVC", comment: "")
+        }
+    }
+
 }
 
 class MainVC: UICollectionViewController {
+    
+    let user = [UserActions.wellFlushing.labelEnum(),
+                UserActions.dilutionFluid.labelEnum(),
+                UserActions.weighting.labelEnum(),
+                UserActions.preferenceVC.labelEnum(),
+                
+    ]
     
     let userActions = UserActions.allCases
 
     override func viewDidLoad() {
         super.viewDidLoad()
         startObserving(&UserInterfaceStyleManager.shared)
+        
+        
     }
   
     
@@ -29,13 +55,15 @@ class MainVC: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        userActions.count
+        user.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UserActionCell
-        let userAction = userActions[indexPath.item]
-        cell.userActionCell.text = userAction.rawValue
+//        let userAction = userActions[indexPath.item]
+//        let userAction = user[indexPath.item]
+//        cell.userActionCell.text = userAction.rawValue
+        cell.userActionCell.text = user[indexPath.item]
         
         return cell
     }

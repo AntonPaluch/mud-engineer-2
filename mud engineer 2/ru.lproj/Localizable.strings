@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  mud engineer 2
+
+  Created by Pandos on 29.10.2021.
+  
+*/
+"wellFlushing" = "Промывка скважины";
+"dilutionFluid" = "Разбавление раствора";
+"weighting" = "Утяжеление раствора";
+"preferenceVC" = "Настройки";
+
+"konduktor" = "Кондуктор";
+"kolonna" = "Эксплуатационная колонна";
+"hvost" = "Хвостовик";
+"inputError" = "Ошибка ввода";
+"weieghtingEror" = "Плотность утяжеленного раствора должна быть больше исходного";
+
+"metr3" = " м3";
+"grammSm3" = " г/см3";
+"kg" = " кг";
+"calcium" = "Микрокальцит 2,7 г/см3";
+"barit" = "Барит 4,3 г/см3 ";
+"dolomite" = "Доломит 2,9 г/см3";
+"siderite" = "Сидерит 3,8 г/см3";

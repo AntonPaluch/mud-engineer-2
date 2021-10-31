@@ -9,12 +9,8 @@ import UIKit
 
 class PreferencesVC: UIViewController {
     
-
-    
-    
     @IBOutlet weak var stackViewOutlet: UIStackView!
     
-
     @IBOutlet weak var buttonOutlet: UIButton!
     
     @IBOutlet weak var switchOutlet: UISwitch!
@@ -45,7 +41,6 @@ class PreferencesVC: UIViewController {
 
     }
     
-
     @IBAction func switchAction(_ sender: UISwitch) {
         
         let darkModeOn = sender.isOn

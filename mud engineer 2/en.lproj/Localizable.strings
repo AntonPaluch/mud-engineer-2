@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  mud engineer 2
+
+  Created by Pandos on 29.10.2021.
+  
+*/
+"wellFlushing" = "Well flushing";
+"dilutionFluid" = "Dilution fluid";
+"weighting" = "Weighting";
+"preferenceVC" = "Settings";
+
+"konduktor" = "Surface casing";
+"kolonna" = "Production string";
+"hvost" = "Tailpipe";
+"inputError" = "Input Error";
+"weieghtingEror" = "The density of the weighted drilling mud should be greater than the initial mud";
+
+"metr3" = " m3";
+"grammSm3" = " g/cm3";
+"kg" = " kg";
+"calcium" = "Calcium carb 2,7 g/cm3";
+"barit" = "Barit 4,3 g/cm3";
+"dolomite" = "Dolomite 2,9 g/cm3";
+"siderite" = "Siderite 3,8 g/cm3";

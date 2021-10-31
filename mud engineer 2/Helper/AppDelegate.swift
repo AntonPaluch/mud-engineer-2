@@ -24,7 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        priceManager.getPriceForProduct(idProduct:
 //            "MudFluidDonata1")
 //        priceManager.requestProducts()
-        
+//        if #available(iOS 15, *) {
+//            let appearance = UINavigationBarAppearance()
+//            appearance.configureWithOpaqueBackground()
+//            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+//            appearance.backgroundColor = UIColor(red: 5.0/255.0, green: 125/255.0, blue: 0.0/255.0, alpha: 1.0)
+//            UINavigationBar.appearance().standardAppearance = appearance
+//            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//        }
         return true
     }
 

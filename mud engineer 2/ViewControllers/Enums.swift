@@ -16,13 +16,13 @@ enum WeightComponents: Double, CaseIterable {
   var valueForComponents: String {
     switch self {
     case .mramor:
-      return "Микрокальцит 2,7 г/см3"
+        return NSLocalizedString("calcium", comment: "")
     case .barit:
-      return "Барит 4,3 г/см3 "
+      return NSLocalizedString("barit", comment: "")
     case .dolomit:
-      return "Доломит 2,9 г/см3"
+      return NSLocalizedString("dolomite", comment: "")
     case .siderit:
-      return "Сидерит 3,8 г/см3"
+      return NSLocalizedString("siderite", comment: "")
     }
   }
 }

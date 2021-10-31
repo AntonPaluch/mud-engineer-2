@@ -84,7 +84,7 @@
 "L97-yy-i9G.title" = "Time";
 
 /* Class = "UILabel"; text = "В затрубе :"; ObjectID = "M5b-53-smK"; */
-"M5b-53-smK.text" = "Behind the pipes :";
+"M5b-53-smK.text" = "Behind the pipes:";
 
 /* Class = "UILabel"; text = "100 м3"; ObjectID = "MWb-Rm-Xmi"; */
 "MWb-Rm-Xmi.text" = "100 m3";
@@ -120,7 +120,7 @@
 "Tuf-Hq-hpL.title" = "Back";
 
 /* Class = "UILabel"; text = "Полтора цикла:"; ObjectID = "Ugr-E2-qzd"; */
-"Ugr-E2-qzd.text" = "One and a half cycles of well flushing :";
+"Ugr-E2-qzd.text" = "1,5 cycles of well flushing:";
 
 /* Class = "UILabel"; text = "Длина (м)"; ObjectID = "XC0-So-jOD"; */
 "XC0-So-jOD.text" = "Long (m)";
@@ -198,7 +198,7 @@
 "kVQ-0a-Kew.text" = "1 h. 30 min.";
 
 /* Class = "UIButton"; normalTitle = "Чаевые разработчику"; ObjectID = "kZb-aP-lfQ"; */
-"kZb-aP-lfQ.normalTitle" = "Tips to the developer";
+"kZb-aP-lfQ.normalTitle" = "Donate";
 
 /* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "kzD-vG-f42"; */
 "kzD-vG-f42.title" = "Back";
@@ -251,15 +251,11 @@
 /* Class = "UILabel"; text = "При литраже:"; ObjectID = "zOx-Fq-JsB"; */
 "zOx-Fq-JsB.text" = "At litrage:";
 
-//////////////////
-
-
-
 /* Class = "UINavigationItem"; title = "Утяжеление бурового раствора"; ObjectID = "Djs-Zd-c6N"; */
 "Djs-Zd-c6N.title" = "Weighting of drilling mud";
 
 /* Class = "UILabel"; text = "Плотность исходного раствора:"; ObjectID = "wJA-xD-mbU"; */
-"wJA-xD-mbU.text" = "Initial mud weight :";
+"wJA-xD-mbU.text" = "Initial mud weight:";
 
 /* Class = "UIButton"; normalTitle = "Выбрать утяжелитель"; ObjectID = "dKK-J8-rsn"; */
 "dKK-J8-rsn.normalTitle" = "Choosing a weighting agent";
@@ -279,9 +275,6 @@
 /* Class = "UILabel"; text = "Количество утяжелителя:"; ObjectID = "0Hj-hA-gac"; */
 "0Hj-hA-gac.text" = "Required weighting agent:";
 
-
-
-
 /* Class = "UILabel"; text = "Объем добавляемого раствора:"; ObjectID = "M6V-cp-9rM"; */
 "M6V-cp-9rM.text" = "Dilution fluid requirement:";
 
@@ -295,7 +288,7 @@
 "fUB-rC-WC7.text" = "Starting mud wt:";
 
 /* Class = "UINavigationItem"; title = "Разбавление раствора"; ObjectID = "lqD-oo-IA5"; */
-"lqD-oo-IA5.title" = "Mud dilution";
+"lqD-oo-IA5.title" = "Dilution fluid";
 
 /* Class = "UIButton"; normalTitle = "Расчет"; ObjectID = "SFx-8B-03D"; */
 "SFx-8B-03D.normalTitle" = "Computation";
@@ -305,5 +298,8 @@
 
 /* Class = "UILabel"; text = "Конечный объём:"; ObjectID = "MrJ-DT-rYt"; */
 "MrJ-DT-rYt.text" = "Final mud volume:";
+
+/* Class = "UINavigationItem"; title = "Промывка скважины"; ObjectID = "Ws7-HL-Q0k"; */
+"Ws7-HL-Q0k.title" = "Well flushing";
 
 

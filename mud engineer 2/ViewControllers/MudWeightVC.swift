@@ -40,7 +40,7 @@ class MudWeightVC: UIViewController {
         resultOtletButton.layer.cornerRadius = resultOtletButton.frame.width / 2
         setValue(for: weightFinishLabel)
         setValue(for: weightStartLabel)
-        volumeLabel.text = String(format: "%.0f", volumeOutlet.value) + String(" м3")
+        volumeLabel.text = String(format: "%.0f", volumeOutlet.value) + String(NSLocalizedString("metr3", comment: ""))
     }
     
     
@@ -56,7 +56,7 @@ class MudWeightVC: UIViewController {
     }
         
     private func string(from slider: UISlider) -> String {
-        String(format: "%.2f", slider.value) + String(" г/см3")
+        String(format: "%.2f", slider.value) + String(NSLocalizedString("grammSm3", comment: ""))
     }
     
     
@@ -70,7 +70,7 @@ class MudWeightVC: UIViewController {
     
     
     @IBAction func volumeSlider(_ sender: UISlider) {
-        volumeLabel.text = String(format: "%.0f", volumeOutlet.value) + String(" м3")
+        volumeLabel.text = String(format: "%.0f", volumeOutlet.value) + String(NSLocalizedString("metr3", comment: ""))
         
     }
     
@@ -85,13 +85,13 @@ class MudWeightVC: UIViewController {
     
     @IBAction func resultButton(_ sender: UIButton) {
         if weightFinishSliderOutlet.value < weightStartSliderOutlet.value {
-            showAlert(title: "Ошибка ввода", message: "Плотность утяжеленного раствора должна быть больше исходного ")
+            showAlert(title: NSLocalizedString("inputError", comment: ""), message: NSLocalizedString("weieghtingEror", comment: ""))
         } else {
-        weightBaritOutlet.text = ("\(resultWeight()) кг")
+        weightBaritOutlet.text = resultWeight() + String(NSLocalizedString("kg", comment: ""))
         print(resultWeight())
         }
       
-        vFinishLabel.text = ("\(volumeFinish()) м3")
+        vFinishLabel.text = volumeFinish() + String(NSLocalizedString("metr3", comment: ""))
     }
     
     
