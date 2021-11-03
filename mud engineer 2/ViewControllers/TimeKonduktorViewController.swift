@@ -27,17 +27,18 @@ class TimeKonduktorViewController: UIViewController {
         super.viewDidLoad()
         startObserving(&UserInterfaceStyleManager.shared)
         let chiklRound = string(from: chikl ?? 0)
-        chiklLabel.text = "\(chiklRound ) минут"
-        litrazhLabel.text = "\(litrazh ?? "0") л/с"
+        chiklLabel.text = chiklRound + String(NSLocalizedString("minutes", comment: ""))
+//        litrazhLabel.text = "\(litrazh ?? "0") л/с"
+        litrazhLabel.text = "\(litrazh ?? "0")" + String(NSLocalizedString("lps", comment: ""))
         let prokachka = string(from: prokachkaDoZaboy ?? 0)
-        prokachkaDoZaboyLabel.text = "\(prokachka) минут"
+        prokachkaDoZaboyLabel.text = prokachka + String(NSLocalizedString("minutes", comment: ""))
         let vihodPachki = string(from: zaboynayaPachka ?? 0)
-        zaboynayaPachkaLabel.text = "\(vihodPachki) минут"
+        zaboynayaPachkaLabel.text = vihodPachki + String(NSLocalizedString("minutes", comment: ""))
         poltoraChiklaLabel.text = converterTime(time: poltoraChikla ?? 0)
         dvaChiklaLabel.text = converterTime(time: dvaChikla ?? 0)
         
-        guard litrazhLabel.text != "0 л/с" else {
-            chiklLabel.text = "Промывка скважины не ведется"
+        guard litrazhLabel.text != "0 lps", litrazhLabel.text != "0 л/с" else {
+            chiklLabel.text = NSLocalizedString("notFlushed", comment: "")
             prokachkaDoZaboyLabel.text = " - "
             zaboynayaPachkaLabel.text = " - "
             poltoraChiklaLabel.text = " - "
@@ -59,7 +60,6 @@ class TimeKonduktorViewController: UIViewController {
         let rminutes = round(minutes)
         let rhoursStr = String(format: "%.0f", rhours)
         let rminutesStr = String(format: "%.0f", rminutes)
-        return String("\(rhoursStr)ч. \(rminutesStr) мин.")
+        return rhoursStr + String(NSLocalizedString("h", comment: "")) + " " + rminutesStr + String(NSLocalizedString("min", comment: ""))
     }
-    
 }

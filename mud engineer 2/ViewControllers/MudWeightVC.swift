@@ -43,8 +43,6 @@ class MudWeightVC: UIViewController {
         volumeLabel.text = String(format: "%.0f", volumeOutlet.value) + String(NSLocalizedString("metr3", comment: ""))
     }
     
-    
-    
     private func setValue(for labels: UILabel...) {
         labels.forEach { label in
             switch label.tag {
@@ -59,16 +57,10 @@ class MudWeightVC: UIViewController {
         String(format: "%.2f", slider.value) + String(NSLocalizedString("grammSm3", comment: ""))
     }
     
-    
-
     @IBAction func finishWeightSlider(_ sender: UISlider) {
         weightFinishLabel.text = string(from: sender)
- 
-        }
+ }
         
-    
-    
-    
     @IBAction func volumeSlider(_ sender: UISlider) {
         volumeLabel.text = String(format: "%.0f", volumeOutlet.value) + String(NSLocalizedString("metr3", comment: ""))
         
@@ -93,7 +85,6 @@ class MudWeightVC: UIViewController {
       
         vFinishLabel.text = volumeFinish() + String(NSLocalizedString("metr3", comment: ""))
     }
-    
     
     func resultWeight() -> String {
         let volume = Double(round(volumeOutlet.value))
@@ -142,12 +133,8 @@ extension MudWeightVC {
         alert.addAction(okAction)
         present(alert, animated: true)
       }
-    
-  
     }
     
-
-
 extension MudWeightVC: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

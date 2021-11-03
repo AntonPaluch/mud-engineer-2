@@ -62,7 +62,7 @@ class KonduktorViewController: UIViewController {
         
         guard zaboy.text != "" else {
             showAlert(
-            title: "Введите забой скважины"
+            title: NSLocalizedString("bottomWell", comment: "")
         )
         return
             
@@ -70,33 +70,33 @@ class KonduktorViewController: UIViewController {
         
         guard dolotoMM.text != "" else {
             showAlert(
-            title: "Введите диаметр долота"
+            title: NSLocalizedString("bit diameter", comment: "")
         )
         return
         }
         
         guard kKavernoznosty.text != "" else {
             showAlert(
-            title: "Введите коэффициент кавернозности"
+            title: NSLocalizedString("kCavernosity", comment: "")
         )
         return
         }
         
         guard diametrInstrumenta.text != "" else {
             showAlert(
-            title: "Введите диаметр инструмента"
+            title: NSLocalizedString("dSDP", comment: "")
         )
         return
         }
         guard stenkaInstrumentaMM.text != "" else {
             showAlert(
-            title: "Введите толщину стенки инструмента"
+            title: NSLocalizedString("pipeWall", comment: "")
         )
         return
         }
         guard litrazh.text != "" else {
             showAlert(
-            title: "Введите литраж"
+            title: NSLocalizedString("liter", comment: "")
         )
         return
         }

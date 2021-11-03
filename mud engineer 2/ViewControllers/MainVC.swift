@@ -29,7 +29,6 @@ enum UserActions: String, CaseIterable {
             return NSLocalizedString("preferenceVC", comment: "")
         }
     }
-
 }
 
 class MainVC: UICollectionViewController {
@@ -38,20 +37,15 @@ class MainVC: UICollectionViewController {
                 UserActions.dilutionFluid.labelEnum(),
                 UserActions.weighting.labelEnum(),
                 UserActions.preferenceVC.labelEnum(),
-                
     ]
-    
+
     let userActions = UserActions.allCases
 
     override func viewDidLoad() {
         super.viewDidLoad()
         startObserving(&UserInterfaceStyleManager.shared)
-        
-        
     }
   
-    
-
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

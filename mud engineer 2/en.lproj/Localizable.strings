@@ -23,3 +23,17 @@
 "barit" = "Barit 4,3 g/cm3";
 "dolomite" = "Dolomite 2,9 g/cm3";
 "siderite" = "Siderite 3,8 g/cm3";
+
+"bottomWell" = "Enter the bottom of the well";
+"bit diameter" = "Enter bit diameter";
+"kCavernosity" = "Enter cavernosity coefficient";
+"dSDP" = "Enter diametr steel drilling pipe";
+"pipeWall" = "Enter thickness pipe wall";
+"liter" = "enter liter";
+
+"minutes" = " minutes";
+"lps" = " lps";
+"0lps" = "0 lps";
+"notFlushed" = "The well is not flushed";
+"h" = " h.";
+"min" = " min.";

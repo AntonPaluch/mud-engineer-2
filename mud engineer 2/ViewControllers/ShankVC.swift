@@ -60,42 +60,42 @@ class ShankVC: UIViewController {
         
         guard wellBottom.text != "" else {
             showAlert(
-            title: "Введите забой скважины"
+            title: NSLocalizedString("bottomWell", comment: "")
         )
         return
         }
             
         guard diametrDrilling.text != "" else {
                 showAlert(
-                title: "Введите диаметр долота"
+                title: NSLocalizedString("bit diameter", comment: "")
         )
         return
         }
             
         guard kCavernosity.text != "" else {
                 showAlert(
-                title: "Введите коэффициент кавернозности"
+                title: NSLocalizedString("kCavernosity", comment: "")
             )
         return
         }
             
         guard diametrDrillingPipes.text != "" else {
                 showAlert(
-                title: "Введите диаметр инструмента"
+                title: NSLocalizedString("dSDP", comment: "")
         )
         return
         }
         
         guard wallThickness.text != "" else {
                 showAlert(
-                title: "Введите толщину стенки инструмента"
+                title: NSLocalizedString("pipeWall", comment: "")
         )
         return
         }
         
         guard pumpLiters.text != "" else {
                 showAlert(
-                title: "Введите литраж"
+                title: NSLocalizedString("liter", comment: "")
         )
         return
         }
