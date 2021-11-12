@@ -10,6 +10,9 @@ import UIKit
 
 class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    let viewIndicator = UIView()
     
     private var models = [SKProduct] ()
     private let mass = ["Возврат средств"]
@@ -32,6 +35,15 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
     override func viewDidLoad() {
         super.viewDidLoad()
         startObserving(&UserInterfaceStyleManager.shared)
+        viewIndicator.backgroundColor = .green
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+//        viewIndicator.addSubview(activityIndicator)
+//        tableView.addSubview(viewIndicator)
+//        viewIndicator.translatesAutoresizingMaskIntoConstraints = false
+//        viewIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor)
+//        activityIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor)
+//        activityIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
         view.addSubview(tableView)
 //        tableView.isScrollEnabled = false;
         // Наблюдатель за транзакцией

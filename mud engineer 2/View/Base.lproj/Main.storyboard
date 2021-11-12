@@ -1377,8 +1377,17 @@
                     <view key="view" contentMode="scaleToFill" id="Q5f-rE-cmu">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="uJY-30-DVi">
+                                <rect key="frame" x="176.66666666666666" y="359.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hqE-Up-O7Q"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="uJY-30-DVi" firstAttribute="centerX" secondItem="Q5f-rE-cmu" secondAttribute="centerX" id="Uh1-go-lMa"/>
+                            <constraint firstItem="uJY-30-DVi" firstAttribute="centerY" secondItem="Q5f-rE-cmu" secondAttribute="centerY" id="VOy-MF-NUm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Чаевые" id="AI6-G0-PeV">
                         <barButtonItem key="leftBarButtonItem" image="arrowshape.turn.up.left.fill" catalog="system" id="0tz-KX-kuc">
@@ -1388,6 +1397,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="uJY-30-DVi" id="2Iz-gI-lfw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jaR-GR-f6l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fvt-Na-Jw5" userLabel="Exit" sceneMemberID="exit"/>
@@ -1940,7 +1952,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5nK-Qf-DOt"/>
+        <segue reference="0JV-ot-KeF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
