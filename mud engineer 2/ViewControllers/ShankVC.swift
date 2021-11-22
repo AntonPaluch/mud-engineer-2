@@ -183,7 +183,6 @@ class ShankVC: UIViewController {
             obyemVC.vKolonniD = Double(volumeColumn)
             obyemVC.vOtkritiyStvolD = Double(volumeOpenBorehole)
         }
-        
 }
 
 // MARK: - Alert Controller

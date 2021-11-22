@@ -11,6 +11,8 @@
 		7E1435CB26B1A07000EFE812 /* ObyemKonduktorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */; };
 		7E1435DB26C80A0000EFE812 /* ProductColumnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */; };
 		7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435DC26CC0A6800EFE812 /* ShankVC.swift */; };
+		7E76115D274C11C00025B6FA /* AllInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E76115C274C11C00025B6FA /* AllInterval.swift */; };
+		7E76115F274C12580025B6FA /* UserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E76115E274C12580025B6FA /* UserActions.swift */; };
 		7E801313272C5F1000D0CEA1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E801315272C5F1000D0CEA1 /* Localizable.strings */; };
 		7E8A357F26D2189200200ACC /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A357E26D2189200200ACC /* PreferencesVC.swift */; };
 		7E9F78EF26DA9B23004A9450 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F78EE26DA9B23004A9450 /* StoreKit.framework */; };
@@ -22,7 +24,7 @@
 		7EB376E326ED19E700F71DBF /* IntervalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376E226ED19E700F71DBF /* IntervalCell.swift */; };
 		7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376E426ED1A1900F71DBF /* DoubleVC.swift */; };
 		7EB376EB26EF4DE300F71DBF /* MudWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */; };
-		7EB376ED26EF5ABB00F71DBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376EC26EF5ABB00F71DBF /* Enums.swift */; };
+		7EB376ED26EF5ABB00F71DBF /* WightComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376EC26EF5ABB00F71DBF /* WightComponents.swift */; };
 		7EB376EF26F0D57500F71DBF /* DilutionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376EE26F0D57400F71DBF /* DilutionVC.swift */; };
 		7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42980264D7C0B00E0B269 /* AppDelegate.swift */; };
 		7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED42982264D7C0B00E0B269 /* SceneDelegate.swift */; };
@@ -45,6 +47,8 @@
 		7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductColumnVC.swift; sourceTree = "<group>"; };
 		7E1435DC26CC0A6800EFE812 /* ShankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShankVC.swift; sourceTree = "<group>"; };
 		7E4555FF26F784360039A831 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		7E76115C274C11C00025B6FA /* AllInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInterval.swift; sourceTree = "<group>"; };
+		7E76115E274C12580025B6FA /* UserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActions.swift; sourceTree = "<group>"; };
 		7E7EEDDD2713508A008A13D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		7E801314272C5F1000D0CEA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7E801316272C5F1100D0CEA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -58,7 +62,7 @@
 		7EB376E226ED19E700F71DBF /* IntervalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCell.swift; sourceTree = "<group>"; };
 		7EB376E426ED1A1900F71DBF /* DoubleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleVC.swift; sourceTree = "<group>"; };
 		7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MudWeightVC.swift; sourceTree = "<group>"; };
-		7EB376EC26EF5ABB00F71DBF /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		7EB376EC26EF5ABB00F71DBF /* WightComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WightComponents.swift; sourceTree = "<group>"; };
 		7EB376EE26F0D57400F71DBF /* DilutionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DilutionVC.swift; sourceTree = "<group>"; };
 		7ED4297D264D7C0B00E0B269 /* mud engineer 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mud engineer 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED42980264D7C0B00E0B269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7E761160274C12930025B6FA /* Enumeration */ = {
+			isa = PBXGroup;
+			children = (
+				7E76115C274C11C00025B6FA /* AllInterval.swift */,
+				7E76115E274C12580025B6FA /* UserActions.swift */,
+				7EB376EC26EF5ABB00F71DBF /* WightComponents.swift */,
+			);
+			path = Enumeration;
+			sourceTree = "<group>";
+		};
 		7E8A357926D2099900200ACC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +146,6 @@
 				7EB376E426ED1A1900F71DBF /* DoubleVC.swift */,
 				7EB376E226ED19E700F71DBF /* IntervalCell.swift */,
 				7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */,
-				7EB376EC26EF5ABB00F71DBF /* Enums.swift */,
 				7EB376EE26F0D57400F71DBF /* DilutionVC.swift */,
 			);
 			path = ViewControllers;
@@ -174,6 +187,7 @@
 			children = (
 				7E8A357926D2099900200ACC /* Helper */,
 				7E8A357B26D209CD00200ACC /* ViewControllers */,
+				7E761160274C12930025B6FA /* Enumeration */,
 				7E8A357C26D209EC00200ACC /* Manager */,
 				7E8A357A26D209B500200ACC /* View */,
 				7E801315272C5F1000D0CEA1 /* Localizable.strings */,
@@ -310,13 +324,15 @@
 				7EB376EF26F0D57500F71DBF /* DilutionVC.swift in Sources */,
 				7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */,
 				7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */,
+				7E76115F274C12580025B6FA /* UserActions.swift in Sources */,
 				7EB376EB26EF4DE300F71DBF /* MudWeightVC.swift in Sources */,
 				7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */,
 				7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */,
 				7ED42981264D7C0B00E0B269 /* AppDelegate.swift in Sources */,
 				7EB376E326ED19E700F71DBF /* IntervalCell.swift in Sources */,
 				7EF8E8E626D2679000CDB7B2 /* UserInterfaceStyleManager.swift in Sources */,
-				7EB376ED26EF5ABB00F71DBF /* Enums.swift in Sources */,
+				7EB376ED26EF5ABB00F71DBF /* WightComponents.swift in Sources */,
+				7E76115D274C11C00025B6FA /* AllInterval.swift in Sources */,
 				7E1435A326A9BB8A00EFE812 /* TimeKonduktorViewController.swift in Sources */,
 				7EB376DD26ECC3CB00F71DBF /* UserActionCell.swift in Sources */,
 				7ED429A0264FEF9E00E0B269 /* CalculatorManager.swift in Sources */,

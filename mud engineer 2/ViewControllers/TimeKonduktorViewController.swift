@@ -28,7 +28,6 @@ class TimeKonduktorViewController: UIViewController {
         startObserving(&UserInterfaceStyleManager.shared)
         let chiklRound = string(from: chikl ?? 0)
         chiklLabel.text = chiklRound + String(NSLocalizedString("minutes", comment: ""))
-//        litrazhLabel.text = "\(litrazh ?? "0") л/с"
         litrazhLabel.text = "\(litrazh ?? "0")" + String(NSLocalizedString("lps", comment: ""))
         let prokachka = string(from: prokachkaDoZaboy ?? 0)
         prokachkaDoZaboyLabel.text = prokachka + String(NSLocalizedString("minutes", comment: ""))

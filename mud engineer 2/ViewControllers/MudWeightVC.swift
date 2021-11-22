@@ -11,19 +11,15 @@ class MudWeightVC: UIViewController {
     
     private var weightComponent = 2.7
 
-    
-    
     @IBOutlet weak var weightFinishSliderOutlet: UISlider!
     
     @IBOutlet weak var weightFinishLabel: UILabel!
     
-
     @IBOutlet weak var volumeOutlet: UISlider!
     @IBOutlet weak var volumeLabel: UILabel!
     
     @IBOutlet weak var weightStartSliderOutlet: UISlider!
     @IBOutlet weak var weightStartLabel: UILabel!
-    
     
     @IBOutlet weak var weightComponentsOutlet: UIButton!
     
@@ -89,9 +85,7 @@ class MudWeightVC: UIViewController {
     func resultWeight() -> String {
         let volume = Double(round(volumeOutlet.value))
         let numberOne = weightComponent * 1000
-//        let numberTwo = Double(weightFinishSliderOutlet.value)
         let numberTwo = roundOn(value: Double(weightFinishSliderOutlet.value), toNearest: 0.01)
-//        let numberThree = Double(weightStartSliderOutlet.value)
         let numberThree = roundOn(value: Double(weightStartSliderOutlet.value), toNearest: 0.01)
         let delta = numberOne * (numberTwo - numberThree) / (weightComponent - numberTwo) * volume
         return String(Int(delta))

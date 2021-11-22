@@ -7,29 +7,25 @@
 
 import UIKit
 
-enum UserActions: String, CaseIterable {
-    case wellFlushing
-    case dilutionFluid
-    case weighting
-    case preferenceVC
-    
-//    func localizedString() -> String {
-//        return NSLocalizedString(self.rawValue, comment: "")
+//enum UserActions: String, CaseIterable {
+//    case wellFlushing
+//    case dilutionFluid
+//    case weighting
+//    case preferenceVC
+//    
+//    func labelEnum() -> String {
+//        switch self {
+//        case .wellFlushing:
+//            return NSLocalizedString("wellFlushing", comment: "")
+//        case .dilutionFluid:
+//            return NSLocalizedString("dilutionFluid", comment: "")
+//        case .weighting:
+//            return NSLocalizedString("weighting", comment: "")
+//        case .preferenceVC:
+//            return NSLocalizedString("preferenceVC", comment: "")
+//        }
 //    }
-    
-    func labelEnum() -> String {
-        switch self {
-        case .wellFlushing:
-            return NSLocalizedString("wellFlushing", comment: "")
-        case .dilutionFluid:
-            return NSLocalizedString("dilutionFluid", comment: "")
-        case .weighting:
-            return NSLocalizedString("weighting", comment: "")
-        case .preferenceVC:
-            return NSLocalizedString("preferenceVC", comment: "")
-        }
-    }
-}
+//}
 
 class MainVC: UICollectionViewController {
     
@@ -58,7 +54,6 @@ class MainVC: UICollectionViewController {
 //        let userAction = user[indexPath.item]
 //        cell.userActionCell.text = userAction.rawValue
         cell.userActionCell.text = user[indexPath.item]
-        
         return cell
     }
 

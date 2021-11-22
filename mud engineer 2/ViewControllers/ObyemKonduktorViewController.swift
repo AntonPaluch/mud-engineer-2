@@ -9,7 +9,6 @@ import UIKit
 
 class ObyemKonduktorViewController: UIViewController {
 
-    
     @IBOutlet weak var sYchetomInstrumenta: UILabel!
     @IBOutlet weak var vInstrumente: UILabel!
     @IBOutlet weak var vZatrube: UILabel!
@@ -51,3 +50,4 @@ class ObyemKonduktorViewController: UIViewController {
     }
     
 }
+

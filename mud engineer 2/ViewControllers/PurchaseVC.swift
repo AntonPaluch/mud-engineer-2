@@ -45,8 +45,6 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
 //        activityIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor)
 //        activityIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
         view.addSubview(tableView)
-//        tableView.isScrollEnabled = false;
-        // Наблюдатель за транзакцией
         SKPaymentQueue.default().add(self)
         tableView.delegate = self
         tableView.dataSource = self
@@ -55,8 +53,6 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
         
     }
     
-    // Table
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -64,7 +60,6 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 { return models.count}
         else {return mass.count}
-//        return models.count
     }
     
     
@@ -78,7 +73,6 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
         return cell
         }
         else {
-//            let returnPurches = mass[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = "Возврат средств"
             return cell
@@ -86,9 +80,6 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
             
         }
     }
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
     
     private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
@@ -127,13 +118,8 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
     
     private func fetchProducts() {
         let request = SKProductsRequest(productIdentifiers: Set(Product.allCases.compactMap({ $0.rawValue})))
-//        productRequest?.cancel()
-//        let request = SKProductsRequest(productIdentifiers: productIdentifiers)
         request.delegate = self
         request.start()
-        
-//        self.productRequest = request
-        
     }
         
     //ПОлучение ответа от app store - подробная информация о продукте
@@ -154,17 +140,7 @@ class PurchaseVC: UIViewController, UITableViewDelegate, UITableViewDataSource,S
 }
 
 extension PurchaseVC {
-//    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-//        guard  !response.products.isEmpty else {
-//            print("Found 0 products")
-//            return
-//        }
-//
-//        for product in response.products {
-//            print("FOund product: \(product.productIdentifier)")
-//        }
-//    }
-
+    
     func request(_ request: SKRequest, didFailWithError error: Error) {
         print("Failed to load products with error:\n \(error)")
     }
@@ -191,8 +167,6 @@ extension PurchaseVC {
         }
         
     }
-    
-
 }
 
 
