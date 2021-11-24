@@ -9,7 +9,7 @@ import UIKit
 
 class KonduktorViewController: UIViewController {
     
-    private let userDef = UserDefaults.standard
+    let userDef = UserDefaults.standard
 
     @IBOutlet weak var dlinaPredKolonni: UITextField!
     @IBOutlet weak var vnDiametrKolonni: UITextField!
@@ -39,18 +39,9 @@ class KonduktorViewController: UIViewController {
         super.viewDidLoad()
         startObserving(&UserInterfaceStyleManager.shared)
         buttonOutlet.layer.cornerRadius = 15
-        
         resetButtonOutlet.layer.cornerRadius = resetButtonOutlet.frame.width / 2
         resetButtonOutlet.layer.masksToBounds = true
-        
-        dlinaPredKolonni.text = userDef.string(forKey: "k1")
-        vnDiametrKolonni.text = userDef.string(forKey: "k2")
-        dolotoMM.text = userDef.string(forKey: "k3")
-        kKavernoznosty.text = userDef.string(forKey: "k4")
-        diametrInstrumenta.text = userDef.string(forKey: "k5")
-        stenkaInstrumentaMM.text = userDef.string(forKey: "k6")
-        zaboy.text = userDef.string(forKey: "k7")
-        litrazh.text = userDef.string(forKey: "k8")
+        presentValue()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -59,47 +50,7 @@ class KonduktorViewController: UIViewController {
     }
     
     @IBAction func raschetButton() {
-        
-        guard zaboy.text != "" else {
-            showAlert(
-            title: NSLocalizedString("bottomWell", comment: "")
-        )
-        return
-            
-        }
-        
-        guard dolotoMM.text != "" else {
-            showAlert(
-            title: NSLocalizedString("bit diameter", comment: "")
-        )
-        return
-        }
-        
-        guard kKavernoznosty.text != "" else {
-            showAlert(
-            title: NSLocalizedString("kCavernosity", comment: "")
-        )
-        return
-        }
-        
-        guard diametrInstrumenta.text != "" else {
-            showAlert(
-            title: NSLocalizedString("dSDP", comment: "")
-        )
-        return
-        }
-        guard stenkaInstrumentaMM.text != "" else {
-            showAlert(
-            title: NSLocalizedString("pipeWall", comment: "")
-        )
-        return
-        }
-        guard litrazh.text != "" else {
-            showAlert(
-            title: NSLocalizedString("liter", comment: "")
-        )
-        return
-        }
+        presentAlert()
         
             guard let litrazhString = litrazh.text,
             let litrazhh = Double(litrazhString) else { return }
@@ -132,40 +83,16 @@ class KonduktorViewController: UIViewController {
         zhikl = vihodZaboynoyPachki + prokachkaDoZaboy
         zhiklPoltora = zhikl * 1.5
         zhiklDva = zhikl * 2
+        print(zhikl)
 
-        userDef.setValue(dlinaPredKolonni.text, forKey: "k1")
-        userDef.setValue(vnDiametrKolonni.text, forKey: "k2")
-        userDef.setValue(dolotoMM.text, forKey: "k3")
-        userDef.setValue(kKavernoznosty.text, forKey: "k4")
-        userDef.setValue(diametrInstrumenta.text, forKey: "k5")
-        userDef.setValue(stenkaInstrumentaMM.text, forKey: "k6")
-        userDef.setValue(zaboy.text, forKey: "k7")
-        userDef.setValue(litrazh.text, forKey: "k8")
-        
+        saveValue()
         performSegue(withIdentifier: "qwerty", sender: nil)
         print(vOtkrtStvol)
     }
     
     
     @IBAction func resetButton(_ sender: UIButton) {
-        
-        dlinaPredKolonni.text = ""
-        vnDiametrKolonni.text = ""
-        dolotoMM.text = ""
-        kKavernoznosty.text = ""
-        diametrInstrumenta.text = ""
-        stenkaInstrumentaMM.text = ""
-        zaboy.text = ""
-        litrazh.text = ""
-        
-        userDef.removeObject(forKey: "k1")
-        userDef.removeObject(forKey: "k2")
-        userDef.removeObject(forKey: "k3")
-        userDef.removeObject(forKey: "k4")
-        userDef.removeObject(forKey: "k5")
-        userDef.removeObject(forKey: "k6")
-        userDef.removeObject(forKey: "k7")
-        userDef.removeObject(forKey: "k8")
+        resetValue()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -198,4 +125,44 @@ extension KonduktorViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    func presentAlert() {
+    guard zaboy.text != "" else {
+        showAlert(
+        title: NSLocalizedString("bottomWell", comment: "")
+    )
+    return
+    }
+    guard dolotoMM.text != "" else {
+        showAlert(
+        title: NSLocalizedString("bit diameter", comment: "")
+    )
+    return
+    }
+    guard kKavernoznosty.text != "" else {
+        showAlert(
+        title: NSLocalizedString("kCavernosity", comment: "")
+    )
+    return
+    }
+    guard diametrInstrumenta.text != "" else {
+        showAlert(
+        title: NSLocalizedString("dSDP", comment: "")
+    )
+    return
+    }
+    guard stenkaInstrumentaMM.text != "" else {
+        showAlert(
+        title: NSLocalizedString("pipeWall", comment: "")
+    )
+    return
+    }
+    guard litrazh.text != "" else {
+        showAlert(
+        title: NSLocalizedString("liter", comment: "")
+    )
+    return
+    }
+    
+  }
 }
