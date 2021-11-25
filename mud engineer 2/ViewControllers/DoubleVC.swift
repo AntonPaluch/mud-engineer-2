@@ -7,22 +7,7 @@
 
 import UIKit
 
-//enum AllInterval: String, CaseIterable {
-//    case konduktor = "Кондуктор"
-//    case kolonna = "Эксплуатационная колонна"
-//    case hvost = "Хвостовик"
-//    
-//    func convertString() -> String {
-//        switch self {
-//        case .konduktor:
-//            return NSLocalizedString("konduktor", comment: "")
-//        case .kolonna:
-//            return NSLocalizedString("kolonna", comment: "")
-//        case .hvost:
-//            return NSLocalizedString("hvost", comment: "")
-//        }
-//    }
-//}
+public let userDef = UserDefaults.standard
 
 class DoubleVC: UICollectionViewController {
     
@@ -30,16 +15,13 @@ class DoubleVC: UICollectionViewController {
                            AllInterval.kolonna.convertString(),
                            AllInterval.hvost.convertString()
                           ]
-    
     let intervals = AllInterval.allCases
 
     override func viewDidLoad() {
         super.viewDidLoad()
         startObserving(&UserInterfaceStyleManager.shared)
-
     }
-
-
+    
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -58,7 +40,6 @@ class DoubleVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let interval = intervals[indexPath.item]
-        
         switch  interval {
         case .konduktor: performSegue(withIdentifier: "konduktor", sender: nil)
         case .kolonna: performSegue(withIdentifier: "kolonna", sender: nil)

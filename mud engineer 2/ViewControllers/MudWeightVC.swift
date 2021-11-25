@@ -10,24 +10,17 @@ import UIKit
 class MudWeightVC: UIViewController {
     
     private var weightComponent = 2.7
-
+    
     @IBOutlet weak var weightFinishSliderOutlet: UISlider!
-    
     @IBOutlet weak var weightFinishLabel: UILabel!
-    
     @IBOutlet weak var volumeOutlet: UISlider!
     @IBOutlet weak var volumeLabel: UILabel!
-    
     @IBOutlet weak var weightStartSliderOutlet: UISlider!
     @IBOutlet weak var weightStartLabel: UILabel!
-    
     @IBOutlet weak var weightComponentsOutlet: UIButton!
-    
     @IBOutlet weak var vFinishLabel: UILabel!
     @IBOutlet weak var weightBaritOutlet: UILabel!
-    
     @IBOutlet weak var resultOtletButton: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,9 +100,7 @@ class MudWeightVC: UIViewController {
 }
     
 extension MudWeightVC {
-    
     private func showComponents() {
-        
         let pickerViewController = UIViewController()
         pickerViewController.preferredContentSize = CGSize(width: 270.0, height: 130.0)
         let picker = UIPickerView(frame: CGRect(x: 0.0, y: 0.0, width: 270.0, height: 130.0))
@@ -134,11 +125,9 @@ extension MudWeightVC: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         WeightComponents.allCases.count
     }
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         WeightComponents.allCases[row].valueForComponents
     }
@@ -146,9 +135,7 @@ extension MudWeightVC: UIPickerViewDataSource {
 }
     
 extension MudWeightVC: UIPickerViewDelegate {
-    
     // Внимательно смотреть на кейсы, чтобы каждый был по одному разу включая ветку default
-
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch  row {
         case 1: weightComponent = WeightComponents.barit.rawValue
@@ -160,9 +147,7 @@ extension MudWeightVC: UIPickerViewDelegate {
         print(weightComponent)
     }
 }
-
 extension MudWeightVC {
-    
     private func showAlert(title: String, message: String? = nil, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in

@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 enum AllInterval: String, CaseIterable {
     case konduktor = "Кондуктор"
     case kolonna = "Эксплуатационная колонна"

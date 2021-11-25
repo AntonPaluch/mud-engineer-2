@@ -16,7 +16,9 @@
 		7E801313272C5F1000D0CEA1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E801315272C5F1000D0CEA1 /* Localizable.strings */; };
 		7E8A357F26D2189200200ACC /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A357E26D2189200200ACC /* PreferencesVC.swift */; };
 		7E9F78EF26DA9B23004A9450 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F78EE26DA9B23004A9450 /* StoreKit.framework */; };
-		7EA5F0BD274E788F00C8E698 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5F0BC274E788F00C8E698 /* StoreManager.swift */; };
+		7EA5F0BD274E788F00C8E698 /* KonduktorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5F0BC274E788F00C8E698 /* KonduktorExtension.swift */; };
+		7EA5F0C3274F71FC00C8E698 /* ProduckColumnExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5F0C2274F71FC00C8E698 /* ProduckColumnExtension.swift */; };
+		7EA5F0C5274F7C0100C8E698 /* ShankExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5F0C4274F7C0100C8E698 /* ShankExtension.swift */; };
 		7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */; };
 		7EB376D426E7BE1700F71DBF /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376D326E7BE1700F71DBF /* UIButtonExtensions.swift */; };
 		7EB376D826E7C51700F71DBF /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB376D726E7C51700F71DBF /* PurchaseVC.swift */; };
@@ -55,7 +57,9 @@
 		7E801316272C5F1100D0CEA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7E8A357E26D2189200200ACC /* PreferencesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
 		7E9F78EE26DA9B23004A9450 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		7EA5F0BC274E788F00C8E698 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		7EA5F0BC274E788F00C8E698 /* KonduktorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonduktorExtension.swift; sourceTree = "<group>"; };
+		7EA5F0C2274F71FC00C8E698 /* ProduckColumnExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduckColumnExtension.swift; sourceTree = "<group>"; };
+		7EA5F0C4274F7C0100C8E698 /* ShankExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShankExtension.swift; sourceTree = "<group>"; };
 		7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7EB376D326E7BE1700F71DBF /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		7EB376D726E7C51700F71DBF /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
@@ -135,20 +139,18 @@
 		7E8A357B26D209CD00200ACC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7EB376DA26ECBC1B00F71DBF /* MainVC.swift */,
+				7EB376E426ED1A1900F71DBF /* DoubleVC.swift */,
 				7ED42998264FEA4C00E0B269 /* KonduktorViewController.swift */,
 				7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */,
 				7E1435DC26CC0A6800EFE812 /* ShankVC.swift */,
 				7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */,
 				7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */,
-				7E8A357E26D2189200200ACC /* PreferencesVC.swift */,
-				7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */,
-				7EB376D726E7C51700F71DBF /* PurchaseVC.swift */,
-				7EB376DA26ECBC1B00F71DBF /* MainVC.swift */,
-				7EB376DC26ECC3CB00F71DBF /* UserActionCell.swift */,
-				7EB376E426ED1A1900F71DBF /* DoubleVC.swift */,
-				7EB376E226ED19E700F71DBF /* IntervalCell.swift */,
 				7EB376EA26EF4DE300F71DBF /* MudWeightVC.swift */,
 				7EB376EE26F0D57400F71DBF /* DilutionVC.swift */,
+				7E8A357E26D2189200200ACC /* PreferencesVC.swift */,
+				7EB376D126E38E1E00F71DBF /* UIViewExtensions.swift */,
+				7EA5F0C1274F71C300C8E698 /* Extension+UserDefaults */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -156,7 +158,7 @@
 		7E8A357C26D209EC00200ACC /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				7EA5F0BC274E788F00C8E698 /* StoreManager.swift */,
+				7EB376D726E7C51700F71DBF /* PurchaseVC.swift */,
 				7ED4299F264FEF9E00E0B269 /* CalculatorManager.swift */,
 				7EF8E8E526D2679000CDB7B2 /* UserInterfaceStyleManager.swift */,
 				7EF8E8E726D2679900CDB7B2 /* UserInterfaceStyleObserver.swift */,
@@ -164,6 +166,26 @@
 				7EB376D326E7BE1700F71DBF /* UIButtonExtensions.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		7EA5F0C0274F714500C8E698 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7EB376DC26ECC3CB00F71DBF /* UserActionCell.swift */,
+				7EB376E226ED19E700F71DBF /* IntervalCell.swift */,
+			);
+			name = Cell;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7EA5F0C1274F71C300C8E698 /* Extension+UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				7EA5F0BC274E788F00C8E698 /* KonduktorExtension.swift */,
+				7EA5F0C2274F71FC00C8E698 /* ProduckColumnExtension.swift */,
+				7EA5F0C4274F7C0100C8E698 /* ShankExtension.swift */,
+			);
+			path = "Extension+UserDefaults";
 			sourceTree = "<group>";
 		};
 		7ED42974264D7C0B00E0B269 = {
@@ -190,6 +212,7 @@
 			children = (
 				7E8A357926D2099900200ACC /* Helper */,
 				7E8A357B26D209CD00200ACC /* ViewControllers */,
+				7EA5F0C0274F714500C8E698 /* Cell */,
 				7E761160274C12930025B6FA /* Enumeration */,
 				7E8A357C26D209EC00200ACC /* Manager */,
 				7E8A357A26D209B500200ACC /* View */,
@@ -325,7 +348,7 @@
 			files = (
 				7EF8E8E826D2679900CDB7B2 /* UserInterfaceStyleObserver.swift in Sources */,
 				7EB376EF26F0D57500F71DBF /* DilutionVC.swift in Sources */,
-				7EA5F0BD274E788F00C8E698 /* StoreManager.swift in Sources */,
+				7EA5F0BD274E788F00C8E698 /* KonduktorExtension.swift in Sources */,
 				7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */,
 				7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */,
 				7E76115F274C12580025B6FA /* UserActions.swift in Sources */,
@@ -342,12 +365,14 @@
 				7ED429A0264FEF9E00E0B269 /* CalculatorManager.swift in Sources */,
 				7E8A357F26D2189200200ACC /* PreferencesVC.swift in Sources */,
 				7E1435CB26B1A07000EFE812 /* ObyemKonduktorViewController.swift in Sources */,
+				7EA5F0C3274F71FC00C8E698 /* ProduckColumnExtension.swift in Sources */,
 				7ED42983264D7C0B00E0B269 /* SceneDelegate.swift in Sources */,
 				7ED42999264FEA4C00E0B269 /* KonduktorViewController.swift in Sources */,
 				7EB376D826E7C51700F71DBF /* PurchaseVC.swift in Sources */,
 				7EB376D426E7BE1700F71DBF /* UIButtonExtensions.swift in Sources */,
 				7EF8E8EA26D2679F00CDB7B2 /* WeakStyleObserver.swift in Sources */,
 				7E1435DB26C80A0000EFE812 /* ProductColumnVC.swift in Sources */,
+				7EA5F0C5274F7C0100C8E698 /* ShankExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

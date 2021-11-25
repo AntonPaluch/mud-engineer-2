@@ -7,26 +7,6 @@
 
 import UIKit
 
-//enum UserActions: String, CaseIterable {
-//    case wellFlushing
-//    case dilutionFluid
-//    case weighting
-//    case preferenceVC
-//    
-//    func labelEnum() -> String {
-//        switch self {
-//        case .wellFlushing:
-//            return NSLocalizedString("wellFlushing", comment: "")
-//        case .dilutionFluid:
-//            return NSLocalizedString("dilutionFluid", comment: "")
-//        case .weighting:
-//            return NSLocalizedString("weighting", comment: "")
-//        case .preferenceVC:
-//            return NSLocalizedString("preferenceVC", comment: "")
-//        }
-//    }
-//}
-
 class MainVC: UICollectionViewController {
     
     let user = [UserActions.wellFlushing.labelEnum(),

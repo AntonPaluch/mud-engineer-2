@@ -9,8 +9,6 @@ import UIKit
 
 class KonduktorViewController: UIViewController {
     
-    let userDef = UserDefaults.standard
-
     @IBOutlet weak var dlinaPredKolonni: UITextField!
     @IBOutlet weak var vnDiametrKolonni: UITextField!
     @IBOutlet weak var dolotoMM: UITextField!
@@ -51,45 +49,12 @@ class KonduktorViewController: UIViewController {
     
     @IBAction func raschetButton() {
         presentAlert()
-        
-            guard let litrazhString = litrazh.text,
-            let litrazhh = Double(litrazhString) else { return }
-        
-        vKolonni = CalculationManager().vKolonny(
-            vnDiametrKolonni: vnDiametrKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-            dlinaKolonni: dlinaPredKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
-        )
-        vOtkrtStvol = CalculationManager().vOtkritiStvol(
-            dDolota: dolotoMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-            zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1" ,
-            dlinaKolonni: dlinaPredKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-            kKavernoznosty: kKavernoznosty.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
-        )
-        metalSbt = CalculationManager().metalSbt(
-            dInstrumenta: diametrInstrumenta.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-            stenkaSbt: stenkaInstrumentaMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-            zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
-        )
-        vObchii = (Double(vKolonni) ?? 1.0) + (Double(vOtkrtStvol) ?? 1.0)
-        vSuchetomTrub = vObchii - (Double(metalSbt) ?? 1.0)
-        vRastvoraVtrub = CalculationManager().vRastvoraVtrubax(
-            dInstrumenta: diametrInstrumenta.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-            stenkaSbt: stenkaInstrumentaMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-            zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
-        )
-        vRastvoraZatrub = vSuchetomTrub - (Double(vRastvoraVtrub) ?? 1.0)
-        vihodZaboynoyPachki = Double(vRastvoraZatrub) / ((litrazhh * 60) / 1000)
-        prokachkaDoZaboy = (Double(vRastvoraVtrub) ?? 1.0) / ((litrazhh * 60) / 1000)
-        zhikl = vihodZaboynoyPachki + prokachkaDoZaboy
-        zhiklPoltora = zhikl * 1.5
-        zhiklDva = zhikl * 2
-        print(zhikl)
-
+        allResult()
         saveValue()
+        
         performSegue(withIdentifier: "qwerty", sender: nil)
         print(vOtkrtStvol)
     }
-    
     
     @IBAction func resetButton(_ sender: UIButton) {
         resetValue()
@@ -127,42 +92,57 @@ extension KonduktorViewController {
     }
     
     func presentAlert() {
-    guard zaboy.text != "" else {
-        showAlert(
-        title: NSLocalizedString("bottomWell", comment: "")
-    )
-    return
-    }
-    guard dolotoMM.text != "" else {
-        showAlert(
-        title: NSLocalizedString("bit diameter", comment: "")
-    )
-    return
-    }
-    guard kKavernoznosty.text != "" else {
-        showAlert(
-        title: NSLocalizedString("kCavernosity", comment: "")
-    )
-    return
-    }
-    guard diametrInstrumenta.text != "" else {
-        showAlert(
-        title: NSLocalizedString("dSDP", comment: "")
-    )
-    return
-    }
-    guard stenkaInstrumentaMM.text != "" else {
-        showAlert(
-        title: NSLocalizedString("pipeWall", comment: "")
-    )
-    return
-    }
-    guard litrazh.text != "" else {
-        showAlert(
-        title: NSLocalizedString("liter", comment: "")
-    )
-    return
-    }
-    
+    guard zaboy.text != "" else {showAlert(title: NSLocalizedString("bottomWell", comment: ""))
+       return }
+    guard dolotoMM.text != "" else {showAlert(title: NSLocalizedString("bit diameter", comment: ""))
+       return }
+    guard kKavernoznosty.text != "" else {showAlert(title: NSLocalizedString("kCavernosity", comment: ""))
+       return }
+    guard diametrInstrumenta.text != "" else {showAlert(title: NSLocalizedString("dSDP", comment: ""))
+       return }
+    guard stenkaInstrumentaMM.text != "" else {showAlert(title: NSLocalizedString("pipeWall", comment: ""))
+       return }
+    guard litrazh.text != "" else {showAlert(title: NSLocalizedString("liter", comment: ""))
+       return }
   }
+}
+
+// MARK: - allResult
+
+extension KonduktorViewController {
+
+func allResult() {
+    guard let litrazhString = litrazh.text,
+    let litrazhh = Double(litrazhString) else { return }
+
+    vKolonni = CalculationManager().vKolonny(
+      vnDiametrKolonni: vnDiametrKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
+      dlinaKolonni: dlinaPredKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+    )
+    vOtkrtStvol = CalculationManager().vOtkritiStvol(
+      dDolota: dolotoMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
+      zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1" ,
+      dlinaKolonni: dlinaPredKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
+      kKavernoznosty: kKavernoznosty.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+    )
+    metalSbt = CalculationManager().metalSbt(
+      dInstrumenta: diametrInstrumenta.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
+      stenkaSbt: stenkaInstrumentaMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
+      zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+    )
+    vObchii = (Double(vKolonni) ?? 1.0) + (Double(vOtkrtStvol) ?? 1.0)
+    vSuchetomTrub = vObchii - (Double(metalSbt) ?? 1.0)
+    vRastvoraVtrub = CalculationManager().vRastvoraVtrubax(
+      dInstrumenta: diametrInstrumenta.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
+      stenkaSbt: stenkaInstrumentaMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
+      zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+    )
+    vRastvoraZatrub = vSuchetomTrub - (Double(vRastvoraVtrub) ?? 1.0)
+    vihodZaboynoyPachki = Double(vRastvoraZatrub) / ((litrazhh * 60) / 1000)
+    prokachkaDoZaboy = (Double(vRastvoraVtrub) ?? 1.0) / ((litrazhh * 60) / 1000)
+    zhikl = vihodZaboynoyPachki + prokachkaDoZaboy
+    zhiklPoltora = zhikl * 1.5
+    zhiklDva = zhikl * 2
+    print(zhikl)
+   }
 }

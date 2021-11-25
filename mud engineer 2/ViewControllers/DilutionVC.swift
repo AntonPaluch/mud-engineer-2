@@ -11,18 +11,13 @@ class DilutionVC: UIViewController {
     
     @IBOutlet weak var addVolumeLabel: UILabel!
     @IBOutlet weak var addVolumeSliderOutlet: UISlider!
-    
     @IBOutlet weak var addWeightMudLabel: UILabel!
     @IBOutlet weak var addWeightMudSliderOutlet: UISlider!
-    
     @IBOutlet weak var startVolumeSliderOutlet: UISlider!
     @IBOutlet weak var startVolumeLabelOutlet: UILabel!
-    
     @IBOutlet weak var startWightSlider: UISlider!
     @IBOutlet weak var startWeightLabel: UILabel!
-    
     @IBOutlet weak var resultOutlet: UIButton!
-    
     @IBOutlet weak var finishLabel: UILabel!
     @IBOutlet weak var weightFinishLabel: UILabel!
     
@@ -45,7 +40,6 @@ class DilutionVC: UIViewController {
     @IBAction func weightAddSliderAction(_ sender: UISlider) {
         addWeightMudLabel.text = String(format: "%.2f", addWeightMudSliderOutlet.value) + String(NSLocalizedString("grammSm3", comment: ""))
     }
-    
     
     @IBAction func startVolumeSliderAction(_ sender: UISlider) {
         startVolumeLabelOutlet.text = String(format: "%.0f", startVolumeSliderOutlet.value) + String(NSLocalizedString("metr3", comment: ""))
@@ -80,7 +74,5 @@ class DilutionVC: UIViewController {
     func roundOn( value: Double, toNearest: Double) -> Double {
         return round(value / toNearest) * toNearest
     }
-    
-    
 }
 
