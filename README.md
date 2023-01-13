@@ -1,5 +1,5 @@
 # mud-engineer-2
-Pet project - Mud Fluid, приложение опубликовано в app store, локализовано на английский язык.
+Mud Fluid, приложение опубликовано в app store, локализовано на английский язык.
 
 https://apps.apple.com/ru/app/mud-fluid/id1582369827
 
