@@ -1,0 +1,36 @@
+# Xcode
+#
+# Ignore Xcode project files
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserstate
+project.xcworkspace/
+.DS_Store
+
+# Build artifacts
+#
+# Ignore build artifacts
+*.build/
+DerivedData/
+build/
+
+# CocoaPods
+#
+# Ignore the Pods directory
+Pods/
+
+# Swift Package Manager
+#
+# Ignore the .build directory
+.build/
+
+# Carthage
+#
+# Ignore the Carthage directory
+Carthage/
+
+# Miscellaneous
+#
+# Ignore some common files
+*.DS_Store
+Thumbs.db
