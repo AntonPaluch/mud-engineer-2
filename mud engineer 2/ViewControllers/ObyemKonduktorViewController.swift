@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YandexMobileMetrica
 
 class ObyemKonduktorViewController: UIViewController {
 
@@ -27,6 +28,8 @@ class ObyemKonduktorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        YMMYandexMetrica.reportEvent("Открыли объемы")
+        
         startObserving(&UserInterfaceStyleManager.shared)
         
         let sYchetom = string(from: sYchetomInstrumentaD ?? 0)

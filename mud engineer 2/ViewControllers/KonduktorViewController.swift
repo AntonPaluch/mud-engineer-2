@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YandexMobileMetrica
 
 class KonduktorViewController: UIViewController {
     
@@ -51,12 +52,17 @@ class KonduktorViewController: UIViewController {
         presentAlert()
         allResult()
         saveValue()
+        YMMYandexMetrica.reportEvent("Скважина_Кондуктор_внДиаметрКолонны_\(vnDiametrKolonni.text ?? "0")")
+        YMMYandexMetrica.reportEvent("Скважина_Кондуктор_длинаПредКолонны_\(dlinaPredKolonni.text ?? "0")")
+        
         
         performSegue(withIdentifier: "qwerty", sender: nil)
+        YMMYandexMetrica.reportEvent("Расчет - кондуктор")
         print(vOtkrtStvol)
     }
     
     @IBAction func resetButton(_ sender: UIButton) {
+        YMMYandexMetrica.reportEvent("Reset - кондуктор")
         resetValue()
     }
     

@@ -5,7 +5,7 @@ target 'mud engineer 2' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for mud engineer 2
-pod 'IQKeyboardManagerSwift'
+  pod 'IQKeyboardManagerSwift'
+  pod 'YandexMobileMetrica', '4.5.0'
 
 end

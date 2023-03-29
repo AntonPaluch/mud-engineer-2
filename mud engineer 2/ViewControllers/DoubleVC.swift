@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YandexMobileMetrica
 
 public let userDef = UserDefaults.standard
 
@@ -41,11 +42,15 @@ class DoubleVC: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let interval = intervals[indexPath.item]
         switch  interval {
-        case .konduktor: performSegue(withIdentifier: "konduktor", sender: nil)
-        case .kolonna: performSegue(withIdentifier: "kolonna", sender: nil)
-        case .hvost: performSegue(withIdentifier: "hvost", sender: nil)
+        case .konduktor:
+            performSegue(withIdentifier: "konduktor", sender: nil)
+            YMMYandexMetrica.reportEvent("Кондуктор")
+        case .kolonna:
+            performSegue(withIdentifier: "kolonna", sender: nil)
+            YMMYandexMetrica.reportEvent("Эксплуатационка")
+        case .hvost:
+            performSegue(withIdentifier: "hvost", sender: nil)
+            YMMYandexMetrica.reportEvent("Хвостовик")
         }
     }
-    
-
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YandexMobileMetrica
 
 class ShankVC: UIViewController {
         
@@ -52,10 +53,14 @@ class ShankVC: UIViewController {
         allResult()
         saveValue()
         
+        YMMYandexMetrica.reportEvent("Скважина_Хвостовик_внДиаметрКолонны_\(inDiametrColumn.text ?? "0")")
+        YMMYandexMetrica.reportEvent("Скважина_Хвостовик_длинаПредКолонны_\(longColumn.text ?? "0")")
+        YMMYandexMetrica.reportEvent("Расчет - хвостовик")
         performSegue(withIdentifier: "shank", sender: nil)
     }
     
     @IBAction func resetButton(_ sender: UIButton) {
+        YMMYandexMetrica.reportEvent("Reset - Хвостовик")
         resetValue()
     }
     

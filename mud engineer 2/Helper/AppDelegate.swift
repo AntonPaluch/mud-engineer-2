@@ -7,31 +7,21 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import YandexMobileMetrica
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-
-//    var priceManager = PriceManager()
     
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 0.5)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
-        
-//        priceManager.getPriceForProduct(idProduct:
-//            "MudFluidDonata1")
-//        priceManager.requestProducts()
-//        if #available(iOS 15, *) {
-//            let appearance = UINavigationBarAppearance()
-//            appearance.configureWithOpaqueBackground()
-//            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-//            appearance.backgroundColor = UIColor(red: 5.0/255.0, green: 125/255.0, blue: 0.0/255.0, alpha: 1.0)
-//            UINavigationBar.appearance().standardAppearance = appearance
-//            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-//        }
+
+        configureAnalytic()
+        YMMYandexMetrica.reportEvent("Запуск приложеньки")
+
         return true
     }
 
@@ -47,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    private func configureAnalytic() {
+        guard let configuration = YMMYandexMetricaConfiguration.init(apiKey: "b030a454-cc2f-4784-a65e-6d9db5271e05") else { return }
+        YMMYandexMetrica.activate(with: configuration)
     }
 
 

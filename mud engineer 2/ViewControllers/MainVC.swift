@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YandexMobileMetrica
 
 class MainVC: UICollectionViewController {
     
@@ -43,14 +44,20 @@ class MainVC: UICollectionViewController {
         let userAction = userActions[indexPath.item]
         
         switch userAction {
-        case .wellFlushing: performSegue(withIdentifier: "wellFlushing", sender: nil)
-        case .dilutionFluid: performSegue(withIdentifier: "dilutionFluid", sender: nil)
-        case .weighting: performSegue(withIdentifier: "weighting", sender: nil)
-        case .preferenceVC: performSegue(withIdentifier: "preferenceVC", sender: nil)
+        case .wellFlushing:
+            performSegue(withIdentifier: "wellFlushing", sender: nil)
+            YMMYandexMetrica.reportEvent("Промыка скважины")
+        case .dilutionFluid:
+            performSegue(withIdentifier: "dilutionFluid", sender: nil)
+            YMMYandexMetrica.reportEvent("Разбавление раствора")
+        case .weighting:
+            performSegue(withIdentifier: "weighting", sender: nil)
+            YMMYandexMetrica.reportEvent("Утяжеление")
+        case .preferenceVC:
+            performSegue(withIdentifier: "preferenceVC", sender: nil)
+            YMMYandexMetrica.reportEvent("Настройки")
         }
     }
 }
-
-
 
 

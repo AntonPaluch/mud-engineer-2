@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YandexMobileMetrica
 
 class PreferencesVC: UIViewController {
     
@@ -36,6 +37,7 @@ class PreferencesVC: UIViewController {
     }
     
     @IBAction func switchAction(_ sender: UISwitch) {
+        YMMYandexMetrica.reportEvent("Переключение темы")
         let darkModeOn = sender.isOn
         // Store in UserDefaults
         UserDefaults.standard.set(darkModeOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)
@@ -44,6 +46,7 @@ class PreferencesVC: UIViewController {
     }
 
     @IBAction func donatButtonAction(_ sender: UIButton) {
+        YMMYandexMetrica.reportEvent("Нажали на донат")
         sender.pulsate()
     }
     

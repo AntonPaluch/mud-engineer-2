@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YandexMobileMetrica
 
 class ProductColumnVC: UIViewController {
         
@@ -52,11 +53,15 @@ class ProductColumnVC: UIViewController {
         allResult()
         saveValue()
         
+        YMMYandexMetrica.reportEvent("Скважина_Эксплуатационка_внДиаметрКолонны_\(inDiametrColumn.text ?? "0")")
+        YMMYandexMetrica.reportEvent("Скважина_Эксплуатационка_длинаПредКолонны_\(longColumn.text ?? "0")")
+        YMMYandexMetrica.reportEvent("Расчет - Эксплуатационка")
         performSegue(withIdentifier: "column", sender: nil)
     }
     
     
     @IBAction func resetButton(_ sender: UIButton) {
+        YMMYandexMetrica.reportEvent("Reset - Эксплуатационка")
         resetValue()
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YandexMobileMetrica
 
 class TimeKonduktorViewController: UIViewController {
     
@@ -24,6 +25,7 @@ class TimeKonduktorViewController: UIViewController {
     var dvaChikla: Double?
     
     override func viewDidLoad() {
+        YMMYandexMetrica.reportEvent("Открыли время")
         super.viewDidLoad()
         startObserving(&UserInterfaceStyleManager.shared)
         let chiklRound = string(from: chikl ?? 0)
