@@ -25,13 +25,15 @@ struct MainView: View {
                         .foregroundColor(
                             themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                         .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
-                    Spacer()
+                        .lineLimit(1)
                     NavigationLink(
                         destination: SettingsView(isShowingDetailsView: $isShowingDetailsView)
-                            .environmentObject(themeSettings),
+                            .environmentObject(themeSettings)
+                            .environmentObject(UnitSettings()),
                                 isActive: $isShowingDetailsView) {
                                     EmptyView()
                     }
+                    Spacer()
                     Button(action: {
                         self.isShowingDetailsView = true
                         feedbackGenerator.notificationOccurred(.success)
@@ -43,8 +45,7 @@ struct MainView: View {
                     }
                 }
                 .padding(.top, 25)
-
-
+                
                 Text("Расчет")
                     .font(.custom("SFUIDisplay-Semibold", fixedSize: 22))
                     .padding(.top, 30)
@@ -94,6 +95,7 @@ struct MainView: View {
                 Spacer()
 
             }
+            .navigationBarHidden(true)
             .padding(25)
             .edgesIgnoringSafeArea(.all)
             .background(themeSettings.isDarkModeEnabled ? ThemeColors.darkBackground : ThemeColors.lightBackground)

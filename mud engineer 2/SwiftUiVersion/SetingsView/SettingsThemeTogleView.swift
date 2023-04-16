@@ -44,9 +44,9 @@ struct SettingsThemeTogleView: View {
                     .background(isDarkModeEnabled ? ThemeColors.buttonSettings : Color.clear)
                     .cornerRadius(16)
             })
-            .frame(maxWidth: .infinity) // Добавить этот модификатор
+            .frame(maxWidth: .infinity)
         }
-        .padding(5) // Задает отступы по краям View равными 5 поинтам
+        .padding(5)
         .frame(height: 60)
         .frame(maxWidth: .infinity)
         .background(isDarkModeEnabled ? Color.white.opacity(0.1) : Color.white)

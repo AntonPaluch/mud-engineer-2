@@ -14,7 +14,6 @@ struct SettingsView: View {
     @AppStorage("isDarkModeEnabled") private var isDarkModeEnabled: Bool = false
     
     var body: some View {
-//        NavigationView {
             ZStack {
                 if themeSettings.isDarkModeEnabled {
                     ThemeColors.darkBackground
@@ -59,24 +58,14 @@ struct SettingsView: View {
                         .padding(.top, 15)
                     
                     Spacer()
-                    
-                    HStack {
-                        Toggle(isOn: $themeSettings.isDarkModeEnabled) {
-                            Text("Dark Mode")
-                                .foregroundColor(
-                                    themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
-                        }
-                        .onChange(of: isDarkModeEnabled) { newValue in
-                            themeSettings.isDarkModeEnabled = newValue
-                        }
-                    }
-                    .environmentObject(themeSettings)
+
                 }
-                .padding(25)
+                .padding(.trailing, 25)
+                .padding(.leading, 25)
             }
+            .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: EmptyView())
-//        }
         
     }
 }

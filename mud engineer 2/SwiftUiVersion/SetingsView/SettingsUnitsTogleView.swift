@@ -9,19 +9,22 @@ import SwiftUI
 
 struct SettingsUnitsTogleView: View {
     @EnvironmentObject var themeSettings: ThemeSettings
+    @EnvironmentObject var unitSettings: UnitSettings
     
     var body: some View {
         HStack {
             Button(action: {
+                unitSettings.isImperialEnabled = false
                 print("Метрические")
             }, label: {
                 Text("Метрические")
                     .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
-                    .foregroundColor(ThemeColors.lightText)
-                    .foregroundColor(.black)
+
+                    .foregroundColor((!unitSettings.isImperialEnabled || themeSettings.isDarkModeEnabled) ? ThemeColors.lightText : ThemeColors.darkText)
+                                
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
-                    .background(themeSettings.isDarkModeEnabled ? Color.clear : ThemeColors.buttonSettings)
+                    .background(unitSettings.isImperialEnabled ? Color.clear : ThemeColors.buttonSettings)
                     .cornerRadius(16)
             })
             .frame(maxWidth: .infinity)
@@ -29,19 +32,22 @@ struct SettingsUnitsTogleView: View {
             Spacer().frame(width: 5)
             
             Button(action: {
+                unitSettings.isImperialEnabled = true
                 print("Имперские")
             }, label: {
                 Text("Имперские")
                     .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
-                    .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+
+                    .foregroundColor((unitSettings.isImperialEnabled || themeSettings.isDarkModeEnabled) ? ThemeColors.lightText : ThemeColors.darkText)
+                
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
-                    .background(themeSettings.isDarkModeEnabled ? ThemeColors.buttonSettings : Color.clear)
+                    .background(unitSettings.isImperialEnabled ? ThemeColors.buttonSettings : Color.clear)
                     .cornerRadius(16)
             })
-            .frame(maxWidth: .infinity) // Добавить этот модификатор
+            .frame(maxWidth: .infinity)
         }
-        .padding(5) // Задает отступы по краям View равными 5 поинтам
+        .padding(5)
         .frame(height: 60)
         .frame(maxWidth: .infinity)
         .background(themeSettings.isDarkModeEnabled ? Color.white.opacity(0.1) : Color.white)
@@ -54,5 +60,6 @@ struct SettingsUnitsTogleView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsUnitsTogleView()
             .environmentObject(ThemeSettings())
+            .environmentObject(UnitSettings())
     }
 }
