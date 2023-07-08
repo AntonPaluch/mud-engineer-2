@@ -9,7 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     
-    @StateObject var themeSettings = ThemeSettings()
+//    @StateObject var themeSettings = ThemeSettings()
+    @EnvironmentObject var unitSettings: UnitSettings
+    
+    @EnvironmentObject var themeSettings: ThemeSettings
     
     @State private var isShowingDetailsView = false
     
@@ -60,22 +63,33 @@ struct MainView: View {
                         themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
 
                 VStack(spacing: 10) {
+                NavigationLink(destination: DrillingIntervals(title: "Кондуктор")
+                                .environmentObject(themeSettings)
+                                .environmentObject(unitSettings)) {
                     ArrowTitleView(
                         title: "Кондуктор",
                         imageName: themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight")
                         .environmentObject(themeSettings)
+                }
 
+                NavigationLink(destination: DrillingIntervals(title: "Эксплуатационная колонна")
+                                .environmentObject(themeSettings)
+                                .environmentObject(unitSettings)) {
                     ArrowTitleView(
                         title: "Эксплуатационная колонна",
                         imageName: themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight")
                         .environmentObject(themeSettings)
+                }
 
+                NavigationLink(destination: DrillingIntervals(title: "Хвостовик")
+                                .environmentObject(themeSettings)
+                                .environmentObject(unitSettings)) {
                     ArrowTitleView(
                         title: "Хвостовик",
                         imageName: themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight")
                         .environmentObject(themeSettings)
-
                 }
+            }
                 
                 Text("Раствор")
                     .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
@@ -103,6 +117,7 @@ struct MainView: View {
             .preferredColorScheme(.light)
         }
         .environmentObject(themeSettings)
+        .environmentObject(unitSettings)
     }
 
 }

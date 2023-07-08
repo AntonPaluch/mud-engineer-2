@@ -12,12 +12,14 @@
 		3E1F0EC529D8A37A00C159FA /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC429D8A37A00C159FA /* ThemeColors.swift */; };
 		3E1F0EC729D8A3E400C159FA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC629D8A3E400C159FA /* SettingsView.swift */; };
 		3E1F0EC929D8B1D100C159FA /* ArrowTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */; };
+		3E6525EF29EF34190064AEB6 /* CustomDoubleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */; };
 		3EBC571F29D89BAE008DFF79 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC571E29D89BAE008DFF79 /* MainView.swift */; };
 		3EC05B8329D87FE400826C41 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC05B8229D87FE400826C41 /* AppMain.swift */; };
 		3EF53DA129D99F9600921996 /* SettingsThemeTogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */; };
 		3EF53DA429D9B67700921996 /* SettingsUnitsTogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF53DA329D9B67600921996 /* SettingsUnitsTogleView.swift */; };
 		3EFF65E029EC0FEF003F2902 /* UnitSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF65DF29EC0FEF003F2902 /* UnitSettings.swift */; };
 		3EFF65E229EC1100003F2902 /* UnitKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF65E129EC1100003F2902 /* UnitKey.swift */; };
+		3EFF65E529EC41C6003F2902 /* DrillingIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF65E429EC41C6003F2902 /* DrillingIntervals.swift */; };
 		7E1435A326A9BB8A00EFE812 /* TimeKonduktorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */; };
 		7E1435CB26B1A07000EFE812 /* ObyemKonduktorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */; };
 		7E1435DB26C80A0000EFE812 /* ProductColumnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */; };
@@ -59,12 +61,14 @@
 		3E1F0EC429D8A37A00C159FA /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		3E1F0EC629D8A3E400C159FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowTitleView.swift; sourceTree = "<group>"; };
+		3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoubleTextField.swift; sourceTree = "<group>"; };
 		3EBC571E29D89BAE008DFF79 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3EC05B8229D87FE400826C41 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeTogleView.swift; sourceTree = "<group>"; };
 		3EF53DA329D9B67600921996 /* SettingsUnitsTogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUnitsTogleView.swift; sourceTree = "<group>"; };
 		3EFF65DF29EC0FEF003F2902 /* UnitSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSettings.swift; sourceTree = "<group>"; };
 		3EFF65E129EC1100003F2902 /* UnitKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitKey.swift; sourceTree = "<group>"; };
+		3EFF65E429EC41C6003F2902 /* DrillingIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillingIntervals.swift; sourceTree = "<group>"; };
 		7E1435A226A9BB8A00EFE812 /* TimeKonduktorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKonduktorViewController.swift; sourceTree = "<group>"; };
 		7E1435CA26B1A06F00EFE812 /* ObyemKonduktorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObyemKonduktorViewController.swift; sourceTree = "<group>"; };
 		7E1435DA26C809FF00EFE812 /* ProductColumnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductColumnVC.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				3EF53DA229D9A07800921996 /* SetingsView */,
 				3EFF65DE29EC0FC7003F2902 /* UnitSettings */,
 				3E1F0EBF29D89FB800C159FA /* ThemeSettings */,
+				3EFF65E629EC4EAC003F2902 /* SubViews */,
+				3EFF65E329EC4148003F2902 /* DrillingIntervals */,
 			);
 			path = SwiftUiVersion;
 			sourceTree = "<group>";
@@ -165,6 +171,22 @@
 				3EFF65E129EC1100003F2902 /* UnitKey.swift */,
 			);
 			path = UnitSettings;
+			sourceTree = "<group>";
+		};
+		3EFF65E329EC4148003F2902 /* DrillingIntervals */ = {
+			isa = PBXGroup;
+			children = (
+				3EFF65E429EC41C6003F2902 /* DrillingIntervals.swift */,
+			);
+			path = DrillingIntervals;
+			sourceTree = "<group>";
+		};
+		3EFF65E629EC4EAC003F2902 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		7E761160274C12930025B6FA /* Enumeration */ = {
@@ -406,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EF8E8E826D2679900CDB7B2 /* UserInterfaceStyleObserver.swift in Sources */,
+				3E6525EF29EF34190064AEB6 /* CustomDoubleTextField.swift in Sources */,
 				7EB376EF26F0D57500F71DBF /* DilutionVC.swift in Sources */,
 				7EA5F0BD274E788F00C8E698 /* KonduktorExtension.swift in Sources */,
 				7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */,
@@ -414,6 +437,7 @@
 				7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */,
 				7E76115F274C12580025B6FA /* UserActions.swift in Sources */,
 				7EB376EB26EF4DE300F71DBF /* MudWeightVC.swift in Sources */,
+				3EFF65E529EC41C6003F2902 /* DrillingIntervals.swift in Sources */,
 				7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */,
 				7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */,
 				7EB376E326ED19E700F71DBF /* IntervalCell.swift in Sources */,
