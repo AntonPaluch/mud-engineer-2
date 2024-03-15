@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     
-//    @StateObject var themeSettings = ThemeSettings()
     @EnvironmentObject var unitSettings: UnitSettings
     
     @EnvironmentObject var themeSettings: ThemeSettings
@@ -49,8 +48,8 @@ struct MainView: View {
                 }
                 .padding(.top, 25)
                 
-                Text("Расчет")
-                    .font(.custom("SFUIDisplay-Semibold", fixedSize: 22))
+                Text("Расчёт")
+                    .font(.system(size: 22, weight: .semibold, design: .default))
                     .padding(.top, 30)
                     .foregroundColor(
                         themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)

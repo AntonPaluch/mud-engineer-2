@@ -26,7 +26,7 @@ struct ThemeColors {
     
     static let settingsThemeTogleView = Color(red: 0.345, green: 0.337, blue: 0.839)
 
-
+    static let backgroundTextField = Color(red: 0.392, green: 0.435, blue: 1)
 //    Альтернативная палитра
     
 //    static let lightBackground        = Color(red: 202/255, green: 240/255, blue: 248/255)

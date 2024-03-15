@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		3E1F0EC729D8A3E400C159FA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC629D8A3E400C159FA /* SettingsView.swift */; };
 		3E1F0EC929D8B1D100C159FA /* ArrowTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */; };
 		3E6525EF29EF34190064AEB6 /* CustomDoubleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */; };
+		3E8BFD672BA4DFD50056FA51 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */; };
 		3EBC571F29D89BAE008DFF79 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC571E29D89BAE008DFF79 /* MainView.swift */; };
 		3EC05B8329D87FE400826C41 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC05B8229D87FE400826C41 /* AppMain.swift */; };
 		3EF53DA129D99F9600921996 /* SettingsThemeTogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */; };
@@ -62,6 +63,7 @@
 		3E1F0EC629D8A3E400C159FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowTitleView.swift; sourceTree = "<group>"; };
 		3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoubleTextField.swift; sourceTree = "<group>"; };
+		3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		3EBC571E29D89BAE008DFF79 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3EC05B8229D87FE400826C41 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeTogleView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				3EC05B8229D87FE400826C41 /* AppMain.swift */,
 				3EBC571E29D89BAE008DFF79 /* MainView.swift */,
+				3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */,
 				3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */,
 				3EF53DA229D9A07800921996 /* SetingsView */,
 				3EFF65DE29EC0FC7003F2902 /* UnitSettings */,
@@ -453,6 +456,7 @@
 				3EBC571F29D89BAE008DFF79 /* MainView.swift in Sources */,
 				7EA5F0C3274F71FC00C8E698 /* ProduckColumnExtension.swift in Sources */,
 				3EFF65E029EC0FEF003F2902 /* UnitSettings.swift in Sources */,
+				3E8BFD672BA4DFD50056FA51 /* MainViewModel.swift in Sources */,
 				3E1F0EC929D8B1D100C159FA /* ArrowTitleView.swift in Sources */,
 				7ED42999264FEA4C00E0B269 /* KonduktorViewController.swift in Sources */,
 				7EB376D826E7C51700F71DBF /* PurchaseVC.swift in Sources */,
@@ -634,7 +638,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -657,7 +661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

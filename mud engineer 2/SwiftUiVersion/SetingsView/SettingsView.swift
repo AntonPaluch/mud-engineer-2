@@ -13,6 +13,8 @@ struct SettingsView: View {
     
     @AppStorage("isDarkModeEnabled") private var isDarkModeEnabled: Bool = false
     
+    private let feedbackGenerator = UINotificationFeedbackGenerator()
+    
     var body: some View {
             ZStack {
                 if themeSettings.isDarkModeEnabled {
@@ -26,6 +28,7 @@ struct SettingsView: View {
                 VStack(alignment: .leading) {
                     Button(action: {
                         self.isShowingDetailsView = false
+                        feedbackGenerator.notificationOccurred(.success)
                     }) {
                         Image(themeSettings.isDarkModeEnabled ? "backButtonDark" : "backButton")
                             .resizable()
@@ -42,7 +45,7 @@ struct SettingsView: View {
                         .font(.subheadline)
                         .foregroundColor(
                             themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
-                        .padding(.top, 35)
+                        .padding(.top, 28)
                                                         
                     SettingsThemeTogleView(isDarkModeEnabled: $themeSettings.isDarkModeEnabled)
                         .padding(.top, 15)
