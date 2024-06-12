@@ -36,18 +36,25 @@ struct CustomDoubleTextField: View {
                     .frame(height: 50)
                 
                 HStack {
-                    TextField("0", text: $firstTextField)
-                        .foregroundColor(
-                            themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
-                        .keyboardType(.numberPad)
-                        .multilineTextAlignment(.leading)
-                        .font(.system(size: 25))
-                        .padding(.leading, 20)
-                        .onChange(of: firstTextField) { newValue in
-                            if newValue.count > 5 {
-                                firstTextField = String(newValue.prefix(5))
-                            }
+                    ZStack(alignment: .leading) {
+                        if firstTextField.isEmpty {
+                            Text("0")
+                                .foregroundColor(.gray) // Цвет placeholder
+                                .padding(.leading, 20)
                         }
+                        TextField("", text: $firstTextField)
+                            .foregroundColor(
+                                themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.leading)
+                            .font(.system(size: 25))
+                            .padding(.leading, 20)
+                            .onChange(of: firstTextField) { newValue in
+                                if newValue.count > 6 {
+                                    firstTextField = String(newValue.prefix(6))
+                                }
+                            }
+                    }
                     Text("м")
                         .foregroundColor(
                             themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
@@ -60,17 +67,17 @@ struct CustomDoubleTextField: View {
                         .frame(width: 1, height: 50)
                         .foregroundColor(Color.gray)
                     
-                    TextField("0", text: $secondTextField)
+                    TextField("", text: $secondTextField)
                         .foregroundColor(
                             themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
-                        .keyboardType(.numberPad)
+                        .keyboardType(.decimalPad)
                         .multilineTextAlignment(.leading)
                         .font(.system(size: 25))
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .padding(.leading, 20)
                         .onChange(of: secondTextField) { newValue in
-                            if newValue.count > 5 {
-                                secondTextField = String(newValue.prefix(5))
+                            if newValue.count > 6 {
+                                secondTextField = String(newValue.prefix(6))
                             }
                         }
                     
