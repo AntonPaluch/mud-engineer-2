@@ -9,9 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     
-    @EnvironmentObject var unitSettings: UnitSettings
+//    @EnvironmentObject var unitSettings: UnitSettings
     
-    @EnvironmentObject var themeSettings: ThemeSettings
+//    @EnvironmentObject var themeSettings: ThemeSettings
+    @ObservedObject var viewModel: MainViewModel
     
     @State private var isShowingDetailsView = false
     
@@ -25,13 +26,13 @@ struct MainView: View {
                 HStack {
                     Text("Mud Fluid")
                         .foregroundColor(
-                            themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                            viewModel.themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                         .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
                         .lineLimit(1)
                     NavigationLink(
                         destination: SettingsView(isShowingDetailsView: $isShowingDetailsView)
-                            .environmentObject(themeSettings)
-                            .environmentObject(UnitSettings()),
+                            .environmentObject(viewModel.themeSettings)
+                            .environmentObject(viewModel.unitSettings),
                                 isActive: $isShowingDetailsView) {
                                     EmptyView()
                     }
@@ -40,7 +41,7 @@ struct MainView: View {
                         self.isShowingDetailsView = true
                         feedbackGenerator.notificationOccurred(.success)
                     }) {
-                        Image(themeSettings.isDarkModeEnabled ? "settingsDarkTheme" : "settings")
+                        Image(viewModel.themeSettings.isDarkModeEnabled ? "settingsDarkTheme" : "settings")
                             .resizable()
                             .frame(width: 40, height: 40)
                             .aspectRatio(contentMode: .fit)
@@ -52,41 +53,44 @@ struct MainView: View {
                     .font(.system(size: 22, weight: .semibold, design: .default))
                     .padding(.top, 30)
                     .foregroundColor(
-                        themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                        viewModel.themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
 
                 Text("Промывка скважины")
                     .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
                     .padding(.top, 27)
                     .padding(.bottom, 21)
                     .foregroundColor(
-                        themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                        viewModel.themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
 
                 VStack(spacing: 10) {
                 NavigationLink(destination: DrillingIntervals(title: "Кондуктор")
-                                .environmentObject(themeSettings)
-                                .environmentObject(unitSettings)) {
+                    .environmentObject(viewModel.themeSettings)
+                    .environmentObject(viewModel.unitSettings)) {
                     ArrowTitleView(
                         title: "Кондуктор",
-                        imageName: themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight")
-                        .environmentObject(themeSettings)
+                        imageName: viewModel.themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight"
+                    )
+                    .environmentObject(viewModel.themeSettings)
                 }
 
                 NavigationLink(destination: DrillingIntervals(title: "Эксплуатационная колонна")
-                                .environmentObject(themeSettings)
-                                .environmentObject(unitSettings)) {
+                    .environmentObject(viewModel.themeSettings)
+                    .environmentObject(viewModel.unitSettings)) {
                     ArrowTitleView(
                         title: "Эксплуатационная колонна",
-                        imageName: themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight")
-                        .environmentObject(themeSettings)
+                        imageName: viewModel.themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight"
+                    )
+                    .environmentObject(viewModel.themeSettings)
                 }
 
                 NavigationLink(destination: DrillingIntervals(title: "Хвостовик")
-                                .environmentObject(themeSettings)
-                                .environmentObject(unitSettings)) {
+                    .environmentObject(viewModel.themeSettings)
+                    .environmentObject(viewModel.unitSettings)) {
                     ArrowTitleView(
                         title: "Хвостовик",
-                        imageName: themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight")
-                        .environmentObject(themeSettings)
+                        imageName: viewModel.themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight"
+                    )
+                    .environmentObject(viewModel.themeSettings)
                 }
             }
                 
@@ -94,16 +98,18 @@ struct MainView: View {
                     .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
                     .padding(.top, 34)
                     .padding(.bottom, 21)
-                    .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                    .foregroundColor(viewModel.themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                 
                 VStack(spacing: 10) {
                     ArrowTitleView(
                         title: "Разбавление",
-                        imageName: themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight")
+                        imageName: viewModel.themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight"
+                    )
 
                     ArrowTitleView(
                         title: "Утяжеление",
-                        imageName: themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight")
+                        imageName: viewModel.themeSettings.isDarkModeEnabled ? "arrowRightDarkTheme" : "arrowRight"
+                    )
                 }
                 Spacer()
 
@@ -111,12 +117,12 @@ struct MainView: View {
             .navigationBarHidden(true)
             .padding(25)
             .edgesIgnoringSafeArea(.all)
-            .background(themeSettings.isDarkModeEnabled ? ThemeColors.darkBackground : ThemeColors.lightBackground)
+            .background(viewModel.themeSettings.isDarkModeEnabled ? ThemeColors.darkBackground : ThemeColors.lightBackground)
             // Отмена системной темы (поставили светлую по умолчанию)
             .preferredColorScheme(.light)
         }
-        .environmentObject(themeSettings)
-        .environmentObject(unitSettings)
+//        .environmentObject(themeSettings)
+//        .environmentObject(unitSettings)
     }
 
 }

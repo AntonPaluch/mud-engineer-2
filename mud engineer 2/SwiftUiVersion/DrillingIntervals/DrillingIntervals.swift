@@ -45,16 +45,25 @@ struct DrillingIntervals: View {
                 
                 ScrollView {
                     Spacer()
+                    
                     VStack() {
-//                        Text
-                        CustomDoubleTextField()
+                        HStack() {
+                            Text("Предыдущая колонна")
+                                .foregroundColor(
+                                    themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                                .font(.system(size: 16, weight: .medium))
+                            Text("(не обяз.)")
+                                .foregroundColor(
+                                    themeSettings.isDarkModeEnabled ? ThemeColors.lightText.opacity(0.4) : ThemeColors.darkText)
+                                .font(.system(size: 16, weight: .medium))
+                            Spacer()
+                        }
+                        .padding(.bottom, 16)
+                        
+                        CustomDoubleTextField(firstLabel: "Длина", secondLabel: "Внутр. диаметр")
                     }
-                    .padding()
                 }
-                //        .background(themeSettings.isDarkModeEnabled ? Color.black : Color.white)
                 .edgesIgnoringSafeArea(.bottom)
-//                .navigationBarTitle(title, displayMode: .inline)
-                //        .foregroundColor(themeSettings.isDarkModeEnabled ? Color.white : Color.black)
             }
             .padding(.trailing, 25)
             .padding(.leading, 25)

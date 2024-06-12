@@ -13,6 +13,7 @@ struct ThemeColors {
 //    static let darkBackground         = Color(red: 43/255, green: 53/255, blue: 73/255)
     
     static let lightText              = Color(red: 1, green: 1, blue: 1)
+    static let lightTextOpacity       = Color(red: 1, green: 1, blue: 1, opacity: 0.4)
     static let darkText               = Color(red: 0.157, green: 0.216, blue: 0.29)
     
 //    static let lightTextSubtitle      = Color(red: 0.157, green: 0.216, blue: 0.29)

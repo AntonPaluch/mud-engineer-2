@@ -13,10 +13,10 @@ import YandexMobileMetrica
 struct MyApp: App {
     @StateObject private var themeSettings = ThemeSettings()
     @StateObject private var unitSettings = UnitSettings()
-    
+        
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(viewModel: MainViewModel(themeSettings: themeSettings, unitSettings: unitSettings))
                 .environmentObject(themeSettings)
                 .environmentObject(unitSettings)
         }
