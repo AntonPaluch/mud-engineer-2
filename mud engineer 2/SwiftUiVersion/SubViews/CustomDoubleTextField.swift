@@ -7,12 +7,18 @@
 
 import SwiftUI
 
+enum Field: Hashable {
+    case first
+    case second
+}
+
 struct CustomDoubleTextField: View {
     @EnvironmentObject var themeSettings: ThemeSettings
     var firstLabel: String
     var secondLabel: String
-    @State private var firstTextField: String = "13313"
-    @State private var secondTextField: String = "5454"
+    @FocusState private var focusedField: Field?
+    @State private var firstTextField: String = ""
+    @State private var secondTextField: String = ""
     
     var body: some View {
         VStack {
@@ -54,6 +60,19 @@ struct CustomDoubleTextField: View {
                                     firstTextField = String(newValue.prefix(6))
                                 }
                             }
+                            .focused($focusedField, equals: .first)
+                            .toolbar {
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    Button(action: {
+                                        focusedField = (focusedField == .first) ? .second : .first
+                                    }) {
+                                        Text("Next")
+                                    }
+                                }
+                            }
+                            .onSubmit {
+                                focusedField = .second
+                            }
                     }
                     Text("м")
                         .foregroundColor(
@@ -67,20 +86,39 @@ struct CustomDoubleTextField: View {
                         .frame(width: 1, height: 50)
                         .foregroundColor(Color.gray)
                     
-                    TextField("", text: $secondTextField)
-                        .foregroundColor(
-                            themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
-                        .keyboardType(.decimalPad)
-                        .multilineTextAlignment(.leading)
-                        .font(.system(size: 25))
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        .padding(.leading, 20)
-                        .onChange(of: secondTextField) { newValue in
-                            if newValue.count > 6 {
-                                secondTextField = String(newValue.prefix(6))
-                            }
+                    ZStack(alignment: .leading) {
+                        if secondTextField.isEmpty {
+                            Text("0")
+                                .foregroundColor(.gray)
+                                .padding(.leading, 20)
                         }
-                    
+                        TextField("", text: $secondTextField)
+                            .foregroundColor(
+                                themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.leading)
+                            .font(.system(size: 25))
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                            .padding(.leading, 20)
+                            .onChange(of: secondTextField) { newValue in
+                                if newValue.count > 6 {
+                                    secondTextField = String(newValue.prefix(6))
+                                }
+                            }
+                            .focused($focusedField, equals: .second)
+                            .toolbar {
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    Button(action: {
+                                        UIApplication.shared.endEditing()
+                                    }) {
+                                        Text("Done")
+                                    }
+                                }
+                            }
+                            .onSubmit {
+                                focusedField = .first
+                            }
+                    }
                     Text("мм")
                         .foregroundColor(
                             themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)

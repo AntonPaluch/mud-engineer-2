@@ -40,3 +40,9 @@ struct MyApp: App {
         YMMYandexMetrica.activate(with: configuration)
     }
 }
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}

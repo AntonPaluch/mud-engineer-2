@@ -65,6 +65,9 @@ struct DrillingIntervals: View {
                 }
                 .edgesIgnoringSafeArea(.bottom)
             }
+            .onTapGesture {
+                UIApplication.shared.endEditing()
+            }
             .padding(.trailing, 25)
             .padding(.leading, 25)
         }
