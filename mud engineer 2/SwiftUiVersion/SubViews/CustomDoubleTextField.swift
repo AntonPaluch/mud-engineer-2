@@ -37,7 +37,7 @@ struct CustomDoubleTextField: View {
             }
             .padding(.bottom, 15)
             ZStack {
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: 14)
                     .fill(themeSettings.isDarkModeEnabled ? ThemeColors.darkBackgroundSubView : ThemeColors.lightBackgroundSubView)
                     .frame(height: 50)
                 
@@ -53,7 +53,7 @@ struct CustomDoubleTextField: View {
                                 themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                             .keyboardType(.decimalPad)
                             .multilineTextAlignment(.leading)
-                            .font(.system(size: 25))
+                            .font(.system(size: 20))
                             .padding(.leading, 20)
                             .onChange(of: firstTextField) { newValue in
                                 if newValue.count > 6 {
@@ -77,14 +77,14 @@ struct CustomDoubleTextField: View {
                     Text("м")
                         .foregroundColor(
                             themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
-                        .padding(.trailing, 20)
-                        .padding(.leading, 8)
+                        .padding(.leading, 5)
                         .font(.system(size: 14))
                         .foregroundColor(.gray)
-                    
+                                        
                     RoundedRectangle(cornerRadius: 1)
                         .frame(width: 1, height: 50)
                         .foregroundColor(Color.gray)
+                        .padding(.leading, 20)
                     
                     ZStack(alignment: .leading) {
                         if secondTextField.isEmpty {
@@ -97,8 +97,7 @@ struct CustomDoubleTextField: View {
                                 themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                             .keyboardType(.decimalPad)
                             .multilineTextAlignment(.leading)
-                            .font(.system(size: 25))
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                            .font(.system(size: 20))
                             .padding(.leading, 20)
                             .onChange(of: secondTextField) { newValue in
                                 if newValue.count > 6 {
@@ -122,15 +121,13 @@ struct CustomDoubleTextField: View {
                     Text("мм")
                         .foregroundColor(
                             themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
-                        .foregroundColor(.gray)
-                        .padding(.leading, 8)
                         .padding(.trailing, 20)
                         .font(.system(size: 14))
                 }
             }
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clipShape(RoundedRectangle(cornerRadius: 14))
             .overlay(
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: 14)
                     .stroke(Color.gray, lineWidth: 1)
             )
             .frame(height: 50)

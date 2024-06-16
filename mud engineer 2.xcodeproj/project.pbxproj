@@ -14,6 +14,7 @@
 		3E1F0EC929D8B1D100C159FA /* ArrowTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */; };
 		3E6525EF29EF34190064AEB6 /* CustomDoubleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */; };
 		3E8BFD672BA4DFD50056FA51 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */; };
+		3EAECA142C1B88B4002D4FC2 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAECA132C1B88B4002D4FC2 /* CustomTextField.swift */; };
 		3EBC571F29D89BAE008DFF79 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC571E29D89BAE008DFF79 /* MainView.swift */; };
 		3EC05B8329D87FE400826C41 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC05B8229D87FE400826C41 /* AppMain.swift */; };
 		3EF53DA129D99F9600921996 /* SettingsThemeTogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */; };
@@ -64,6 +65,7 @@
 		3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowTitleView.swift; sourceTree = "<group>"; };
 		3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoubleTextField.swift; sourceTree = "<group>"; };
 		3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3EAECA132C1B88B4002D4FC2 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3EBC571E29D89BAE008DFF79 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3EC05B8229D87FE400826C41 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeTogleView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */,
+				3EAECA132C1B88B4002D4FC2 /* CustomTextField.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				3E6525EF29EF34190064AEB6 /* CustomDoubleTextField.swift in Sources */,
 				7EB376EF26F0D57500F71DBF /* DilutionVC.swift in Sources */,
 				7EA5F0BD274E788F00C8E698 /* KonduktorExtension.swift in Sources */,
+				3EAECA142C1B88B4002D4FC2 /* CustomTextField.swift in Sources */,
 				7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */,
 				3EC05B8329D87FE400826C41 /* AppMain.swift in Sources */,
 				3E1F0EC529D8A37A00C159FA /* ThemeColors.swift in Sources */,

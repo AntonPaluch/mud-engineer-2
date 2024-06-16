@@ -61,6 +61,7 @@ struct DrillingIntervals: View {
                         .padding(.bottom, 16)
                         
                         CustomDoubleTextField(firstLabel: "Длина", secondLabel: "Внутр. диаметр")
+                        CustomTextField()
                     }
                 }
                 .edgesIgnoringSafeArea(.bottom)
