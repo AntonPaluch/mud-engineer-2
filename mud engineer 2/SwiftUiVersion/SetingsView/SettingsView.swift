@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var themeSettings: ThemeSettings
     @Binding var isShowingDetailsView: Bool
+    @EnvironmentObject var themeSettings: ThemeSettings
+    @EnvironmentObject var unitSettings: UnitSettings
     
     @AppStorage("isDarkModeEnabled") private var isDarkModeEnabled: Bool = false
+    
+    private var textColor: Color {
+        themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText
+    }
     
     private let feedbackGenerator = UINotificationFeedbackGenerator()
     
@@ -35,25 +40,22 @@ struct SettingsView: View {
                             .frame(width: 40, height: 40)
                             
                     }
-                    Text("Настройки")
-                        .font(.title)
-                        .foregroundColor(
-                            themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                    Text(Texts.settings)
+                        .font(.system(size: 22, weight: .semibold))
+                        .foregroundColor(textColor)
                         .padding(.top, 32)
                     
-                    Text("Тема")
+                    Text(Texts.theme)
                         .font(.subheadline)
-                        .foregroundColor(
-                            themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                        .foregroundColor(textColor)
                         .padding(.top, 28)
                                                         
                     SettingsThemeTogleView(isDarkModeEnabled: $themeSettings.isDarkModeEnabled)
                         .padding(.top, 15)
                                 
-                    Text("Единицы измерения")
+                    Text(Texts.units)
                         .font(.subheadline)
-                        .foregroundColor(
-                            themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                        .foregroundColor(textColor)
                         .padding(.top, 35)
                     
                     SettingsUnitsTogleView()
@@ -69,13 +71,11 @@ struct SettingsView: View {
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: EmptyView())
-        
     }
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView(isShowingDetailsView: .constant(true))
-            .environmentObject(ThemeSettings())
+    
+    private enum Texts {
+        static let settings = "Настройки"
+        static let theme = "Тема"
+        static let units = "Единицы измерения"
     }
 }

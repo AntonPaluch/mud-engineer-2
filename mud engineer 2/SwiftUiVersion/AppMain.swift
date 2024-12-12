@@ -16,7 +16,7 @@ struct MyApp: App {
         
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: MainViewModel(themeSettings: themeSettings, unitSettings: unitSettings))
+            MainView()
                 .environmentObject(themeSettings)
                 .environmentObject(unitSettings)
         }
@@ -24,7 +24,18 @@ struct MyApp: App {
     
     init() {
 //        configureApp()
+        requestNotificationPermission()
     }
+    
+    private func requestNotificationPermission() {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+                if granted {
+                    print("Разрешение на уведомления предоставлено.")
+                } else {
+                    print("Разрешение на уведомления отклонено.")
+                }
+            }
+        }
     
     private func configureApp() {
         Thread.sleep(forTimeInterval: 0.5)

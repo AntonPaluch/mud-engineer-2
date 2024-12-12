@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-import SwiftUI
+
+//
+//Написать какой то enum со стейтами для каждого интервала и 
+//доставать данные расчетов по каждому стейту
+
 
 struct DrillingIntervals: View {
     @Environment(\.presentationMode) var presentationMode
@@ -37,11 +41,13 @@ struct DrillingIntervals: View {
                         .frame(width: 40, height: 40)
                     
                 }
+                .padding(.leading, 25)
                 Text(title)
                     .font(.title)
                     .foregroundColor(
                         themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
-                    .padding(.top, 32)
+                    .padding(.top, 28)
+                    .padding(.leading, 25)
                 
                 ScrollView {
                     Spacer()
@@ -61,16 +67,45 @@ struct DrillingIntervals: View {
                         .padding(.bottom, 16)
                         
                         CustomDoubleTextField(firstLabel: "Длина", secondLabel: "Внутр. диаметр")
-                        CustomTextField()
+
+                        Text("Открытый ствол")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(
+                                themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                            .padding(.top, 8)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        HStack {
+                            CustomTextField(firstLabel: "Забой", secondLabel: "м")
+                            Spacer(minLength: 25)
+                            CustomTextField(firstLabel: "Диаметр долота", secondLabel: "мм")
+                        }
+                        .padding(.top, 10)
+                        HStack {
+                            CustomTextField(firstLabel: "Коэфф. кавернозности", secondLabel: "")
+                            Spacer(minLength: 25)
+                            CustomTextField(firstLabel: "Стальные бур. трубы", secondLabel: "мм")
+                        }
+                        .padding(.top, 10)
+                        HStack {
+                            CustomTextField(firstLabel: "Толщина стенки", secondLabel: "мм")
+                            Spacer(minLength: 25)
+                            CustomTextField(firstLabel: "Литраж ( не обяз.)", secondLabel: "л/с")
+                        }
+                        .padding(.top, 10)
                     }
+                    .padding(.horizontal, 25)
+
+                    WashingResult()
+                        .padding(.top, 40)
+                    
                 }
+                .scrollIndicators(.hidden)
                 .edgesIgnoringSafeArea(.bottom)
             }
             .onTapGesture {
                 UIApplication.shared.endEditing()
             }
-            .padding(.trailing, 25)
-            .padding(.leading, 25)
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)

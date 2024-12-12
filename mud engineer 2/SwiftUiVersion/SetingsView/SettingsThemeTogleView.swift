@@ -20,7 +20,7 @@ struct SettingsThemeTogleView: View {
             Button(action: {
                 isDarkModeEnabled = false
             }, label: {
-                Text("Светлая")
+                Text(Texts.light)
                     .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
                     .foregroundColor(ThemeColors.lightText)
                     .foregroundColor(.black)
@@ -36,8 +36,8 @@ struct SettingsThemeTogleView: View {
             Button(action: {
                 isDarkModeEnabled = true
             }, label: {
-                Text("Тёмная")
-                    .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
+                Text(Texts.dark)
+                    .font(.system(size: 16, weight: .regular))
                     .foregroundColor(isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
@@ -52,6 +52,11 @@ struct SettingsThemeTogleView: View {
         .background(isDarkModeEnabled ? Color.white.opacity(0.1) : Color.white)
         .cornerRadius(16)
         .shadow(radius: 1)
+    }
+    
+    private enum Texts {
+        static let light = "Светлая"
+        static let dark = "Тёмная"
     }
 }
 

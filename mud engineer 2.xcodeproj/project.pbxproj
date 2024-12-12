@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,9 +12,15 @@
 		3E1F0EC529D8A37A00C159FA /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC429D8A37A00C159FA /* ThemeColors.swift */; };
 		3E1F0EC729D8A3E400C159FA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC629D8A3E400C159FA /* SettingsView.swift */; };
 		3E1F0EC929D8B1D100C159FA /* ArrowTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */; };
+		3E6291122C8E1C2C00C95CB0 /* WashingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6291112C8E1C2C00C95CB0 /* WashingResult.swift */; };
+		3E6291152C8E45AB00C95CB0 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6291142C8E45AB00C95CB0 /* View+Extensions.swift */; };
 		3E6525EF29EF34190064AEB6 /* CustomDoubleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */; };
 		3E8BFD672BA4DFD50056FA51 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */; };
+		3E95CCD22CE5DC6400F767F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E95CC922CE5517F00F767F9 /* WidgetKit.framework */; };
+		3E95CCD32CE5DC6400F767F9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E95CC942CE5517F00F767F9 /* SwiftUI.framework */; };
+		3E95CCE22CE5DC6500F767F9 /* MudFluidActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3E95CCD12CE5DC6400F767F9 /* MudFluidActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3EAECA142C1B88B4002D4FC2 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAECA132C1B88B4002D4FC2 /* CustomTextField.swift */; };
+		3EB23B862CE64890008A45DE /* DebugFrameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB23B852CE64890008A45DE /* DebugFrameModifier.swift */; };
 		3EBC571F29D89BAE008DFF79 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC571E29D89BAE008DFF79 /* MainView.swift */; };
 		3EC05B8329D87FE400826C41 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC05B8229D87FE400826C41 /* AppMain.swift */; };
 		3EF53DA129D99F9600921996 /* SettingsThemeTogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */; };
@@ -55,6 +61,30 @@
 		F83B3353CA9CC0FF32F8F412 /* Pods_mud_engineer_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E471974F61B30353DD7D3D6 /* Pods_mud_engineer_2.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3E95CCE02CE5DC6500F767F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ED42975264D7C0B00E0B269 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E95CCD02CE5DC6400F767F9;
+			remoteInfo = MudFluidActivityExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3E95CCAB2CE5518100F767F9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3E95CCE22CE5DC6500F767F9 /* MudFluidActivityExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0E471974F61B30353DD7D3D6 /* Pods_mud_engineer_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mud_engineer_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A42A5FB121F177F82A1C2BC /* Pods-mud engineer 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mud engineer 2.debug.xcconfig"; path = "Target Support Files/Pods-mud engineer 2/Pods-mud engineer 2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,9 +93,15 @@
 		3E1F0EC429D8A37A00C159FA /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		3E1F0EC629D8A3E400C159FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowTitleView.swift; sourceTree = "<group>"; };
+		3E6291112C8E1C2C00C95CB0 /* WashingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashingResult.swift; sourceTree = "<group>"; };
+		3E6291142C8E45AB00C95CB0 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoubleTextField.swift; sourceTree = "<group>"; };
 		3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3E95CC922CE5517F00F767F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3E95CC942CE5517F00F767F9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		3E95CCD12CE5DC6400F767F9 /* MudFluidActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MudFluidActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAECA132C1B88B4002D4FC2 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		3EB23B852CE64890008A45DE /* DebugFrameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFrameModifier.swift; sourceTree = "<group>"; };
 		3EBC571E29D89BAE008DFF79 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3EC05B8229D87FE400826C41 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeTogleView.swift; sourceTree = "<group>"; };
@@ -111,7 +147,39 @@
 		C8C2DB56F549A33CF020290C /* Pods-mud engineer 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mud engineer 2.release.xcconfig"; path = "Target Support Files/Pods-mud engineer 2/Pods-mud engineer 2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3E95CCE32CE5DC6500F767F9 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3E95CCD02CE5DC6400F767F9 /* MudFluidActivityExtension */;
+		};
+		3E95CCE82CE5DDEE00F767F9 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MudFluidActivity.swift,
+				MudFluidActivityControl.swift,
+				MudFluidActivityLiveActivity.swift,
+			);
+			target = 7ED4297C264D7C0B00E0B269 /* mud engineer 2 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3E95CCD42CE5DC6400F767F9 /* MudFluidActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3E95CCE82CE5DDEE00F767F9 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 3E95CCE32CE5DC6500F767F9 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MudFluidActivity; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		3E95CCCE2CE5DC6400F767F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E95CCD32CE5DC6400F767F9 /* SwiftUI.framework in Frameworks */,
+				3E95CCD22CE5DC6400F767F9 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7ED4297A264D7C0B00E0B269 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +211,14 @@
 			path = ThemeSettings;
 			sourceTree = "<group>";
 		};
+		3E6291132C8E448600C95CB0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E6291142C8E45AB00C95CB0 /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3EC05B7D29D87DFD00826C41 /* SwiftUiVersion */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +230,7 @@
 				3EFF65DE29EC0FC7003F2902 /* UnitSettings */,
 				3E1F0EBF29D89FB800C159FA /* ThemeSettings */,
 				3EFF65E629EC4EAC003F2902 /* SubViews */,
+				3E6291132C8E448600C95CB0 /* Extensions */,
 				3EFF65E329EC4148003F2902 /* DrillingIntervals */,
 			);
 			path = SwiftUiVersion;
@@ -182,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				3EFF65E429EC41C6003F2902 /* DrillingIntervals.swift */,
+				3E6291112C8E1C2C00C95CB0 /* WashingResult.swift */,
 			);
 			path = DrillingIntervals;
 			sourceTree = "<group>";
@@ -210,6 +288,7 @@
 			children = (
 				7ED42989264D7C0D00E0B269 /* Assets.xcassets */,
 				7ED4298B264D7C0D00E0B269 /* LaunchScreen.storyboard */,
+				3EB23B852CE64890008A45DE /* DebugFrameModifier.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -279,6 +358,7 @@
 			children = (
 				7ED4297F264D7C0B00E0B269 /* mud engineer 2 */,
 				7ED4298E264D7C0D00E0B269 /* Info.plist */,
+				3E95CCD42CE5DC6400F767F9 /* MudFluidActivity */,
 				7ED4297E264D7C0B00E0B269 /* Products */,
 				383B8462EB4E7375B159CFB4 /* Pods */,
 				DA40D7EFB4AE18A29CC089E8 /* Frameworks */,
@@ -289,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				7ED4297D264D7C0B00E0B269 /* mud engineer 2.app */,
+				3E95CCD12CE5DC6400F767F9 /* MudFluidActivityExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,6 +394,8 @@
 			children = (
 				7E9F78EE26DA9B23004A9450 /* StoreKit.framework */,
 				0E471974F61B30353DD7D3D6 /* Pods_mud_engineer_2.framework */,
+				3E95CC922CE5517F00F767F9 /* WidgetKit.framework */,
+				3E95CC942CE5517F00F767F9 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -320,6 +403,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3E95CCD02CE5DC6400F767F9 /* MudFluidActivityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E95CCE42CE5DC6500F767F9 /* Build configuration list for PBXNativeTarget "MudFluidActivityExtension" */;
+			buildPhases = (
+				3E95CCCD2CE5DC6400F767F9 /* Sources */,
+				3E95CCCE2CE5DC6400F767F9 /* Frameworks */,
+				3E95CCCF2CE5DC6400F767F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3E95CCD42CE5DC6400F767F9 /* MudFluidActivity */,
+			);
+			name = MudFluidActivityExtension;
+			packageProductDependencies = (
+			);
+			productName = MudFluidActivityExtension;
+			productReference = 3E95CCD12CE5DC6400F767F9 /* MudFluidActivityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		7ED4297C264D7C0B00E0B269 /* mud engineer 2 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7ED42991264D7C0D00E0B269 /* Build configuration list for PBXNativeTarget "mud engineer 2" */;
@@ -329,10 +434,12 @@
 				7ED4297A264D7C0B00E0B269 /* Frameworks */,
 				7ED4297B264D7C0B00E0B269 /* Resources */,
 				C49B4B8F1518005FD9869CF2 /* [CP] Embed Pods Frameworks */,
+				3E95CCAB2CE5518100F767F9 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3E95CCE12CE5DC6500F767F9 /* PBXTargetDependency */,
 			);
 			name = "mud engineer 2";
 			productName = "mud engineer 2";
@@ -345,9 +452,12 @@
 		7ED42975264D7C0B00E0B269 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					3E95CCD02CE5DC6400F767F9 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					7ED4297C264D7C0B00E0B269 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -368,11 +478,19 @@
 			projectRoot = "";
 			targets = (
 				7ED4297C264D7C0B00E0B269 /* mud engineer 2 */,
+				3E95CCD02CE5DC6400F767F9 /* MudFluidActivityExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3E95CCCF2CE5DC6400F767F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7ED4297B264D7C0B00E0B269 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,6 +547,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3E95CCCD2CE5DC6400F767F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7ED42979264D7C0B00E0B269 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -443,12 +568,14 @@
 				3E1F0EC529D8A37A00C159FA /* ThemeColors.swift in Sources */,
 				7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */,
 				7E76115F274C12580025B6FA /* UserActions.swift in Sources */,
+				3E6291152C8E45AB00C95CB0 /* View+Extensions.swift in Sources */,
 				7EB376EB26EF4DE300F71DBF /* MudWeightVC.swift in Sources */,
 				3EFF65E529EC41C6003F2902 /* DrillingIntervals.swift in Sources */,
 				7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */,
 				7E1435DD26CC0A6900EFE812 /* ShankVC.swift in Sources */,
 				7EB376E326ED19E700F71DBF /* IntervalCell.swift in Sources */,
 				7EF8E8E626D2679000CDB7B2 /* UserInterfaceStyleManager.swift in Sources */,
+				3E6291122C8E1C2C00C95CB0 /* WashingResult.swift in Sources */,
 				7EB376ED26EF5ABB00F71DBF /* WightComponents.swift in Sources */,
 				7E76115D274C11C00025B6FA /* AllInterval.swift in Sources */,
 				7E1435A326A9BB8A00EFE812 /* TimeKonduktorViewController.swift in Sources */,
@@ -466,6 +593,7 @@
 				7EB376D826E7C51700F71DBF /* PurchaseVC.swift in Sources */,
 				3EF53DA129D99F9600921996 /* SettingsThemeTogleView.swift in Sources */,
 				3EF53DA429D9B67700921996 /* SettingsUnitsTogleView.swift in Sources */,
+				3EB23B862CE64890008A45DE /* DebugFrameModifier.swift in Sources */,
 				3EFF65E229EC1100003F2902 /* UnitKey.swift in Sources */,
 				7EB376D426E7BE1700F71DBF /* UIButtonExtensions.swift in Sources */,
 				7EF8E8EA26D2679F00CDB7B2 /* WeakStyleObserver.swift in Sources */,
@@ -477,6 +605,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E95CCE12CE5DC6500F767F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E95CCD02CE5DC6400F767F9 /* MudFluidActivityExtension */;
+			targetProxy = 3E95CCE02CE5DC6500F767F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7E801315272C5F1000D0CEA1 /* Localizable.strings */ = {
@@ -509,6 +645,73 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3E95CCE52CE5DC6500F767F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28QY9NT6W3;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MudFluidActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MudFluidActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer.MudFluidActivity";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3E95CCE62CE5DC6500F767F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28QY9NT6W3;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MudFluidActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MudFluidActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DmitryPavlov.mud-engineer.MudFluidActivity";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		7ED4298F264D7C0D00E0B269 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -637,7 +840,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 28QY9NT6W3;
 				INFOPLIST_FILE = "mud engineer 2/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -660,7 +863,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 28QY9NT6W3;
 				INFOPLIST_FILE = "mud engineer 2/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -676,6 +879,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3E95CCE42CE5DC6500F767F9 /* Build configuration list for PBXNativeTarget "MudFluidActivityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E95CCE52CE5DC6500F767F9 /* Debug */,
+				3E95CCE62CE5DC6500F767F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7ED42978264D7C0B00E0B269 /* Build configuration list for PBXProject "mud engineer 2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

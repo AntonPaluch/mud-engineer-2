@@ -35,7 +35,7 @@ struct CustomDoubleTextField: View {
                         themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                 Spacer()
             }
-            .padding(.bottom, 15)
+            .padding(.bottom, 4)
             ZStack {
                 RoundedRectangle(cornerRadius: 14)
                     .fill(themeSettings.isDarkModeEnabled ? ThemeColors.darkBackgroundSubView : ThemeColors.lightBackgroundSubView)
@@ -45,7 +45,7 @@ struct CustomDoubleTextField: View {
                     ZStack(alignment: .leading) {
                         if firstTextField.isEmpty {
                             Text("0")
-                                .foregroundColor(.gray) // Цвет placeholder
+                                .foregroundColor(.gray)
                                 .padding(.leading, 20)
                         }
                         TextField("", text: $firstTextField)

@@ -15,11 +15,9 @@ struct SettingsUnitsTogleView: View {
         HStack {
             Button(action: {
                 unitSettings.isImperialEnabled = false
-                print("Метрические")
             }, label: {
-                Text("Метрические")
-                    .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
-
+                Text(Texts.metric)
+                    .font(.system(size: 16, weight: .regular))
                     .foregroundColor((!unitSettings.isImperialEnabled || themeSettings.isDarkModeEnabled) ? ThemeColors.lightText : ThemeColors.darkText)
                                 
                     .frame(maxWidth: .infinity)
@@ -33,13 +31,10 @@ struct SettingsUnitsTogleView: View {
             
             Button(action: {
                 unitSettings.isImperialEnabled = true
-                print("Имперские")
             }, label: {
-                Text("Имперские")
-                    .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
-
+                Text(Texts.imperial)
+                    .font(.system(size: 16, weight: .regular))
                     .foregroundColor((unitSettings.isImperialEnabled || themeSettings.isDarkModeEnabled) ? ThemeColors.lightText : ThemeColors.darkText)
-                
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
                     .background(unitSettings.isImperialEnabled ? ThemeColors.buttonSettings : Color.clear)
@@ -53,6 +48,11 @@ struct SettingsUnitsTogleView: View {
         .background(themeSettings.isDarkModeEnabled ? Color.white.opacity(0.1) : Color.white)
         .cornerRadius(16)
         .shadow(radius: 1)
+    }
+    
+    private enum Texts {
+        static let metric = "Метрические"
+        static let imperial = "Имперские"
     }
 }
 
