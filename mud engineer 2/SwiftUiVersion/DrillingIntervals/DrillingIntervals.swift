@@ -21,6 +21,12 @@ struct DrillingIntervals: View {
     
     private let feedbackGenerator = UINotificationFeedbackGenerator()
     
+    @FocusState private var focusedField: Field?
+    
+    enum Field: CaseIterable {
+        case firstLength, firstDiameter, depth, bitDiameter, cavernosity, steelPipe, wallThickness, flowRate
+    }
+    
     var body: some View {
         ZStack {
             if themeSettings.isDarkModeEnabled {
@@ -65,9 +71,15 @@ struct DrillingIntervals: View {
                             Spacer()
                         }
                         .padding(.bottom, 16)
+                        CustomDoubleTextField(
+                            focusedField: $focusedField,
+                            firstField: .firstLength,
+                            secondField: .firstDiameter,
+                            firstLabel: "Длина",
+                            secondLabel: "Внутр. диаметр"
+                        )
+                        .focused($focusedField, equals: .firstLength)
                         
-                        CustomDoubleTextField(firstLabel: "Длина", secondLabel: "Внутр. диаметр")
-
                         Text("Открытый ствол")
                             .font(.system(size: 16, weight: .medium))
                             .foregroundColor(
@@ -76,26 +88,55 @@ struct DrillingIntervals: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         HStack {
-                            CustomTextField(firstLabel: "Забой", secondLabel: "м")
+                            CustomTextField(
+                                focusedField: $focusedField,
+                                currentField: .depth,
+                                firstLabel: "Забой",
+                                secondLabel: "м"
+                            )
                             Spacer(minLength: 25)
-                            CustomTextField(firstLabel: "Диаметр долота", secondLabel: "мм")
+                            CustomTextField(
+                                focusedField: $focusedField,
+                                currentField: .bitDiameter,
+                                firstLabel: "Диаметр долота",
+                                secondLabel: "мм")
                         }
                         .padding(.top, 10)
                         HStack {
-                            CustomTextField(firstLabel: "Коэфф. кавернозности", secondLabel: "")
+                            CustomTextField(
+                                focusedField: $focusedField,
+                                currentField: .cavernosity,
+                                firstLabel: "Коэфф. кавернозности",
+                                secondLabel: ""
+                            )
                             Spacer(minLength: 25)
-                            CustomTextField(firstLabel: "Стальные бур. трубы", secondLabel: "мм")
+                            CustomTextField(
+                                focusedField: $focusedField,
+                                currentField: .steelPipe,
+                                firstLabel: "Стальные бур. трубы",
+                                secondLabel: "мм"
+                            )
                         }
                         .padding(.top, 10)
                         HStack {
-                            CustomTextField(firstLabel: "Толщина стенки", secondLabel: "мм")
+                            CustomTextField(
+                                focusedField: $focusedField,
+                                currentField: .wallThickness,
+                                firstLabel: "Толщина стенки",
+                                secondLabel: "мм"
+                            )
                             Spacer(minLength: 25)
-                            CustomTextField(firstLabel: "Литраж ( не обяз.)", secondLabel: "л/с")
+                            CustomTextField(
+                                focusedField: $focusedField,
+                                currentField: .flowRate,
+                                firstLabel: "Литраж (не обяз.)",
+                                secondLabel: "л/с"
+                            )
                         }
                         .padding(.top, 10)
                     }
                     .padding(.horizontal, 25)
-
+                    
                     WashingResult()
                         .padding(.top, 40)
                     
@@ -108,8 +149,26 @@ struct DrillingIntervals: View {
             }
         }
         .navigationBarHidden(true)
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Button("Next") {
+                    focusNextField()
+                }
+                Button("Done") {
+                    focusedField = nil
+                }
+            }
+        }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: EmptyView())
+    }
+    
+    private func focusNextField() {
+        guard let currentField = focusedField,
+              let currentIndex = Field.allCases.firstIndex(of: currentField) else { return }
+        
+        let nextIndex = (currentIndex + 1) % Field.allCases.count
+        focusedField = Field.allCases[nextIndex]
     }
 }
 
