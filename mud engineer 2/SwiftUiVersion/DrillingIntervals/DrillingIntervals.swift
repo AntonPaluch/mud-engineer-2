@@ -7,26 +7,98 @@
 
 import SwiftUI
 
+enum DrillingIntervalType: String {
+    case conductor = "Conductor"
+    case production = "Production"
+    case liner = "Liner"
+}
 
-//
-//Написать какой то enum со стейтами для каждого интервала и 
-//доставать данные расчетов по каждому стейту
+struct DrillingIntervalModel: Codable {
+    var firstLength: String
+    var firstDiameter: String
+    var depth: String
+    var bitDiameter: String
+    var cavernosity: String
+    var steelPipe: String
+    var wallThickness: String
+    var flowRate: String
+}
+
+class DrillingIntervalsStorage {
+    private let userDefaults = UserDefaults.standard
+    private let storageKey = "DrillingIntervalsData"
+
+    func loadData() -> [String: DrillingIntervalModel] {
+        guard let data = userDefaults.data(forKey: storageKey),
+              let dict = try? JSONDecoder().decode([String: DrillingIntervalModel].self, from: data) else {
+            return [:]
+        }
+        return dict
+    }
+    
+    func saveData(_ dict: [String: DrillingIntervalModel]) {
+        do {
+            print("DEBUG: Attempting to save dictionary:")
+            for (key, model) in dict {
+                print("  Key: \(key)")
+                print("    Model: \(model)")
+            }
+            
+            let data = try JSONEncoder().encode(dict)
+            
+            // Печатаем JSON-строку, чтобы увидеть, что именно записывается
+            if let jsonString = String(data: data, encoding: .utf8) {
+                print("DEBUG: JSON to be saved:\n\(jsonString)")
+            }
+            
+            userDefaults.set(data, forKey: storageKey)
+            
+            print("DEBUG: Data successfully saved to UserDefaults with key: \(storageKey)")
+        } catch {
+            print("Ошибка при сохранении данных: \(error)")
+        }
+    }
+}
 
 
 struct DrillingIntervals: View {
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var themeSettings: ThemeSettings
-    @EnvironmentObject var unitSettings: UnitSettings
-    var title: String
-    
-    private let feedbackGenerator = UINotificationFeedbackGenerator()
-    
-    @FocusState private var focusedField: Field?
     
     enum Field: CaseIterable {
         case firstLength, firstDiameter, depth, bitDiameter, cavernosity, steelPipe, wallThickness, flowRate
     }
     
+    @EnvironmentObject var viewModel: DrillingIntervalsViewModel
+    
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var themeSettings: ThemeSettings
+    @EnvironmentObject var unitSettings: UnitSettings
+    
+    var title: String
+    
+    var intervalType: DrillingIntervalType
+    
+    @State private var localModel: DrillingIntervalModel
+
+    
+    private let feedbackGenerator = UINotificationFeedbackGenerator()
+    
+    @FocusState private var focusedField: Field?
+    
+    init(title: String, intervalType: DrillingIntervalType) {
+        self.title = title
+        self.intervalType = intervalType
+        _localModel = State(initialValue: DrillingIntervalModel(
+            firstLength: "",
+            firstDiameter: "",
+            depth: "",
+            bitDiameter: "",
+            cavernosity: "",
+            steelPipe: "",
+            wallThickness: "",
+            flowRate: ""
+        ))
+    }
+        
     var body: some View {
         ZStack {
             if themeSettings.isDarkModeEnabled {
@@ -71,12 +143,15 @@ struct DrillingIntervals: View {
                             Spacer()
                         }
                         .padding(.bottom, 16)
+                        
                         CustomDoubleTextField(
                             focusedField: $focusedField,
                             firstField: .firstLength,
                             secondField: .firstDiameter,
                             firstLabel: "Длина",
-                            secondLabel: "Внутр. диаметр"
+                            secondLabel: "Внутр. диаметр",
+                            firstTextField: $localModel.firstLength,
+                            secondTextField: $localModel.firstDiameter
                         )
                         .focused($focusedField, equals: .firstLength)
                         
@@ -92,14 +167,17 @@ struct DrillingIntervals: View {
                                 focusedField: $focusedField,
                                 currentField: .depth,
                                 firstLabel: "Забой",
-                                secondLabel: "м"
+                                secondLabel: "м",
+                                numberText: $localModel.depth
                             )
                             Spacer(minLength: 25)
                             CustomTextField(
                                 focusedField: $focusedField,
                                 currentField: .bitDiameter,
                                 firstLabel: "Диаметр долота",
-                                secondLabel: "мм")
+                                secondLabel: "мм",
+                                numberText: $localModel.bitDiameter
+                            )
                         }
                         .padding(.top, 10)
                         HStack {
@@ -107,14 +185,16 @@ struct DrillingIntervals: View {
                                 focusedField: $focusedField,
                                 currentField: .cavernosity,
                                 firstLabel: "Коэфф. кавернозности",
-                                secondLabel: ""
+                                secondLabel: "",
+                                numberText: $localModel.cavernosity
                             )
                             Spacer(minLength: 25)
                             CustomTextField(
                                 focusedField: $focusedField,
                                 currentField: .steelPipe,
                                 firstLabel: "Стальные бур. трубы",
-                                secondLabel: "мм"
+                                secondLabel: "мм",
+                                numberText: $localModel.steelPipe
                             )
                         }
                         .padding(.top, 10)
@@ -123,14 +203,16 @@ struct DrillingIntervals: View {
                                 focusedField: $focusedField,
                                 currentField: .wallThickness,
                                 firstLabel: "Толщина стенки",
-                                secondLabel: "мм"
+                                secondLabel: "мм",
+                                numberText: $localModel.wallThickness
                             )
                             Spacer(minLength: 25)
                             CustomTextField(
                                 focusedField: $focusedField,
                                 currentField: .flowRate,
                                 firstLabel: "Литраж (не обяз.)",
-                                secondLabel: "л/с"
+                                secondLabel: "л/с",
+                                numberText: $localModel.flowRate
                             )
                         }
                         .padding(.top, 10)
@@ -155,12 +237,20 @@ struct DrillingIntervals: View {
                     focusNextField()
                 }
                 Button("Done") {
+                    viewModel.update(intervalType, with: localModel)
+//                    viewModel.save()
                     focusedField = nil
                 }
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: EmptyView())
+        .onAppear {
+            localModel = viewModel.model(for: intervalType)
+        }
+        .onDisappear {
+            viewModel.update(intervalType, with: localModel)
+        }
     }
     
     private func focusNextField() {
@@ -169,14 +259,5 @@ struct DrillingIntervals: View {
         
         let nextIndex = (currentIndex + 1) % Field.allCases.count
         focusedField = Field.allCases[nextIndex]
-    }
-}
-
-
-struct DrillingIntervals_Previews: PreviewProvider {
-    static var previews: some View {
-        DrillingIntervals(title: "Хвостовик")
-            .environmentObject(ThemeSettings())
-            .environmentObject(UnitSettings())
     }
 }

@@ -16,8 +16,8 @@ struct CustomTextField: View {
     var firstLabel: String
     var secondLabel: String
     
-    @State private var numberText: String = ""
-    
+    @Binding var numberText: String
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             // Заголовок поля
@@ -54,4 +54,3 @@ struct CustomTextField: View {
         .padding(.horizontal, 1)
     }
 }
-

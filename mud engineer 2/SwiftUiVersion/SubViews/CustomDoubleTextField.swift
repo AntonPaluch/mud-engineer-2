@@ -17,8 +17,8 @@ struct CustomDoubleTextField: View {
     var firstLabel: String
     var secondLabel: String
     
-    @State private var firstTextField: String = ""
-    @State private var secondTextField: String = ""
+    @Binding var firstTextField: String
+    @Binding var secondTextField: String
     
     var body: some View {
         VStack {

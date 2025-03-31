@@ -23,6 +23,7 @@
 		3EB23B862CE64890008A45DE /* DebugFrameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB23B852CE64890008A45DE /* DebugFrameModifier.swift */; };
 		3EBC571F29D89BAE008DFF79 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC571E29D89BAE008DFF79 /* MainView.swift */; };
 		3EC05B8329D87FE400826C41 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC05B8229D87FE400826C41 /* AppMain.swift */; };
+		3EC2157F2D281C8E00A2A92D /* DrillingIntervalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2157E2D281C8E00A2A92D /* DrillingIntervalsViewModel.swift */; };
 		3EF53DA129D99F9600921996 /* SettingsThemeTogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */; };
 		3EF53DA429D9B67700921996 /* SettingsUnitsTogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF53DA329D9B67600921996 /* SettingsUnitsTogleView.swift */; };
 		3EFF65E029EC0FEF003F2902 /* UnitSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF65DF29EC0FEF003F2902 /* UnitSettings.swift */; };
@@ -104,6 +105,7 @@
 		3EB23B852CE64890008A45DE /* DebugFrameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFrameModifier.swift; sourceTree = "<group>"; };
 		3EBC571E29D89BAE008DFF79 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3EC05B8229D87FE400826C41 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
+		3EC2157E2D281C8E00A2A92D /* DrillingIntervalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillingIntervalsViewModel.swift; sourceTree = "<group>"; };
 		3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeTogleView.swift; sourceTree = "<group>"; };
 		3EF53DA329D9B67600921996 /* SettingsUnitsTogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUnitsTogleView.swift; sourceTree = "<group>"; };
 		3EFF65DF29EC0FEF003F2902 /* UnitSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSettings.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			children = (
 				3EFF65E429EC41C6003F2902 /* DrillingIntervals.swift */,
 				3E6291112C8E1C2C00C95CB0 /* WashingResult.swift */,
+				3EC2157E2D281C8E00A2A92D /* DrillingIntervalsViewModel.swift */,
 			);
 			path = DrillingIntervals;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				3EAECA142C1B88B4002D4FC2 /* CustomTextField.swift in Sources */,
 				7EB376E526ED1A1900F71DBF /* DoubleVC.swift in Sources */,
 				3EC05B8329D87FE400826C41 /* AppMain.swift in Sources */,
+				3EC2157F2D281C8E00A2A92D /* DrillingIntervalsViewModel.swift in Sources */,
 				3E1F0EC529D8A37A00C159FA /* ThemeColors.swift in Sources */,
 				7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */,
 				7E76115F274C12580025B6FA /* UserActions.swift in Sources */,

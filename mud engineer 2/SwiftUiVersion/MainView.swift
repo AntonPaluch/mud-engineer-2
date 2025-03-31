@@ -11,6 +11,8 @@ struct MainView: View {
     @EnvironmentObject var unitSettings: UnitSettings
     @EnvironmentObject var themeSettings: ThemeSettings
     
+    @StateObject private var drillingVM = DrillingIntervalsViewModel()
+    
     @State private var isShowingDetailsView = false
         
     private let feedbackGenerator = UINotificationFeedbackGenerator()
@@ -60,27 +62,45 @@ struct MainView: View {
                     .foregroundColor(textColor)
 
                 VStack(spacing: 10) {
-                NavigationLink(destination: DrillingIntervals(title: Texts.conductor)) {
-                    ArrowTitleView(
-                        title: Texts.conductor,
-                        imageName: iconName
-                    )
+                    NavigationLink(
+                        destination: DrillingIntervals(
+                            title: Texts.conductor,
+                            intervalType: .conductor
+                        )
+                        .environmentObject(drillingVM)
+                    ) {
+                        ArrowTitleView(
+                            title: Texts.conductor,
+                            imageName: iconName
+                        )
+                    }
+                    
+                    NavigationLink(
+                        destination: DrillingIntervals(
+                            title: Texts.productionString,
+                            intervalType: .production
+                        )
+                        .environmentObject(drillingVM)
+                    ) {
+                        ArrowTitleView(
+                            title: Texts.productionString,
+                            imageName: iconName
+                        )
+                    }
+                    
+                    NavigationLink(
+                        destination: DrillingIntervals(
+                            title: Texts.shank,
+                            intervalType: .liner
+                        )
+                        .environmentObject(drillingVM)
+                    ) {
+                        ArrowTitleView(
+                            title: Texts.shank,
+                            imageName: iconName
+                        )
+                    }
                 }
-
-                NavigationLink(destination: DrillingIntervals(title: Texts.productionString)) {
-                    ArrowTitleView(
-                        title: Texts.productionString,
-                        imageName: iconName
-                    )
-                }
-
-                NavigationLink(destination: DrillingIntervals(title: Texts.shank)) {
-                    ArrowTitleView(
-                        title: Texts.shank,
-                        imageName: iconName
-                    )
-                }
-            }
                 Text(Texts.mud)
                     .font(.system(size: 16, weight: .regular))
                     .padding(.top, 34)
