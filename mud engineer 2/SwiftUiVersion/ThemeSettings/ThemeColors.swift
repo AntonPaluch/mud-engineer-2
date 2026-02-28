@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ThemeColors {
     static let lightBackground        = Color(red: 0.973, green: 0.976, blue: 0.976)
-    static let darkBackground         = Color(red: 0.157, green: 0.216, blue: 0.29)
+    // Deeper navy for OLED-friendly dark theme (#0D1A28)
+    static let darkBackground         = Color(red: 0.051, green: 0.102, blue: 0.157)
 //    static let darkBackground         = Color(red: 43/255, green: 53/255, blue: 73/255)
     
     static let lightText              = Color(red: 1, green: 1, blue: 1)
@@ -20,7 +21,8 @@ struct ThemeColors {
     
     
     static let lightBackgroundSubView = Color(red: 1, green: 1, blue: 1)
-    static let darkBackgroundSubView  = Color(red: 1, green: 1, blue: 1, opacity: 0.1)
+    // Slightly higher overlay to keep card contrast on darker base
+    static let darkBackgroundSubView  = Color(red: 1, green: 1, blue: 1, opacity: 0.12)
 //    static let darkBackgroundSubView  = Color(red: 64/255, green: 75/255, blue: 91/255)
     
     static let buttonSettings         = Color(red: 0.345, green: 0.337, blue: 0.839)
@@ -46,4 +48,3 @@ struct ThemeColors {
     
     
 }
-

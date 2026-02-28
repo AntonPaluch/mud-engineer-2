@@ -42,7 +42,7 @@ struct MainView: View {
                         .aspectRatio(contentMode: .fit)
                 }
             }
-            .padding(.top, 25)
+            .padding(.top, 40)
 
             Text(Texts.сalculation)
                 .font(.system(size: 22, weight: .semibold, design: .default))

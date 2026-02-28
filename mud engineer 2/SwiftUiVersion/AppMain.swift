@@ -27,6 +27,7 @@ struct MyApp: App {
                         )
                     }
             }
+            .preferredColorScheme(themeSettings.isDarkModeEnabled ? .dark : .light)
             .environmentObject(themeSettings)
             .environmentObject(unitSettings)
             .environmentObject(navigationCoordinator)
