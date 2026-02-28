@@ -11,9 +11,8 @@ struct MainView: View {
     @EnvironmentObject var unitSettings: UnitSettings
     @EnvironmentObject var themeSettings: ThemeSettings
     
-    @StateObject private var drillingVM = DrillingIntervalsViewModel()
-    
-    @State private var isShowingDetailsView = false
+    @EnvironmentObject var navigationCoordinator: NavigationCoordinator
+    @EnvironmentObject var drillingVM: DrillingIntervalsViewModel
         
     private let feedbackGenerator = UINotificationFeedbackGenerator()
     
@@ -26,107 +25,66 @@ struct MainView: View {
     }
 
     var body: some View {
-        NavigationView {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(Texts.mudFluid)
-                        .foregroundColor(textColor)
-                        .font(.system(size: 16, weight: .regular))
-                        .lineLimit(1)
-                    NavigationLink(
-                        destination: SettingsView(isShowingDetailsView: $isShowingDetailsView),
-                        isActive: $isShowingDetailsView
-                    ) { EmptyView() }
-                    Spacer()
-                    Button(action: {
-                        self.isShowingDetailsView = true
-                        feedbackGenerator.notificationOccurred(.success)
-                    }) {
-                        Image(themeSettings.isDarkModeEnabled ? "settingsDarkTheme" : "settings")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .aspectRatio(contentMode: .fit)
-                    }
-                }
-                .padding(.top, 25)
-                                
-                Text(Texts.сalculation)
-                    .font(.system(size: 22, weight: .semibold, design: .default))
-                    .padding(.top, 30)
+        VStack(alignment: .leading) {
+            HStack {
+                Text(Texts.mudFluid)
                     .foregroundColor(textColor)
-
-                Text(Texts.wellFlushing)
                     .font(.system(size: 16, weight: .regular))
-                    .padding(.top, 27)
-                    .padding(.bottom, 21)
-                    .foregroundColor(textColor)
-
-                VStack(spacing: 10) {
-                    NavigationLink(
-                        destination: DrillingIntervals(
-                            title: Texts.conductor,
-                            intervalType: .conductor
-                        )
-                        .environmentObject(drillingVM)
-                    ) {
-                        ArrowTitleView(
-                            title: Texts.conductor,
-                            imageName: iconName
-                        )
-                    }
-                    
-                    NavigationLink(
-                        destination: DrillingIntervals(
-                            title: Texts.productionString,
-                            intervalType: .production
-                        )
-                        .environmentObject(drillingVM)
-                    ) {
-                        ArrowTitleView(
-                            title: Texts.productionString,
-                            imageName: iconName
-                        )
-                    }
-                    
-                    NavigationLink(
-                        destination: DrillingIntervals(
-                            title: Texts.shank,
-                            intervalType: .liner
-                        )
-                        .environmentObject(drillingVM)
-                    ) {
-                        ArrowTitleView(
-                            title: Texts.shank,
-                            imageName: iconName
-                        )
-                    }
-                }
-                Text(Texts.mud)
-                    .font(.system(size: 16, weight: .regular))
-                    .padding(.top, 34)
-                    .padding(.bottom, 21)
-                    .foregroundColor(textColor)
-                
-                VStack(spacing: 10) {
-                    ArrowTitleView(
-                        title: Texts.dilution,
-                        imageName: iconName
-                    )
-
-                    ArrowTitleView(
-                        title: Texts.weighting,
-                        imageName: iconName
-                    )
-                }
+                    .lineLimit(1)
                 Spacer()
-
+                Button(action: {
+                    navigationCoordinator.push(.settings)
+                    feedbackGenerator.notificationOccurred(.success)
+                }) {
+                    Image(themeSettings.isDarkModeEnabled ? "settingsDarkTheme" : "settings")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .aspectRatio(contentMode: .fit)
+                }
             }
-            .navigationBarHidden(true)
-            .padding(25)
-            .edgesIgnoringSafeArea(.all)
-            .background(themeSettings.isDarkModeEnabled ? ThemeColors.darkBackground : ThemeColors.lightBackground)
-            .preferredColorScheme(.light)
+            .padding(.top, 25)
+
+            Text(Texts.сalculation)
+                .font(.system(size: 22, weight: .semibold, design: .default))
+                .padding(.top, 30)
+                .foregroundColor(textColor)
+
+            Text(Texts.wellFlushing)
+                .font(.system(size: 16, weight: .regular))
+                .padding(.top, 27)
+                .padding(.bottom, 21)
+                .foregroundColor(textColor)
+
+            VStack(spacing: 10) {
+                NavigationButton(title: Texts.conductor, iconName: iconName) {
+                    navigationCoordinator.push(.drillingInterval(.conductor, title: Texts.conductor))
+                }
+                NavigationButton(title: Texts.productionString, iconName: iconName) {
+                    navigationCoordinator.push(.drillingInterval(.production, title: Texts.productionString))
+                }
+                NavigationButton(title: Texts.shank, iconName: iconName) {
+                    navigationCoordinator.push(.drillingInterval(.liner, title: Texts.shank))
+                }
+            }
+
+            Text(Texts.mud)
+                .font(.system(size: 16, weight: .regular))
+                .padding(.top, 34)
+                .padding(.bottom, 21)
+                .foregroundColor(textColor)
+
+            VStack(spacing: 10) {
+                ArrowTitleView(title: Texts.dilution, imageName: iconName)
+                ArrowTitleView(title: Texts.weighting, imageName: iconName)
+            }
+
+            Spacer()
         }
+        .navigationBarHidden(true)
+        .padding(25)
+        .edgesIgnoringSafeArea(.all)
+        .background(themeSettings.isDarkModeEnabled ? ThemeColors.darkBackground : ThemeColors.lightBackground)
+        .preferredColorScheme(.light)
     }
     
 //    func startCountdownActivity() {

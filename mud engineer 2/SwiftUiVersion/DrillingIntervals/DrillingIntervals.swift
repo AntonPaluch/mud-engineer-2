@@ -13,7 +13,7 @@ enum DrillingIntervalType: String {
     case liner = "Liner"
 }
 
-struct DrillingIntervalModel: Codable {
+struct DrillingIntervalModel: Codable, Equatable {
     var firstLength: String
     var firstDiameter: String
     var depth: String
@@ -22,6 +22,17 @@ struct DrillingIntervalModel: Codable {
     var steelPipe: String
     var wallThickness: String
     var flowRate: String
+
+    static let empty = DrillingIntervalModel(
+        firstLength: "",
+        firstDiameter: "",
+        depth: "",
+        bitDiameter: "",
+        cavernosity: "",
+        steelPipe: "",
+        wallThickness: "",
+        flowRate: ""
+    )
 }
 
 class DrillingIntervalsStorage {
@@ -76,27 +87,19 @@ struct DrillingIntervals: View {
     var title: String
     
     var intervalType: DrillingIntervalType
-    
+
     @State private var localModel: DrillingIntervalModel
 
-    
+
     private let feedbackGenerator = UINotificationFeedbackGenerator()
-    
+
     @FocusState private var focusedField: Field?
+    @State private var showResetAlert = false
     
     init(title: String, intervalType: DrillingIntervalType) {
         self.title = title
         self.intervalType = intervalType
-        _localModel = State(initialValue: DrillingIntervalModel(
-            firstLength: "",
-            firstDiameter: "",
-            depth: "",
-            bitDiameter: "",
-            cavernosity: "",
-            steelPipe: "",
-            wallThickness: "",
-            flowRate: ""
-        ))
+        _localModel = State(initialValue: .empty)
     }
         
     var body: some View {
@@ -110,16 +113,22 @@ struct DrillingIntervals: View {
             }
             
             VStack(alignment: .leading) {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                    feedbackGenerator.notificationOccurred(.success)
-                }) {
-                    Image(themeSettings.isDarkModeEnabled ? "backButtonDark" : "backButton")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                    
+                HStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                        feedbackGenerator.notificationOccurred(.success)
+                    }) {
+                        Image(themeSettings.isDarkModeEnabled ? "backButtonDark" : "backButton")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                    }
+
+                    Spacer()
+
+                    resetButton
                 }
-                .padding(.leading, 25)
+                .padding(.horizontal, 25)
+
                 Text(title)
                     .font(.title)
                     .foregroundColor(
@@ -219,9 +228,9 @@ struct DrillingIntervals: View {
                     }
                     .padding(.horizontal, 25)
                     
-                    WashingResult()
+                    WashingResult(model: localModel)
                         .padding(.top, 40)
-                    
+
                 }
                 .scrollIndicators(.hidden)
                 .edgesIgnoringSafeArea(.bottom)
@@ -251,13 +260,50 @@ struct DrillingIntervals: View {
         .onDisappear {
             viewModel.update(intervalType, with: localModel)
         }
+        .alert("Сброс данных", isPresented: $showResetAlert) {
+            Button("Отмена", role: .cancel) {}
+            Button("Сбросить", role: .destructive) {
+                resetInterval()
+            }
+        } message: {
+            Text("Все значения будут удалены и данные не сохранятся.")
+        }
     }
-    
+
     private func focusNextField() {
         guard let currentField = focusedField,
               let currentIndex = Field.allCases.firstIndex(of: currentField) else { return }
-        
+
         let nextIndex = (currentIndex + 1) % Field.allCases.count
         focusedField = Field.allCases[nextIndex]
+    }
+
+    private var resetButton: some View {
+        Button(action: {
+            focusedField = nil
+            feedbackGenerator.notificationOccurred(.warning)
+            showResetAlert = true
+        }) {
+            HStack(spacing: 6) {
+                Image(systemName: "arrow.counterclockwise")
+                Text("Сброс")
+            }
+            .font(.system(size: 14, weight: .semibold))
+            .padding(.horizontal, 18)
+            .padding(.vertical, 10)
+            .background(.ultraThinMaterial, in: Capsule())
+            .overlay(
+                Capsule()
+                    .stroke(Color.white.opacity(themeSettings.isDarkModeEnabled ? 0.1 : 0.2))
+            )
+        }
+        .applyGlassEffect()
+        .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+    }
+
+    private func resetInterval() {
+        localModel = .empty
+        viewModel.reset(intervalType)
+        feedbackGenerator.notificationOccurred(.success)
     }
 }

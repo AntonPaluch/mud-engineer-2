@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Binding var isShowingDetailsView: Bool
     @EnvironmentObject var themeSettings: ThemeSettings
     @EnvironmentObject var unitSettings: UnitSettings
+    @EnvironmentObject var navigationCoordinator: NavigationCoordinator
     
     @AppStorage("isDarkModeEnabled") private var isDarkModeEnabled: Bool = false
     
@@ -32,13 +32,12 @@ struct SettingsView: View {
                 
                 VStack(alignment: .leading) {
                     Button(action: {
-                        self.isShowingDetailsView = false
+                        navigationCoordinator.pop()
                         feedbackGenerator.notificationOccurred(.success)
                     }) {
                         Image(themeSettings.isDarkModeEnabled ? "backButtonDark" : "backButton")
                             .resizable()
                             .frame(width: 40, height: 40)
-                            
                     }
                     Text(Texts.settings)
                         .font(.system(size: 22, weight: .semibold))

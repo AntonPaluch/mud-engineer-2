@@ -22,22 +22,23 @@ class DrillingIntervalsViewModel: ObservableObject {
     
     /// Получить или создать пустую модель для указанного типа
     func model(for intervalType: DrillingIntervalType) -> DrillingIntervalModel {
-        let model = intervalsDict[intervalType.rawValue] ?? DrillingIntervalModel(
-            firstLength: "",
-            firstDiameter: "",
-            depth: "",
-            bitDiameter: "",
-            cavernosity: "",
-            steelPipe: "",
-            wallThickness: "",
-            flowRate: ""
-        )
+        let model = intervalsDict[intervalType.rawValue] ?? .empty
         return model
     }
     
     /// Обновить модель для указанного типа
     func update(_ intervalType: DrillingIntervalType, with model: DrillingIntervalModel) {
-        intervalsDict[intervalType.rawValue] = model
-         storage.saveData(intervalsDict)
+        if model == .empty {
+            intervalsDict.removeValue(forKey: intervalType.rawValue)
+        } else {
+            intervalsDict[intervalType.rawValue] = model
+        }
+        storage.saveData(intervalsDict)
+    }
+
+    /// Сбросить данные для указанного типа
+    func reset(_ intervalType: DrillingIntervalType) {
+        intervalsDict.removeValue(forKey: intervalType.rawValue)
+        storage.saveData(intervalsDict)
     }
 }

@@ -13,12 +13,24 @@ import YandexMobileMetrica
 struct MyApp: App {
     @StateObject private var themeSettings = ThemeSettings()
     @StateObject private var unitSettings = UnitSettings()
+    @StateObject private var navigationCoordinator = NavigationCoordinator()
+    @StateObject private var drillingViewModel = DrillingIntervalsViewModel()
         
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environmentObject(themeSettings)
-                .environmentObject(unitSettings)
+            NavigationStack(path: $navigationCoordinator.path) {
+                MainView()
+                    .navigationDestination(for: NavigationDestination.self) { destination in
+                        NavigationFactory.view(
+                            for: destination,
+                            drillingViewModel: drillingViewModel
+                        )
+                    }
+            }
+            .environmentObject(themeSettings)
+            .environmentObject(unitSettings)
+            .environmentObject(navigationCoordinator)
+            .environmentObject(drillingViewModel)
         }
     }
     

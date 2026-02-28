@@ -14,6 +14,7 @@
 		3E1F0EC929D8B1D100C159FA /* ArrowTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */; };
 		3E6291122C8E1C2C00C95CB0 /* WashingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6291112C8E1C2C00C95CB0 /* WashingResult.swift */; };
 		3E6291152C8E45AB00C95CB0 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6291142C8E45AB00C95CB0 /* View+Extensions.swift */; };
+		90F87072CACE77F27D9F7D45 /* View+GlassEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20BBCB503816F2283C9AFD /* View+GlassEffect.swift */; };
 		3E6525EF29EF34190064AEB6 /* CustomDoubleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */; };
 		3E8BFD672BA4DFD50056FA51 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */; };
 		3E95CCD22CE5DC6400F767F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E95CC922CE5517F00F767F9 /* WidgetKit.framework */; };
@@ -59,7 +60,10 @@
 		7EF8E8E626D2679000CDB7B2 /* UserInterfaceStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8E8E526D2679000CDB7B2 /* UserInterfaceStyleManager.swift */; };
 		7EF8E8E826D2679900CDB7B2 /* UserInterfaceStyleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8E8E726D2679900CDB7B2 /* UserInterfaceStyleObserver.swift */; };
 		7EF8E8EA26D2679F00CDB7B2 /* WeakStyleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8E8E926D2679F00CDB7B2 /* WeakStyleObserver.swift */; };
-		F83B3353CA9CC0FF32F8F412 /* Pods_mud_engineer_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E471974F61B30353DD7D3D6 /* Pods_mud_engineer_2.framework */; };
+        F83B3353CA9CC0FF32F8F412 /* Pods_mud_engineer_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E471974F61B30353DD7D3D6 /* Pods_mud_engineer_2.framework */; };
+        AA0000012CE5DC6400F767F9 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000042CE5DC6400F767F9 /* NavigationCoordinator.swift */; };
+        AA0000022CE5DC6400F767F9 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000052CE5DC6400F767F9 /* NavigationFactory.swift */; };
+        AA0000032CE5DC6400F767F9 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000062CE5DC6400F767F9 /* NavigationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +100,7 @@
 		3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowTitleView.swift; sourceTree = "<group>"; };
 		3E6291112C8E1C2C00C95CB0 /* WashingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashingResult.swift; sourceTree = "<group>"; };
 		3E6291142C8E45AB00C95CB0 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		9A20BBCB503816F2283C9AFD /* View+GlassEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+GlassEffect.swift"; sourceTree = "<group>"; };
 		3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoubleTextField.swift; sourceTree = "<group>"; };
 		3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		3E95CC922CE5517F00F767F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -146,7 +151,10 @@
 		7EF8E8E526D2679000CDB7B2 /* UserInterfaceStyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceStyleManager.swift; sourceTree = "<group>"; };
 		7EF8E8E726D2679900CDB7B2 /* UserInterfaceStyleObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceStyleObserver.swift; sourceTree = "<group>"; };
 		7EF8E8E926D2679F00CDB7B2 /* WeakStyleObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakStyleObserver.swift; sourceTree = "<group>"; };
-		C8C2DB56F549A33CF020290C /* Pods-mud engineer 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mud engineer 2.release.xcconfig"; path = "Target Support Files/Pods-mud engineer 2/Pods-mud engineer 2.release.xcconfig"; sourceTree = "<group>"; };
+        C8C2DB56F549A33CF020290C /* Pods-mud engineer 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mud engineer 2.release.xcconfig"; path = "Target Support Files/Pods-mud engineer 2/Pods-mud engineer 2.release.xcconfig"; sourceTree = "<group>"; };
+        AA0000042CE5DC6400F767F9 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+        AA0000052CE5DC6400F767F9 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
+        AA0000062CE5DC6400F767F9 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -217,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				3E6291142C8E45AB00C95CB0 /* View+Extensions.swift */,
+				9A20BBCB503816F2283C9AFD /* View+GlassEffect.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 				3EBC571E29D89BAE008DFF79 /* MainView.swift */,
 				3E8BFD662BA4DFD50056FA51 /* MainViewModel.swift */,
 				3E1F0EC829D8B1D100C159FA /* ArrowTitleView.swift */,
+                AA0000072CE5DC6400F767F9 /* Navigation */,
 				3EF53DA229D9A07800921996 /* SetingsView */,
 				3EFF65DE29EC0FC7003F2902 /* UnitSettings */,
 				3E1F0EBF29D89FB800C159FA /* ThemeSettings */,
@@ -238,6 +248,15 @@
 			path = SwiftUiVersion;
 			sourceTree = "<group>";
 		};
+        AA0000072CE5DC6400F767F9 /* Navigation */ = {
+            isa = PBXGroup;
+            children = (
+                AA0000042CE5DC6400F767F9 /* NavigationCoordinator.swift */,
+                AA0000052CE5DC6400F767F9 /* NavigationFactory.swift */,
+            );
+            path = Navigation;
+            sourceTree = "<group>";
+        };
 		3EF53DA229D9A07800921996 /* SetingsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +291,7 @@
 			children = (
 				3E6525EE29EF34190064AEB6 /* CustomDoubleTextField.swift */,
 				3EAECA132C1B88B4002D4FC2 /* CustomTextField.swift */,
+                AA0000062CE5DC6400F767F9 /* NavigationButton.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -573,6 +593,7 @@
 				7EB376DB26ECBC1B00F71DBF /* MainVC.swift in Sources */,
 				7E76115F274C12580025B6FA /* UserActions.swift in Sources */,
 				3E6291152C8E45AB00C95CB0 /* View+Extensions.swift in Sources */,
+				90F87072CACE77F27D9F7D45 /* View+GlassEffect.swift in Sources */,
 				7EB376EB26EF4DE300F71DBF /* MudWeightVC.swift in Sources */,
 				3EFF65E529EC41C6003F2902 /* DrillingIntervals.swift in Sources */,
 				7EB376D226E38E1E00F71DBF /* UIViewExtensions.swift in Sources */,
@@ -605,6 +626,9 @@
 				3E1F0EC129D89FD100C159FA /* ThemeSettings.swift in Sources */,
 				3E1F0EC729D8A3E400C159FA /* SettingsView.swift in Sources */,
 				7EA5F0C5274F7C0100C8E698 /* ShankExtension.swift in Sources */,
+				AA0000012CE5DC6400F767F9 /* NavigationCoordinator.swift in Sources */,
+				AA0000022CE5DC6400F767F9 /* NavigationFactory.swift in Sources */,
+				AA0000032CE5DC6400F767F9 /* NavigationButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
