@@ -8,17 +8,80 @@ private enum DilutionField: Hashable {
     case addedDensity
 }
 
+private struct DilutionModel: Codable, Equatable {
+    var startVolume: String
+    var startDensity: String
+    var addedVolume: String
+    var addedDensity: String
+
+    static let empty = DilutionModel(
+        startVolume: "",
+        startDensity: "",
+        addedVolume: "",
+        addedDensity: ""
+    )
+}
+
+private final class DilutionStorage {
+    private let userDefaults = UserDefaults.standard
+    private let storageKey = "DilutionData"
+
+    func loadData() -> DilutionModel {
+        guard let data = userDefaults.data(forKey: storageKey),
+              let model = try? JSONDecoder().decode(DilutionModel.self, from: data) else {
+            return .empty
+        }
+        return model
+    }
+
+    func saveData(_ model: DilutionModel) {
+        guard model != .empty else {
+            userDefaults.removeObject(forKey: storageKey)
+            return
+        }
+
+        do {
+            let data = try JSONEncoder().encode(model)
+            userDefaults.set(data, forKey: storageKey)
+        } catch {
+            print("Ошибка при сохранении разбавления: \(error)")
+        }
+    }
+
+    func reset() {
+        userDefaults.removeObject(forKey: storageKey)
+    }
+}
+
+private final class DilutionViewModel: ObservableObject {
+    @Published private(set) var model: DilutionModel
+    private let storage = DilutionStorage()
+
+    init() {
+        model = storage.loadData()
+    }
+
+    func update(with model: DilutionModel) {
+        self.model = model
+        storage.saveData(model)
+    }
+
+    func reset() {
+        model = .empty
+        storage.reset()
+    }
+}
+
 struct DilutionView: View {
     @EnvironmentObject private var themeSettings: ThemeSettings
     @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
     
     @FocusState private var focusedField: DilutionField?
+    @StateObject private var viewModel = DilutionViewModel()
     private let feedbackGenerator = UINotificationFeedbackGenerator()
     
-    @State private var startVolume = ""
-    @State private var startDensity = ""
-    @State private var addedVolume = ""
-    @State private var addedDensity = ""
+    @State private var localModel = DilutionModel.empty
+    @State private var showResetAlert = false
     
     private var textColor: Color {
         themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText
@@ -59,8 +122,8 @@ struct DilutionView: View {
                             secondUnit: "г/см³",
                             firstField: .startVolume,
                             secondField: .startDensity,
-                            firstValue: $startVolume,
-                            secondValue: $startDensity,
+                            firstValue: $localModel.startVolume,
+                            secondValue: $localModel.startDensity,
                             focusedField: $focusedField
                         )
                         .padding(.horizontal, 25)
@@ -73,8 +136,8 @@ struct DilutionView: View {
                             secondUnit: "г/см³",
                             firstField: .addedVolume,
                             secondField: .addedDensity,
-                            firstValue: $addedVolume,
-                            secondValue: $addedDensity,
+                            firstValue: $localModel.addedVolume,
+                            secondValue: $localModel.addedDensity,
                             focusedField: $focusedField
                         )
                         .padding(.horizontal, 25)
@@ -101,10 +164,27 @@ struct DilutionView: View {
                 HStack {
                     Button("Next") { focusNext() }
                     Spacer()
-                    Button("Done") { focusedField = nil }
+                    Button("Done") {
+                        saveLocalModel()
+                        focusedField = nil
+                    }
                 }
                 .frame(maxWidth: .infinity)
             }
+        }
+        .onAppear {
+            localModel = viewModel.model
+        }
+        .onDisappear {
+            saveLocalModel()
+        }
+        .alert("Сброс данных", isPresented: $showResetAlert) {
+            Button("Отмена", role: .cancel) {}
+            Button("Сбросить", role: .destructive) {
+                resetDilution()
+            }
+        } message: {
+            Text("Все значения будут удалены и данные не сохранятся.")
         }
     }
     
@@ -119,6 +199,8 @@ struct DilutionView: View {
                     .frame(width: 40, height: 40)
             }
             Spacer()
+
+            resetButton
         }
     }
     
@@ -138,10 +220,10 @@ struct DilutionView: View {
         totalVolumeValue > 0
     }
     
-    private var startVolumeValue: Double? { parse(startVolume) }
-    private var startDensityValue: Double? { parse(startDensity) }
-    private var addedVolumeValue: Double? { parse(addedVolume) }
-    private var addedDensityValue: Double? { parse(addedDensity) }
+    private var startVolumeValue: Double? { parse(localModel.startVolume) }
+    private var startDensityValue: Double? { parse(localModel.startDensity) }
+    private var addedVolumeValue: Double? { parse(localModel.addedVolume) }
+    private var addedDensityValue: Double? { parse(localModel.addedDensity) }
     
     private var totalVolumeValue: Double {
         guard let start = startVolumeValue, let add = addedVolumeValue else { return 0 }
@@ -197,6 +279,39 @@ struct DilutionView: View {
     
     private func focusNext() {
         focusedField = nextField(for: focusedField)
+    }
+
+    private var resetButton: some View {
+        Button(action: {
+            focusedField = nil
+            feedbackGenerator.notificationOccurred(.warning)
+            showResetAlert = true
+        }) {
+            HStack(spacing: 6) {
+                Image(systemName: "arrow.counterclockwise")
+                Text("Сброс")
+            }
+            .font(.system(size: 14, weight: .semibold))
+            .padding(.horizontal, 18)
+            .padding(.vertical, 10)
+            .background(.ultraThinMaterial, in: Capsule())
+            .overlay(
+                Capsule()
+                    .stroke(Color.white.opacity(themeSettings.isDarkModeEnabled ? 0.1 : 0.2))
+            )
+        }
+        .applyGlassEffect()
+        .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+    }
+
+    private func saveLocalModel() {
+        viewModel.update(with: localModel)
+    }
+
+    private func resetDilution() {
+        localModel = .empty
+        viewModel.reset()
+        feedbackGenerator.notificationOccurred(.success)
     }
 }
 

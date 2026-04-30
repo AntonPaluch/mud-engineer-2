@@ -6,19 +6,82 @@ private enum WeightingField: Hashable {
     case finishDensity
 }
 
+private struct WeightingModel: Codable, Equatable {
+    var volume: String
+    var startDensity: String
+    var finishDensity: String
+    var componentDensity: Double
+
+    static let empty = WeightingModel(
+        volume: "",
+        startDensity: "",
+        finishDensity: "",
+        componentDensity: WeightComponents.barit.rawValue
+    )
+}
+
+private final class WeightingStorage {
+    private let userDefaults = UserDefaults.standard
+    private let storageKey = "WeightingData"
+
+    func loadData() -> WeightingModel {
+        guard let data = userDefaults.data(forKey: storageKey),
+              let model = try? JSONDecoder().decode(WeightingModel.self, from: data) else {
+            return .empty
+        }
+        return model
+    }
+
+    func saveData(_ model: WeightingModel) {
+        guard model != .empty else {
+            userDefaults.removeObject(forKey: storageKey)
+            return
+        }
+
+        do {
+            let data = try JSONEncoder().encode(model)
+            userDefaults.set(data, forKey: storageKey)
+        } catch {
+            print("Ошибка при сохранении утяжеления: \(error)")
+        }
+    }
+
+    func reset() {
+        userDefaults.removeObject(forKey: storageKey)
+    }
+}
+
+private final class WeightingViewModel: ObservableObject {
+    @Published private(set) var model: WeightingModel
+    private let storage = WeightingStorage()
+
+    init() {
+        model = storage.loadData()
+    }
+
+    func update(with model: WeightingModel) {
+        self.model = model
+        storage.saveData(model)
+    }
+
+    func reset() {
+        model = .empty
+        storage.reset()
+    }
+}
+
 struct WeightingView: View {
     @EnvironmentObject private var themeSettings: ThemeSettings
     @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
 
     @FocusState private var focusedField: WeightingField?
+    @StateObject private var viewModel = WeightingViewModel()
     private let feedbackGenerator = UINotificationFeedbackGenerator()
     private let calculator = CalculationManager()
 
-    @State private var volume = ""
-    @State private var startDensity = ""
-    @State private var finishDensity = ""
-    @State private var selectedComponent: WeightComponents = .barit
+    @State private var localModel = WeightingModel.empty
     @State private var isComponentPickerExpanded = false
+    @State private var showResetAlert = false
 
     private var textColor: Color {
         themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText
@@ -83,10 +146,27 @@ struct WeightingView: View {
                 HStack {
                     Button("Next") { focusNext() }
                     Spacer()
-                    Button("Done") { focusedField = nil }
+                    Button("Done") {
+                        saveLocalModel()
+                        focusedField = nil
+                    }
                 }
                 .frame(maxWidth: .infinity)
             }
+        }
+        .onAppear {
+            localModel = viewModel.model
+        }
+        .onDisappear {
+            saveLocalModel()
+        }
+        .alert("Сброс данных", isPresented: $showResetAlert) {
+            Button("Отмена", role: .cancel) {}
+            Button("Сбросить", role: .destructive) {
+                resetWeighting()
+            }
+        } message: {
+            Text("Все значения будут удалены и данные не сохранятся.")
         }
     }
 
@@ -101,6 +181,8 @@ struct WeightingView: View {
                     .frame(width: 40, height: 40)
             }
             Spacer()
+
+            resetButton
         }
     }
 
@@ -122,7 +204,7 @@ struct WeightingView: View {
                 WeightingInputCell(
                     label: "Объём",
                     unit: "м³",
-                    value: $volume,
+                    value: $localModel.volume,
                     field: .volume,
                     focusedField: $focusedField,
                     corners: [.topLeft, .bottomLeft],
@@ -134,7 +216,7 @@ struct WeightingView: View {
                 WeightingInputCell(
                     label: "Плотность",
                     unit: "г/см³",
-                    value: $startDensity,
+                    value: $localModel.startDensity,
                     field: .startDensity,
                     focusedField: $focusedField,
                     corners: [.topRight, .bottomRight],
@@ -205,7 +287,7 @@ struct WeightingView: View {
                 .frame(height: 20, alignment: .leading)
 
             HStack(spacing: 5) {
-                TextField("0", text: $finishDensity)
+                TextField("0", text: $localModel.finishDensity)
                     .keyboardType(.decimalPad)
                     .font(.system(size: 20, weight: .regular))
                     .foregroundColor(textColor)
@@ -242,11 +324,15 @@ struct WeightingView: View {
         .padding(.horizontal, -25)
     }
 
+    private var selectedComponent: WeightComponents {
+        WeightComponents.allCases.first { $0.rawValue == localModel.componentDensity } ?? .barit
+    }
+
     private func materialOption(_ component: WeightComponents) -> some View {
         let isSelected = selectedComponent == component
 
         return Button(action: {
-            selectedComponent = component
+            localModel.componentDensity = component.rawValue
             withAnimation(.easeInOut(duration: 0.18)) {
                 isComponentPickerExpanded = false
             }
@@ -288,9 +374,9 @@ struct WeightingView: View {
 
     // MARK: - Calculation
 
-    private var volumeValue: Double? { parse(volume) }
-    private var startDensityValue: Double? { parse(startDensity) }
-    private var finishDensityValue: Double? { parse(finishDensity) }
+    private var volumeValue: Double? { parse(localModel.volume) }
+    private var startDensityValue: Double? { parse(localModel.startDensity) }
+    private var finishDensityValue: Double? { parse(localModel.finishDensity) }
 
     private var resultsAvailable: Bool {
         guard
@@ -389,6 +475,40 @@ struct WeightingView: View {
 
     private func focusNext() {
         focusedField = nextField(for: focusedField)
+    }
+
+    private var resetButton: some View {
+        Button(action: {
+            focusedField = nil
+            feedbackGenerator.notificationOccurred(.warning)
+            showResetAlert = true
+        }) {
+            HStack(spacing: 6) {
+                Image(systemName: "arrow.counterclockwise")
+                Text("Сброс")
+            }
+            .font(.system(size: 14, weight: .semibold))
+            .padding(.horizontal, 18)
+            .padding(.vertical, 10)
+            .background(.ultraThinMaterial, in: Capsule())
+            .overlay(
+                Capsule()
+                    .stroke(Color.white.opacity(themeSettings.isDarkModeEnabled ? 0.1 : 0.2))
+            )
+        }
+        .applyGlassEffect()
+        .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+    }
+
+    private func saveLocalModel() {
+        viewModel.update(with: localModel)
+    }
+
+    private func resetWeighting() {
+        localModel = .empty
+        isComponentPickerExpanded = false
+        viewModel.reset()
+        feedbackGenerator.notificationOccurred(.success)
     }
 }
 
