@@ -10,6 +10,7 @@ import UIKit
 class MudWeightVC: UIViewController {
     
     private var weightComponent = 2.7
+    private let calculator = CalculationManager()
     
     @IBOutlet weak var weightFinishSliderOutlet: UISlider!
     @IBOutlet weak var weightFinishLabel: UILabel!
@@ -77,18 +78,25 @@ class MudWeightVC: UIViewController {
     
     func resultWeight() -> String {
         let volume = Double(round(volumeOutlet.value))
-        let numberOne = weightComponent * 1000
-        let numberTwo = roundOn(value: Double(weightFinishSliderOutlet.value), toNearest: 0.01)
-        let numberThree = roundOn(value: Double(weightStartSliderOutlet.value), toNearest: 0.01)
-        let delta = numberOne * (numberTwo - numberThree) / (weightComponent - numberTwo) * volume
+        let finishDensity = roundOn(value: Double(weightFinishSliderOutlet.value), toNearest: 0.01)
+        let startDensity = roundOn(value: Double(weightStartSliderOutlet.value), toNearest: 0.01)
+        let delta = calculator.weightingAgentMass(
+            volume: volume,
+            startDensity: startDensity,
+            finishDensity: finishDensity,
+            componentDensity: weightComponent
+        )
         return String(Int(delta))
     }
     
     func volumeFinish() -> String {
         let volume = Double(round(volumeOutlet.value))
-        let barit = resultWeight()
-        let numberOne = weightComponent * 1000
-        let Vvolume = Int(volume + ((Double(barit) ?? 1) / numberOne))
+        let weightingAgentMass = Double(resultWeight()) ?? 0
+        let Vvolume = Int(calculator.weightedMudVolume(
+            volume: volume,
+            weightingAgentMass: weightingAgentMass,
+            componentDensity: weightComponent
+        ))
         return String(Vvolume)
         
     }
@@ -159,4 +167,3 @@ extension MudWeightVC {
     
 }
     
-

@@ -29,7 +29,11 @@ struct NavigationFactory {
             return AnyView(
                 DilutionView()
             )
+
+        case .weighting:
+            return AnyView(
+                WeightingView()
+            )
         }
     }
 }
-

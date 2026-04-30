@@ -65,6 +65,7 @@
         AA0000012CE5DC6400F767F9 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000042CE5DC6400F767F9 /* NavigationCoordinator.swift */; };
         AA0000022CE5DC6400F767F9 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000052CE5DC6400F767F9 /* NavigationFactory.swift */; };
         AA0000032CE5DC6400F767F9 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000062CE5DC6400F767F9 /* NavigationButton.swift */; };
+        AA0000082CE5DC6400F767F9 /* WeightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000092CE5DC6400F767F9 /* WeightingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,7 @@
         AA0000042CE5DC6400F767F9 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
         AA0000052CE5DC6400F767F9 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
         AA0000062CE5DC6400F767F9 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+        AA0000092CE5DC6400F767F9 /* WeightingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -246,6 +248,7 @@
 				3EFF65E629EC4EAC003F2902 /* SubViews */,
 				3E6291132C8E448600C95CB0 /* Extensions */,
 				35F5935A336D6BC5238499A2 /* Dilution */,
+                AA0000102CE5DC6400F767F9 /* Weighting */,
 				3EFF65E329EC4148003F2902 /* DrillingIntervals */,
 			);
 			path = SwiftUiVersion;
@@ -297,6 +300,14 @@
 			path = Dilution;
 			sourceTree = "<group>";
 		};
+        AA0000102CE5DC6400F767F9 /* Weighting */ = {
+            isa = PBXGroup;
+            children = (
+                AA0000092CE5DC6400F767F9 /* WeightingView.swift */,
+            );
+            path = Weighting;
+            sourceTree = "<group>";
+        };
 		3EFF65E629EC4EAC003F2902 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,6 +652,7 @@
 				AA0000012CE5DC6400F767F9 /* NavigationCoordinator.swift in Sources */,
 				AA0000022CE5DC6400F767F9 /* NavigationFactory.swift in Sources */,
 				AA0000032CE5DC6400F767F9 /* NavigationButton.swift in Sources */,
+                AA0000082CE5DC6400F767F9 /* WeightingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,10 +1,3 @@
-//
-//  DilutionView.swift
-//  mud engineer 2
-//
-//  Created by Codex on 28.02.2026.
-//
-
 import SwiftUI
 
 // MARK: - Focus fields

@@ -1,10 +1,3 @@
-//
-//  View+GlassEffect.swift
-//  mud engineer 2
-//
-//  Created by Codex.
-//
-
 import SwiftUI
 
 extension View {

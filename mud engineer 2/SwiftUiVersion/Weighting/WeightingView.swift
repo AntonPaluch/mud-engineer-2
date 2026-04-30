@@ -1,0 +1,516 @@
+import SwiftUI
+
+private enum WeightingField: Hashable {
+    case volume
+    case startDensity
+    case finishDensity
+}
+
+struct WeightingView: View {
+    @EnvironmentObject private var themeSettings: ThemeSettings
+    @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
+
+    @FocusState private var focusedField: WeightingField?
+    private let feedbackGenerator = UINotificationFeedbackGenerator()
+    private let calculator = CalculationManager()
+
+    @State private var volume = ""
+    @State private var startDensity = ""
+    @State private var finishDensity = ""
+    @State private var selectedComponent: WeightComponents = .barit
+    @State private var isComponentPickerExpanded = false
+
+    private var textColor: Color {
+        themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText
+    }
+
+    private var secondaryTextColor: Color {
+        themeSettings.isDarkModeEnabled ? ThemeColors.lightText.opacity(0.8) : ThemeColors.darkText.opacity(0.8)
+    }
+
+    private var cardColor: Color {
+        themeSettings.isDarkModeEnabled ? ThemeColors.darkBackgroundSubView : ThemeColors.lightBackgroundSubView
+    }
+
+    private var backgroundColor: Color {
+        themeSettings.isDarkModeEnabled ? ThemeColors.darkBackground : ThemeColors.lightBackground
+    }
+
+    private var inputBackground: Color {
+        themeSettings.isDarkModeEnabled ? ThemeColors.darkBackgroundSubView : ThemeColors.lightBackgroundSubView
+    }
+
+    private var inputBorder: Color {
+        themeSettings.isDarkModeEnabled ? Color.white.opacity(0.22) : Color(red: 0.808, green: 0.824, blue: 0.839)
+    }
+
+    var body: some View {
+        ZStack {
+            backgroundColor.ignoresSafeArea()
+
+            VStack(alignment: .leading, spacing: 0) {
+                header
+                    .padding(.horizontal, 25)
+                    .padding(.top, 12)
+
+                title
+                    .padding(.horizontal, 25)
+                    .padding(.top, 20)
+
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        sourceSection
+                            .padding(.top, 26)
+
+                        weightingSection
+                            .padding(.top, 34)
+
+                        requiredDensityField
+                            .padding(.top, 20)
+
+                        resultCard
+                            .padding(.top, 40)
+                    }
+                    .padding(.horizontal, 25)
+                    .padding(.bottom, 0)
+                }
+                .ignoresSafeArea(.container, edges: .bottom)
+            }
+        }
+        .navigationBarHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Button("Next") { focusNext() }
+                    Spacer()
+                    Button("Done") { focusedField = nil }
+                }
+                .frame(maxWidth: .infinity)
+            }
+        }
+    }
+
+    private var header: some View {
+        HStack {
+            Button(action: {
+                feedbackGenerator.notificationOccurred(.success)
+                navigationCoordinator.pop()
+            }) {
+                Image(themeSettings.isDarkModeEnabled ? "backButtonDark" : "backButton")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+            }
+            Spacer()
+        }
+    }
+
+    private var title: some View {
+        Text("Утяжеление раствора")
+            .font(.system(size: 22, weight: .semibold))
+            .foregroundColor(textColor)
+            .frame(height: 30, alignment: .leading)
+    }
+
+    private var sourceSection: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            Text("Исходный раствор")
+                .font(.system(size: 16, weight: .medium))
+                .foregroundColor(textColor)
+                .frame(height: 20, alignment: .leading)
+
+            HStack(spacing: 0) {
+                WeightingInputCell(
+                    label: "Объём",
+                    unit: "м³",
+                    value: $volume,
+                    field: .volume,
+                    focusedField: $focusedField,
+                    corners: [.topLeft, .bottomLeft],
+                    textColor: textColor,
+                    background: inputBackground,
+                    border: inputBorder
+                )
+
+                WeightingInputCell(
+                    label: "Плотность",
+                    unit: "г/см³",
+                    value: $startDensity,
+                    field: .startDensity,
+                    focusedField: $focusedField,
+                    corners: [.topRight, .bottomRight],
+                    textColor: textColor,
+                    background: inputBackground,
+                    border: inputBorder
+                )
+            }
+        }
+    }
+
+    private var weightingSection: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            Text("Утяжеление")
+                .font(.system(size: 16, weight: .medium))
+                .foregroundColor(textColor)
+                .frame(height: 20, alignment: .leading)
+
+            VStack(alignment: .leading, spacing: 15) {
+                Text("Добавляемый материал")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(secondaryTextColor)
+                    .frame(height: 20, alignment: .leading)
+
+                if isComponentPickerExpanded {
+                    VStack(spacing: 0) {
+                        ForEach(WeightComponents.allCases, id: \.self) { component in
+                            materialOption(component)
+                        }
+                    }
+                    .padding(5)
+                    .background(inputBackground)
+                    .clipShape(RoundedRectangle(cornerRadius: 14))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(inputBorder, lineWidth: 1)
+                    )
+                } else {
+                    Button(action: {
+                        withAnimation(.easeInOut(duration: 0.18)) {
+                            isComponentPickerExpanded = true
+                        }
+                    }) {
+                        materialRow(
+                            selectedComponent,
+                            isSelected: false,
+                            showsDisclosure: true
+                        )
+                        .padding(5)
+                        .background(inputBackground)
+                        .clipShape(RoundedRectangle(cornerRadius: 14))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(inputBorder, lineWidth: 1)
+                        )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+    }
+
+    private var requiredDensityField: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            Text("Необходимая плотность на выходе")
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(secondaryTextColor)
+                .frame(height: 20, alignment: .leading)
+
+            HStack(spacing: 5) {
+                TextField("0", text: $finishDensity)
+                    .keyboardType(.decimalPad)
+                    .font(.system(size: 20, weight: .regular))
+                    .foregroundColor(textColor)
+                    .focused($focusedField, equals: .finishDensity)
+                    .multilineTextAlignment(.leading)
+
+                Text("г/см³")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(secondaryTextColor.opacity(0.75))
+            }
+            .frame(width: 110, height: 30)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 10)
+            .background(inputBackground)
+            .clipShape(RoundedRectangle(cornerRadius: 14))
+            .overlay(
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(inputBorder, lineWidth: 1)
+            )
+        }
+    }
+
+    private var resultCard: some View {
+        WeightingResultCard(
+            weightingAgentMass: formattedWeightingAgentMass,
+            finishVolume: formattedFinishVolume,
+            message: validationMessage,
+            isReady: resultsAvailable,
+            textColor: textColor,
+            secondaryTextColor: secondaryTextColor,
+            cardColor: cardColor
+        )
+        .frame(width: UIScreen.main.bounds.width, alignment: .topLeading)
+        .padding(.horizontal, -25)
+    }
+
+    private func materialOption(_ component: WeightComponents) -> some View {
+        let isSelected = selectedComponent == component
+
+        return Button(action: {
+            selectedComponent = component
+            withAnimation(.easeInOut(duration: 0.18)) {
+                isComponentPickerExpanded = false
+            }
+        }) {
+            materialRow(component, isSelected: isSelected, showsDisclosure: false)
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func materialRow(
+        _ component: WeightComponents,
+        isSelected: Bool,
+        showsDisclosure: Bool
+    ) -> some View {
+        HStack(spacing: 5) {
+            Text(component.displayName)
+                .font(.system(size: 16, weight: .regular))
+                .foregroundColor(isSelected ? .white : textColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            Text(component.densityLabel)
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(isSelected ? .white : secondaryTextColor)
+                .multilineTextAlignment(.trailing)
+
+            if showsDisclosure {
+                Image(systemName: "chevron.down")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundColor(secondaryTextColor)
+                    .padding(.leading, 4)
+            }
+        }
+        .frame(height: 30)
+        .padding(.horizontal, 15)
+        .padding(.vertical, 10)
+        .background(isSelected ? ThemeColors.buttonSettings : Color.clear)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+    }
+
+    // MARK: - Calculation
+
+    private var volumeValue: Double? { parse(volume) }
+    private var startDensityValue: Double? { parse(startDensity) }
+    private var finishDensityValue: Double? { parse(finishDensity) }
+
+    private var resultsAvailable: Bool {
+        guard
+            let volumeValue,
+            let startDensityValue,
+            let finishDensityValue
+        else { return false }
+
+        return volumeValue > 0
+            && finishDensityValue > startDensityValue
+            && finishDensityValue < selectedComponent.rawValue
+    }
+
+    private var weightingAgentMassValue: Double? {
+        guard
+            resultsAvailable,
+            let volumeValue,
+            let startDensityValue,
+            let finishDensityValue
+        else { return nil }
+
+        return calculator.weightingAgentMass(
+            volume: volumeValue,
+            startDensity: startDensityValue,
+            finishDensity: finishDensityValue,
+            componentDensity: selectedComponent.rawValue
+        )
+    }
+
+    private var finishVolumeValue: Double? {
+        guard let volumeValue, let weightingAgentMassValue else { return nil }
+
+        return calculator.weightedMudVolume(
+            volume: volumeValue,
+            weightingAgentMass: weightingAgentMassValue,
+            componentDensity: selectedComponent.rawValue
+        )
+    }
+
+    private var formattedWeightingAgentMass: String? {
+        guard let weightingAgentMassValue else { return nil }
+        return numberFormatter(fraction: 0).string(from: NSNumber(value: weightingAgentMassValue))
+    }
+
+    private var formattedFinishVolume: String? {
+        guard let finishVolumeValue else { return nil }
+        return numberFormatter(fraction: 0).string(from: NSNumber(value: finishVolumeValue))
+    }
+
+    private var validationMessage: String {
+        guard volumeValue != nil || startDensityValue != nil || finishDensityValue != nil else {
+            return "Заполните все поля чтобы увидеть результаты расчёта"
+        }
+
+        guard let volumeValue, volumeValue > 0 else {
+            return "Введите объём раствора больше нуля"
+        }
+
+        guard let startDensityValue, let finishDensityValue else {
+            return "Введите исходную и требуемую плотность"
+        }
+
+        if finishDensityValue <= startDensityValue {
+            return NSLocalizedString("weieghtingEror", comment: "")
+        }
+
+        if finishDensityValue >= selectedComponent.rawValue {
+            return "Требуемая плотность должна быть меньше плотности выбранного утяжелителя"
+        }
+
+        return "Заполните все поля чтобы увидеть результаты расчёта"
+    }
+
+    private func parse(_ value: String) -> Double? {
+        let normalized = value.replacingOccurrences(of: ",", with: ".")
+        return Double(normalized)
+    }
+
+    private func numberFormatter(fraction: Int) -> NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = fraction
+        formatter.maximumFractionDigits = fraction
+        formatter.locale = Locale.current
+        return formatter
+    }
+
+    private func nextField(for current: WeightingField?) -> WeightingField? {
+        switch current {
+        case .volume: return .startDensity
+        case .startDensity: return .finishDensity
+        case .finishDensity: return .volume
+        case .none: return .volume
+        }
+    }
+
+    private func focusNext() {
+        focusedField = nextField(for: focusedField)
+    }
+}
+
+private struct WeightingInputCell: View {
+    let label: String
+    let unit: String
+    @Binding var value: String
+    let field: WeightingField
+    @FocusState.Binding var focusedField: WeightingField?
+    let corners: UIRectCorner
+    let textColor: Color
+    let background: Color
+    let border: Color
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            Text(label)
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(textColor.opacity(0.8))
+                .frame(height: 20, alignment: .leading)
+
+            HStack(spacing: 5) {
+                TextField("0", text: $value)
+                    .keyboardType(.decimalPad)
+                    .font(.system(size: 20, weight: .regular))
+                    .foregroundColor(textColor)
+                    .focused($focusedField, equals: field)
+                    .multilineTextAlignment(.leading)
+
+                Text(unit)
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(textColor.opacity(0.6))
+                    .multilineTextAlignment(.trailing)
+            }
+            .frame(height: 30)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 10)
+            .background(background)
+            .cornerRadius(14, corners: corners)
+            .overlay(
+                RoundedCorner(radius: 14, corners: corners)
+                    .stroke(border, lineWidth: 1)
+            )
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+private struct WeightingResultCard: View {
+    let weightingAgentMass: String?
+    let finishVolume: String?
+    let message: String
+    let isReady: Bool
+    let textColor: Color
+    let secondaryTextColor: Color
+    let cardColor: Color
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 26) {
+            Text("Результат утяжеления")
+                .font(.system(size: 16, weight: .medium))
+                .foregroundColor(textColor)
+                .frame(height: 20, alignment: .leading)
+
+            if isReady, let weightingAgentMass, let finishVolume {
+                VStack(alignment: .leading, spacing: 20) {
+                    resultRow(title: "Конечный объём", value: "\(finishVolume) м³")
+                    resultRow(title: "Количество утяжелителя", value: "\(weightingAgentMass) кг")
+                }
+            } else {
+                Text(message)
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(secondaryTextColor)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+        .frame(
+            maxWidth: .infinity,
+            minHeight: UIScreen.main.bounds.height * 0.48,
+            alignment: .topLeading
+        )
+        .padding(.horizontal, 25)
+        .padding(.top, 34)
+        .padding(.bottom, 26)
+        .background(cardColor)
+        .cornerRadius(28, corners: [.topLeft, .topRight])
+    }
+
+    private func resultRow(title: String, value: String) -> some View {
+        HStack(alignment: .top, spacing: 20) {
+            Text(title)
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(secondaryTextColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            Text(value)
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(textColor)
+                .multilineTextAlignment(.trailing)
+        }
+        .frame(height: 20)
+    }
+}
+
+private extension WeightComponents {
+    var displayName: String {
+        switch self {
+        case .mramor: return "Микрокальцит"
+        case .barit: return "Барит"
+        case .dolomit: return "Доломит"
+        case .siderit: return "Сидерит"
+        }
+    }
+
+    var densityLabel: String {
+        let value = String(format: "%.1f", rawValue).replacingOccurrences(of: ".", with: ",")
+        return "\(value) г/см³"
+    }
+}
+
+#Preview {
+    WeightingView()
+        .environmentObject(ThemeSettings())
+        .environmentObject(NavigationCoordinator())
+}

@@ -45,5 +45,24 @@ class CalculationManager {
         let summaString = String(summa)
         return String(format: "%.2f", summaString)
     }
+
+    func weightingAgentMass(
+        volume: Double,
+        startDensity: Double,
+        finishDensity: Double,
+        componentDensity: Double
+    ) -> Double {
+        let componentDensityKgM3 = componentDensity * 1000
+        let mass = componentDensityKgM3 * (finishDensity - startDensity) / (componentDensity - finishDensity) * volume
+        return mass.rounded()
+    }
+
+    func weightedMudVolume(
+        volume: Double,
+        weightingAgentMass: Double,
+        componentDensity: Double
+    ) -> Double {
+        volume + (weightingAgentMass / (componentDensity * 1000))
+    }
         
 }

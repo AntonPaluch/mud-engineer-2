@@ -77,7 +77,9 @@ struct MainView: View {
                 NavigationButton(title: Texts.dilution, iconName: iconName) {
                     navigationCoordinator.push(.dilution)
                 }
-                ArrowTitleView(title: Texts.weighting, imageName: iconName)
+                NavigationButton(title: Texts.weighting, iconName: iconName) {
+                    navigationCoordinator.push(.weighting)
+                }
             }
 
             Spacer()

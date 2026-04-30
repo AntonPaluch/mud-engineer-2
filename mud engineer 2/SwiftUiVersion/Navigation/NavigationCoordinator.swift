@@ -12,6 +12,7 @@ enum NavigationDestination: Hashable {
     case settings
     case drillingInterval(DrillingIntervalType, title: String)
     case dilution
+    case weighting
 }
 
 // MARK: - Navigation Coordinator
@@ -32,4 +33,3 @@ final class NavigationCoordinator: ObservableObject {
         path = NavigationPath()
     }
 }
-
