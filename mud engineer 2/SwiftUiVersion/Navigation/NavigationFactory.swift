@@ -24,8 +24,12 @@ struct NavigationFactory {
                 DrillingIntervals(title: title, intervalType: type)
                     .environmentObject(drillingViewModel)
             )
+            
+        case .dilution:
+            return AnyView(
+                DilutionView()
+            )
         }
     }
 }
-
 

@@ -44,6 +44,7 @@ struct CustomDoubleTextField: View {
                     TextField("0", text: $firstTextField)
                         .keyboardType(.decimalPad)
                         .font(.system(size: 20))
+                        .multilineTextAlignment(.leading)
                         .padding(.leading, 20)
                         .focused($focusedField, equals: firstField)
                     
@@ -60,6 +61,7 @@ struct CustomDoubleTextField: View {
                     TextField("0", text: $secondTextField)
                         .keyboardType(.decimalPad)
                         .font(.system(size: 20))
+                        .multilineTextAlignment(.leading)
                         .padding(.leading, 20)
                         .focused($focusedField, equals: secondField)
                     

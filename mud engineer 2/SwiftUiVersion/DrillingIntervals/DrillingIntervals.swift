@@ -241,15 +241,19 @@ struct DrillingIntervals: View {
         }
         .navigationBarHidden(true)
         .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Button("Next") {
-                    focusNextField()
-                }
-                Button("Done") {
-                    viewModel.update(intervalType, with: localModel)
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Button("Next") {
+                        focusNextField()
+                    }
+                    Spacer()
+                    Button("Done") {
+                        viewModel.update(intervalType, with: localModel)
 //                    viewModel.save()
-                    focusedField = nil
+                        focusedField = nil
+                    }
                 }
+                .frame(maxWidth: .infinity)
             }
         }
         .navigationBarBackButtonHidden(true)

@@ -165,6 +165,10 @@ struct WashingResult: View {
         themeSettings.isDarkModeEnabled ? ThemeColors.darkBackgroundSubView : Color.white
     }
 
+    private var minimumPanelHeight: CGFloat {
+        UIScreen.main.bounds.height * 0.72
+    }
+
     @State private var showCopyBanner = false
 
     var body: some View {
@@ -256,9 +260,9 @@ struct WashingResult: View {
             .padding(.horizontal, 25)
         }
         .foregroundColor(primaryTextColor)
+        .frame(maxWidth: .infinity, minHeight: minimumPanelHeight, alignment: .topLeading)
         .background(cardBackground)
-        .cornerRadius(28)
-        .shadow(color: Color.black.opacity(themeSettings.isDarkModeEnabled ? 0.2 : 0.1), radius: 4, x: 0, y: 2)
+        .cornerRadius(28, corners: [.topLeft, .topRight])
         .overlay(alignment: .bottom) {
             if showCopyBanner {
                 Text("Сводка скопирована")
@@ -354,13 +358,13 @@ struct WashingResult: View {
         var lines: [String] = []
 
         lines.append("Время")
-        if let fullCycle = calc.fullCycle {
+        if calc.fullCycle != nil {
             lines.append("Полный цикл: \(formattedMinutes(calc.fullCycle))")
         }
-        if let output = calc.outputDownholePack {
+        if calc.outputDownholePack != nil {
             lines.append("Выход забойной пачки: \(formattedMinutes(calc.outputDownholePack))")
         }
-        if let pumping = calc.pumpingToBottom {
+        if calc.pumpingToBottom != nil {
             lines.append("Прокачка раствора для забоя: \(formattedMinutes(calc.pumpingToBottom))")
         }
         if let oneHalf = calc.oneAndHalfCycles {

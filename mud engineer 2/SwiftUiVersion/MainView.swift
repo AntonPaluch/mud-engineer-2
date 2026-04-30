@@ -74,7 +74,9 @@ struct MainView: View {
                 .foregroundColor(textColor)
 
             VStack(spacing: 10) {
-                ArrowTitleView(title: Texts.dilution, imageName: iconName)
+                NavigationButton(title: Texts.dilution, iconName: iconName) {
+                    navigationCoordinator.push(.dilution)
+                }
                 ArrowTitleView(title: Texts.weighting, imageName: iconName)
             }
 
@@ -84,7 +86,7 @@ struct MainView: View {
         .padding(25)
         .edgesIgnoringSafeArea(.all)
         .background(themeSettings.isDarkModeEnabled ? ThemeColors.darkBackground : ThemeColors.lightBackground)
-        .preferredColorScheme(.light)
+        .preferredColorScheme(themeSettings.isDarkModeEnabled ? .dark : .light)
     }
     
 //    func startCountdownActivity() {

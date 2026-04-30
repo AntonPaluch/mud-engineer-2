@@ -11,6 +11,7 @@ import SwiftUI
 enum NavigationDestination: Hashable {
     case settings
     case drillingInterval(DrillingIntervalType, title: String)
+    case dilution
 }
 
 // MARK: - Navigation Coordinator
@@ -31,5 +32,4 @@ final class NavigationCoordinator: ObservableObject {
         path = NavigationPath()
     }
 }
-
 

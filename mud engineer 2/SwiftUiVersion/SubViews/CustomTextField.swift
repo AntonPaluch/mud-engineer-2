@@ -33,10 +33,11 @@ struct CustomTextField: View {
                     .frame(height: 50)
                 
                 HStack {
-                    TextField("", text: $numberText)
+                    TextField("0", text: $numberText)
                         .keyboardType(.decimalPad)
                         .font(.system(size: 20, weight: .regular))
                         .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+                        .multilineTextAlignment(.leading)
                         .focused($focusedField, equals: currentField) // Привязываем фокус
                     Text(secondLabel)
                         .font(.system(size: 14, weight: .regular))
