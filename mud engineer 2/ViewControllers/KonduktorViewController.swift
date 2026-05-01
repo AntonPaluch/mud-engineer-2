@@ -49,7 +49,7 @@ class KonduktorViewController: UIViewController {
     }
     
     @IBAction func raschetButton() {
-        presentAlert()
+        guard validateInput() else { return }
         allResult()
         saveValue()
         YMMYandexMetrica.reportEvent("Скважина_Кондуктор_внДиаметрКолонны_\(vnDiametrKolonni.text ?? "0")")
@@ -97,20 +97,40 @@ extension KonduktorViewController {
         present(alert, animated: true)
     }
     
-    func presentAlert() {
-    guard zaboy.text != "" else {showAlert(title: NSLocalizedString("bottomWell", comment: ""))
-       return }
-    guard dolotoMM.text != "" else {showAlert(title: NSLocalizedString("bit diameter", comment: ""))
-       return }
-    guard kKavernoznosty.text != "" else {showAlert(title: NSLocalizedString("kCavernosity", comment: ""))
-       return }
-    guard diametrInstrumenta.text != "" else {showAlert(title: NSLocalizedString("dSDP", comment: ""))
-       return }
-    guard stenkaInstrumentaMM.text != "" else {showAlert(title: NSLocalizedString("pipeWall", comment: ""))
-       return }
-    guard litrazh.text != "" else {showAlert(title: NSLocalizedString("liter", comment: ""))
-       return }
+    func validateInput() -> Bool {
+        guard isPositiveNumber(zaboy.text) else {
+            showAlert(title: NSLocalizedString("bottomWell", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(dolotoMM.text) else {
+            showAlert(title: NSLocalizedString("bit diameter", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(kKavernoznosty.text) else {
+            showAlert(title: NSLocalizedString("kCavernosity", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(diametrInstrumenta.text) else {
+            showAlert(title: NSLocalizedString("dSDP", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(stenkaInstrumentaMM.text) else {
+            showAlert(title: NSLocalizedString("pipeWall", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(litrazh.text) else {
+            showAlert(title: NSLocalizedString("liter", comment: ""))
+            return false
+        }
+        return true
   }
+
+    private func isPositiveNumber(_ text: String?) -> Bool {
+        guard let text = text?.replacingOccurrences(of: ",", with: "."),
+              let value = Double(text),
+              value.isFinite else { return false }
+        return value > 0
+    }
 }
 
 // MARK: - allResult
@@ -118,34 +138,35 @@ extension KonduktorViewController {
 extension KonduktorViewController {
 
 func allResult() {
-    guard let litrazhString = litrazh.text,
-    let litrazhh = Double(litrazhString) else { return }
+    guard let litrazhString = litrazh.text?.replacingOccurrences(of: ",", with: "."),
+          let litrazhh = Double(litrazhString),
+          litrazhh > 0 else { return }
 
     vKolonni = CalculationManager().vKolonny(
-      vnDiametrKolonni: vnDiametrKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-      dlinaKolonni: dlinaPredKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+      vnDiametrKolonni: vnDiametrKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+      dlinaKolonni: dlinaPredKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "0"
     )
     vOtkrtStvol = CalculationManager().vOtkritiStvol(
-      dDolota: dolotoMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-      zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1" ,
-      dlinaKolonni: dlinaPredKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
+      dDolota: dolotoMM.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+      zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "0" ,
+      dlinaKolonni: dlinaPredKolonni.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
       kKavernoznosty: kKavernoznosty.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
     )
     metalSbt = CalculationManager().metalSbt(
-      dInstrumenta: diametrInstrumenta.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-      stenkaSbt: stenkaInstrumentaMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-      zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+      dInstrumenta: diametrInstrumenta.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+      stenkaSbt: stenkaInstrumentaMM.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+      zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "0"
     )
-    vObchii = (Double(vKolonni) ?? 1.0) + (Double(vOtkrtStvol) ?? 1.0)
-    vSuchetomTrub = vObchii - (Double(metalSbt) ?? 1.0)
+    vObchii = (Double(vKolonni) ?? 0) + (Double(vOtkrtStvol) ?? 0)
+    vSuchetomTrub = max(vObchii - (Double(metalSbt) ?? 0), 0)
     vRastvoraVtrub = CalculationManager().vRastvoraVtrubax(
-      dInstrumenta: diametrInstrumenta.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-      stenkaSbt: stenkaInstrumentaMM.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-      zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+      dInstrumenta: diametrInstrumenta.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+      stenkaSbt: stenkaInstrumentaMM.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+      zaboy: zaboy.text?.replacingOccurrences(of: ",", with: ".") ?? "0"
     )
-    vRastvoraZatrub = vSuchetomTrub - (Double(vRastvoraVtrub) ?? 1.0)
+    vRastvoraZatrub = max(vSuchetomTrub - (Double(vRastvoraVtrub) ?? 0), 0)
     vihodZaboynoyPachki = Double(vRastvoraZatrub) / ((litrazhh * 60) / 1000)
-    prokachkaDoZaboy = (Double(vRastvoraVtrub) ?? 1.0) / ((litrazhh * 60) / 1000)
+    prokachkaDoZaboy = (Double(vRastvoraVtrub) ?? 0) / ((litrazhh * 60) / 1000)
     zhikl = vihodZaboynoyPachki + prokachkaDoZaboy
     zhiklPoltora = zhikl * 1.5
     zhiklDva = zhikl * 2

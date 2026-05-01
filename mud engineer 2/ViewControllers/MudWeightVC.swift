@@ -86,7 +86,7 @@ class MudWeightVC: UIViewController {
             finishDensity: finishDensity,
             componentDensity: weightComponent
         )
-        return String(Int(delta))
+        return String(Int(delta.rounded()))
     }
     
     func volumeFinish() -> String {

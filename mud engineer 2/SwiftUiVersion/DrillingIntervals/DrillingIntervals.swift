@@ -49,22 +49,8 @@ class DrillingIntervalsStorage {
     
     func saveData(_ dict: [String: DrillingIntervalModel]) {
         do {
-            print("DEBUG: Attempting to save dictionary:")
-            for (key, model) in dict {
-                print("  Key: \(key)")
-                print("    Model: \(model)")
-            }
-            
             let data = try JSONEncoder().encode(dict)
-            
-            // Печатаем JSON-строку, чтобы увидеть, что именно записывается
-            if let jsonString = String(data: data, encoding: .utf8) {
-                print("DEBUG: JSON to be saved:\n\(jsonString)")
-            }
-            
             userDefaults.set(data, forKey: storageKey)
-            
-            print("DEBUG: Data successfully saved to UserDefaults with key: \(storageKey)")
         } catch {
             print("Ошибка при сохранении данных: \(error)")
         }
@@ -94,9 +80,6 @@ struct DrillingIntervals: View {
 
     @State private var localModel: DrillingIntervalModel
 
-
-    private let feedbackGenerator = UINotificationFeedbackGenerator()
-
     @FocusState private var focusedField: Field?
     @State private var showResetAlert = false
 
@@ -124,7 +107,6 @@ struct DrillingIntervals: View {
                 HStack {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                        feedbackGenerator.notificationOccurred(.success)
                     }) {
                         Image(themeSettings.isDarkModeEnabled ? "backButtonDark" : "backButton")
                             .resizable()
@@ -299,7 +281,6 @@ struct DrillingIntervals: View {
     private var resetButton: some View {
         Button(action: {
             focusedField = nil
-            feedbackGenerator.notificationOccurred(.warning)
             showResetAlert = true
         }) {
             HStack(spacing: 6) {
@@ -322,6 +303,5 @@ struct DrillingIntervals: View {
     private func resetInterval() {
         localModel = .empty
         viewModel.reset(intervalType)
-        feedbackGenerator.notificationOccurred(.success)
     }
 }

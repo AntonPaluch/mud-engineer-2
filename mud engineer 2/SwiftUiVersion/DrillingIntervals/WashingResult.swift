@@ -50,7 +50,7 @@ fileprivate struct WashingCalculator {
         let volumeBehindInstrument = max(volumeWithInstrument - volumeInInstrument, 0)
 
         let pumpRate = calculatePumpRate(flowRate: flowRate)
-        let outputDownholePack = divide(volumeWithInstrument, by: pumpRate)
+        let outputDownholePack = divide(volumeBehindInstrument, by: pumpRate)
         let pumpingToBottom = divide(volumeInInstrument, by: pumpRate)
         let fullCycle = add(outputDownholePack, pumpingToBottom)
         let oneAndHalfCycles = fullCycle.map { $0 * 1.5 }

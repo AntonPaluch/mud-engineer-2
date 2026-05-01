@@ -14,15 +14,12 @@ struct NavigationButton: View {
     let iconName: String
     let action: () -> Void
 
-    private let feedbackGenerator = UINotificationFeedbackGenerator()
-
     private var textColor: Color {
         themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText
     }
 
     var body: some View {
         Button(action: {
-            feedbackGenerator.notificationOccurred(.success)
             action()
         }) {
             ArrowTitleView(
@@ -33,5 +30,4 @@ struct NavigationButton: View {
         .buttonStyle(PlainButtonStyle())
     }
 }
-
 

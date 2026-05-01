@@ -49,7 +49,7 @@ class ShankVC: UIViewController {
     }
    
     @IBAction func resultButton(_ sender: UIButton) {
-        presentAlert()
+        guard validateInput() else { return }
         allResult()
         saveValue()
         
@@ -93,19 +93,39 @@ extension ShankVC {
         present(alert, animated: true)
     }
     
-    func presentAlert() {
-        guard wellBottom.text != "" else {showAlert(title: NSLocalizedString("bottomWell", comment: ""))
-           return }
-        guard diametrDrilling.text != "" else {showAlert(title: NSLocalizedString("bit diameter", comment: ""))
-           return }
-        guard kCavernosity.text != "" else {showAlert(title: NSLocalizedString("kCavernosity", comment: ""))
-           return }
-        guard diametrDrillingPipes.text != "" else {showAlert(title: NSLocalizedString("dSDP", comment: ""))
-           return }
-        guard wallThickness.text != "" else {showAlert(title: NSLocalizedString("pipeWall", comment: ""))
-           return }
-        guard pumpLiters.text != "" else {showAlert(title: NSLocalizedString("liter", comment: ""))
-           return}
+    func validateInput() -> Bool {
+        guard isPositiveNumber(wellBottom.text) else {
+            showAlert(title: NSLocalizedString("bottomWell", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(diametrDrilling.text) else {
+            showAlert(title: NSLocalizedString("bit diameter", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(kCavernosity.text) else {
+            showAlert(title: NSLocalizedString("kCavernosity", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(diametrDrillingPipes.text) else {
+            showAlert(title: NSLocalizedString("dSDP", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(wallThickness.text) else {
+            showAlert(title: NSLocalizedString("pipeWall", comment: ""))
+            return false
+        }
+        guard isPositiveNumber(pumpLiters.text) else {
+            showAlert(title: NSLocalizedString("liter", comment: ""))
+            return false
+        }
+        return true
+    }
+
+    private func isPositiveNumber(_ text: String?) -> Bool {
+        guard let text = text?.replacingOccurrences(of: ",", with: "."),
+              let value = Double(text),
+              value.isFinite else { return false }
+        return value > 0
     }
 }
 
@@ -113,33 +133,34 @@ extension ShankVC {
 
 extension ShankVC {
     func allResult() {
-        guard let pumpLitersString = pumpLiters.text,
-        let pumpLitersDouble = Double(pumpLitersString) else { return }
+        guard let pumpLitersString = pumpLiters.text?.replacingOccurrences(of: ",", with: "."),
+              let pumpLitersDouble = Double(pumpLitersString),
+              pumpLitersDouble > 0 else { return }
         volumeColumn = CalculationManager().vKolonny(
-        vnDiametrKolonni: inDiametrColumn.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-        dlinaKolonni: longColumn.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+        vnDiametrKolonni: inDiametrColumn.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+        dlinaKolonni: longColumn.text?.replacingOccurrences(of: ",", with: ".") ?? "0"
     )
         volumeOpenBorehole = CalculationManager().vOtkritiStvol(
-        dDolota: diametrDrilling.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-        zaboy: wellBottom.text?.replacingOccurrences(of: ",", with: ".") ?? "1" ,
-        dlinaKolonni: longColumn.text ?? "1",
-        kKavernoznosty: kCavernosity.text ?? "1"
+        dDolota: diametrDrilling.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+        zaboy: wellBottom.text?.replacingOccurrences(of: ",", with: ".") ?? "0" ,
+        dlinaKolonni: longColumn.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+        kKavernoznosty: kCavernosity.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
     )
         volumePipe = CalculationManager().metalSbt(
-        dInstrumenta: diametrDrillingPipes.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-        stenkaSbt: wallThickness.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-        zaboy: wellBottom.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+        dInstrumenta: diametrDrillingPipes.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+        stenkaSbt: wallThickness.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+        zaboy: wellBottom.text?.replacingOccurrences(of: ",", with: ".") ?? "0"
     )
-        volumeTotal = (Double(volumeColumn) ?? 1.0) + (Double(volumeOpenBorehole) ?? 1.0)
-        volumeincludingPipes = volumeTotal - (Double(volumePipe) ?? 1.0)
+        volumeTotal = (Double(volumeColumn) ?? 0) + (Double(volumeOpenBorehole) ?? 0)
+        volumeincludingPipes = max(volumeTotal - (Double(volumePipe) ?? 0), 0)
         volumeInPipes = CalculationManager().vRastvoraVtrubax(
-        dInstrumenta: diametrDrillingPipes.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-        stenkaSbt: wallThickness.text?.replacingOccurrences(of: ",", with: ".") ?? "1",
-        zaboy: wellBottom.text?.replacingOccurrences(of: ",", with: ".") ?? "1"
+        dInstrumenta: diametrDrillingPipes.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+        stenkaSbt: wallThickness.text?.replacingOccurrences(of: ",", with: ".") ?? "0",
+        zaboy: wellBottom.text?.replacingOccurrences(of: ",", with: ".") ?? "0"
     )
-        volumeBehindPipes = volumeincludingPipes - (Double(volumeInPipes) ?? 1.0)
-        outputDownholePack = Double(volumeincludingPipes) / ((pumpLitersDouble * 60) / 1000)
-        pumpingToBottomWell = (Double(volumeInPipes) ?? 1.0) / ((pumpLitersDouble * 60) / 1000)
+        volumeBehindPipes = max(volumeincludingPipes - (Double(volumeInPipes) ?? 0), 0)
+        outputDownholePack = Double(volumeBehindPipes) / ((pumpLitersDouble * 60) / 1000)
+        pumpingToBottomWell = (Double(volumeInPipes) ?? 0) / ((pumpLitersDouble * 60) / 1000)
         wellFlushingCycle = outputDownholePack + pumpingToBottomWell
         wellFlushingCycleOneHalf = wellFlushingCycle * 1.5
         wellFlushingCycleTwo = wellFlushingCycle * 2

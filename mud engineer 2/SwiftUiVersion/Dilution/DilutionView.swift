@@ -79,7 +79,6 @@ struct DilutionView: View {
     
     @FocusState private var focusedField: DilutionField?
     @StateObject private var viewModel = DilutionViewModel()
-    private let feedbackGenerator = UINotificationFeedbackGenerator()
     
     @State private var localModel = DilutionModel.empty
     @State private var showResetAlert = false
@@ -198,7 +197,6 @@ struct DilutionView: View {
     private var header: some View {
         HStack {
             Button(action: {
-                feedbackGenerator.notificationOccurred(.success)
                 navigationCoordinator.pop()
             }) {
                 Image(themeSettings.isDarkModeEnabled ? "backButtonDark" : "backButton")
@@ -220,10 +218,17 @@ struct DilutionView: View {
     // MARK: - Calculation
     
     private var resultsAvailable: Bool {
-        startVolumeValue != nil &&
-        startDensityValue != nil &&
-        addedVolumeValue != nil &&
-        addedDensityValue != nil &&
+        guard let startVolumeValue,
+              let startDensityValue,
+              let addedVolumeValue,
+              let addedDensityValue else {
+            return false
+        }
+
+        return startVolumeValue > 0 &&
+        startDensityValue > 0 &&
+        addedVolumeValue > 0 &&
+        addedDensityValue > 0 &&
         totalVolumeValue > 0
     }
     
@@ -250,11 +255,11 @@ struct DilutionView: View {
     
     private var resultDensityValue: Double? {
         guard
+            resultsAvailable,
             let startV = startVolumeValue,
             let startD = startDensityValue,
             let addV = addedVolumeValue,
-            let addD = addedDensityValue,
-            totalVolumeValue > 0
+            let addD = addedDensityValue
         else { return nil }
         
         let numerator = (startV * startD) + (addV * addD)
@@ -275,8 +280,11 @@ struct DilutionView: View {
     }
     
     private func parse(_ value: String) -> Double? {
-        let normalized = value.replacingOccurrences(of: ",", with: ".")
-        return Double(normalized)
+        let normalized = value
+            .replacingOccurrences(of: ",", with: ".")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let parsed = Double(normalized), parsed.isFinite else { return nil }
+        return parsed
     }
     
     private func numberFormatter(fraction: Int) -> NumberFormatter {
@@ -305,7 +313,6 @@ struct DilutionView: View {
     private var resetButton: some View {
         Button(action: {
             focusedField = nil
-            feedbackGenerator.notificationOccurred(.warning)
             showResetAlert = true
         }) {
             HStack(spacing: 6) {
@@ -332,7 +339,6 @@ struct DilutionView: View {
     private func resetDilution() {
         localModel = .empty
         viewModel.reset()
-        feedbackGenerator.notificationOccurred(.success)
     }
 }
 

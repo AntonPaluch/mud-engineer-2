@@ -18,8 +18,6 @@ struct SettingsView: View {
         themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText
     }
     
-    private let feedbackGenerator = UINotificationFeedbackGenerator()
-    
     var body: some View {
             ZStack {
                 if themeSettings.isDarkModeEnabled {
@@ -33,7 +31,6 @@ struct SettingsView: View {
                 VStack(alignment: .leading) {
                     Button(action: {
                         navigationCoordinator.pop()
-                        feedbackGenerator.notificationOccurred(.success)
                     }) {
                         Image(themeSettings.isDarkModeEnabled ? "backButtonDark" : "backButton")
                             .resizable()

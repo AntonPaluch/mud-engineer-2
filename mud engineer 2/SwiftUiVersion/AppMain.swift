@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import IQKeyboardManagerSwift
 import YandexMobileMetrica
 
 @main
@@ -58,7 +57,7 @@ struct MyApp: App {
     }
 
     init() {
-//        configureApp()
+//        configureAnalytic()
     }
 
     private func requestNotificationPermission() {
@@ -71,17 +70,10 @@ struct MyApp: App {
             }
         }
 
-    private func configureApp() {
-        IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
-
-        configureAnalytic()
-        YMMYandexMetrica.reportEvent("Запуск приложеньки")
-    }
-
     private func configureAnalytic() {
         guard let configuration = YMMYandexMetricaConfiguration(apiKey: "b030a454-cc2f-4784-a65e-6d9db5271e05") else { return }
         YMMYandexMetrica.activate(with: configuration)
+        YMMYandexMetrica.reportEvent("Запуск приложеньки")
     }
 }
 

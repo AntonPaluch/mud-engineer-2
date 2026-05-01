@@ -8,42 +8,76 @@
 import Foundation
 
 class CalculationManager {
+
+    private func parse(_ value: String) -> Double? {
+        let normalized = value
+            .replacingOccurrences(of: ",", with: ".")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let number = Double(normalized), number.isFinite else { return nil }
+        return number
+    }
     
     func vKolonny(vnDiametrKolonni: String, dlinaKolonni: String) -> String {
-        let v1 = ((Double(vnDiametrKolonni) ?? 1.0) / 1000) * ((Double(vnDiametrKolonni) ?? 1.0) / 1000)
-        let v2 = 0.785 * v1
-        let v3 = round(v2 * (Double(dlinaKolonni) ?? 1.0))
-        return String(v3)
+        guard let diameter = parse(vnDiametrKolonni), diameter > 0,
+              let length = parse(dlinaKolonni), length > 0 else {
+            return "0.00"
+        }
+
+        let diameterMeters = diameter / 1000
+        let volume = Double.pi / 4 * pow(diameterMeters, 2) * length
+        return String(format: "%.2f", volume)
     }
     
     func vOtkritiStvol(dDolota: String, zaboy: String, dlinaKolonni: String, kKavernoznosty: String) -> String {
-        let dlina = (Double(zaboy) ?? 1.0) - (Double(dlinaKolonni) ?? 1.0)
-        let kvadrat = ((Double(dDolota) ?? 1.0) / 1000) * ((Double(dDolota) ?? 1.0) / 1000)
-        let vOtkrit = 0.785 * kvadrat * dlina * (Double(kKavernoznosty) ?? 1.0)
-        return String(format: "%.2f", vOtkrit)
+        guard let bitDiameter = parse(dDolota), bitDiameter > 0,
+              let depth = parse(zaboy), depth > 0 else {
+            return "0.00"
+        }
+
+        let previousColumnLength = max(parse(dlinaKolonni) ?? 0, 0)
+        let cavernosity = max(parse(kKavernoznosty) ?? 1, 0)
+        let openHoleLength = max(depth - previousColumnLength, 0)
+        let bitDiameterMeters = bitDiameter / 1000
+        let volume = Double.pi / 4 * pow(bitDiameterMeters, 2) * openHoleLength * cavernosity
+        return String(format: "%.2f", volume)
     }
     
     func metalSbt(dInstrumenta: String, stenkaSbt: String, zaboy: String) -> String {
-        let n1 = pow(((Double(dInstrumenta) ?? 1.0) / 1000), 2)
-        let n2 = ((Double(dInstrumenta) ?? 1.0) - 2 * (Double(stenkaSbt) ?? 1.0)) / 1000
-        let n3 = pow(n2, 2)
-        let n4 = n1 - n3
-        let n5 = 0.785 * n4 * (Double(zaboy) ?? 1.0)
-        return String(format: "%.2f", n5)
+        guard let outerDiameter = parse(dInstrumenta), outerDiameter > 0,
+              let wallThickness = parse(stenkaSbt), wallThickness > 0,
+              let depth = parse(zaboy), depth > 0 else {
+            return "0.00"
+        }
+
+        let innerDiameter = outerDiameter - 2 * wallThickness
+        guard innerDiameter > 0 else { return "0.00" }
+
+        let outerDiameterMeters = outerDiameter / 1000
+        let innerDiameterMeters = innerDiameter / 1000
+        let outerArea = Double.pi / 4 * pow(outerDiameterMeters, 2)
+        let innerArea = Double.pi / 4 * pow(innerDiameterMeters, 2)
+        let volume = max(outerArea - innerArea, 0) * depth
+        return String(format: "%.2f", volume)
     }
     
     func vRastvoraVtrubax(dInstrumenta: String, stenkaSbt: String, zaboy: String) -> String {
-        let n1 = 2 * (Double(stenkaSbt) ?? 1.0)
-        let n2 = ((Double(dInstrumenta) ?? 1.0) - n1) / 1000
-        let n3 = pow(n2, 2)
-        let n4 = 0.785 * n3 * (Double(zaboy) ?? 1.0)
-        return String(format: "%.2f", n4)
+        guard let outerDiameter = parse(dInstrumenta), outerDiameter > 0,
+              let wallThickness = parse(stenkaSbt), wallThickness > 0,
+              let depth = parse(zaboy), depth > 0 else {
+            return "0.00"
+        }
+
+        let innerDiameter = outerDiameter - 2 * wallThickness
+        guard innerDiameter > 0 else { return "0.00" }
+
+        let innerDiameterMeters = innerDiameter / 1000
+        let volume = Double.pi / 4 * pow(innerDiameterMeters, 2) * depth
+        return String(format: "%.2f", volume)
     }
     
     func rascetChikla(vihodZaboynoy: Double, prokachkaDozaboy: Double) -> String {
         let summa = vihodZaboynoy + prokachkaDozaboy
-        let summaString = String(summa)
-        return String(format: "%.2f", summaString)
+        return String(format: "%.2f", summa)
     }
 
     func weightingAgentMass(
@@ -52,9 +86,16 @@ class CalculationManager {
         finishDensity: Double,
         componentDensity: Double
     ) -> Double {
+        guard volume > 0,
+              startDensity > 0,
+              finishDensity > startDensity,
+              componentDensity > finishDensity else {
+            return 0
+        }
+
         let componentDensityKgM3 = componentDensity * 1000
         let mass = componentDensityKgM3 * (finishDensity - startDensity) / (componentDensity - finishDensity) * volume
-        return mass.rounded()
+        return mass
     }
 
     func weightedMudVolume(
@@ -62,7 +103,11 @@ class CalculationManager {
         weightingAgentMass: Double,
         componentDensity: Double
     ) -> Double {
-        volume + (weightingAgentMass / (componentDensity * 1000))
+        guard volume > 0, weightingAgentMass >= 0, componentDensity > 0 else {
+            return 0
+        }
+
+        return volume + (weightingAgentMass / (componentDensity * 1000))
     }
         
 }

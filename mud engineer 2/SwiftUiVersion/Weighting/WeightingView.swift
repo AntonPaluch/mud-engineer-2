@@ -77,7 +77,6 @@ struct WeightingView: View {
 
     @FocusState private var focusedField: WeightingField?
     @StateObject private var viewModel = WeightingViewModel()
-    private let feedbackGenerator = UINotificationFeedbackGenerator()
     private let calculator = CalculationManager()
 
     @State private var localModel = WeightingModel.empty
@@ -179,7 +178,6 @@ struct WeightingView: View {
     private var header: some View {
         HStack {
             Button(action: {
-                feedbackGenerator.notificationOccurred(.success)
                 navigationCoordinator.pop()
             }) {
                 Image(themeSettings.isDarkModeEnabled ? "backButtonDark" : "backButton")
@@ -254,6 +252,7 @@ struct WeightingView: View {
                         }
                     }
                     .padding(5)
+                    .frame(maxWidth: .infinity)
                     .background(inputBackground)
                     .clipShape(RoundedRectangle(cornerRadius: 14))
                     .overlay(
@@ -280,6 +279,8 @@ struct WeightingView: View {
                         )
                     }
                     .buttonStyle(.plain)
+                    .frame(maxWidth: .infinity)
+                    .contentShape(RoundedRectangle(cornerRadius: 14))
                 }
             }
         }
@@ -348,6 +349,8 @@ struct WeightingView: View {
             materialRow(component, isSelected: isSelected, showsDisclosure: false)
         }
         .buttonStyle(.plain)
+        .frame(maxWidth: .infinity)
+        .contentShape(Rectangle())
     }
 
     private func materialRow(
@@ -376,7 +379,9 @@ struct WeightingView: View {
         .frame(height: 30)
         .padding(.horizontal, 15)
         .padding(.vertical, 10)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .background(isSelected ? ThemeColors.buttonSettings : Color.clear)
+        .contentShape(RoundedRectangle(cornerRadius: 14))
         .clipShape(RoundedRectangle(cornerRadius: 14))
     }
 
@@ -469,8 +474,11 @@ struct WeightingView: View {
     }
 
     private func parse(_ value: String) -> Double? {
-        let normalized = value.replacingOccurrences(of: ",", with: ".")
-        return Double(normalized)
+        let normalized = value
+            .replacingOccurrences(of: ",", with: ".")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let parsed = Double(normalized), parsed.isFinite else { return nil }
+        return parsed
     }
 
     private func numberFormatter(fraction: Int) -> NumberFormatter {
@@ -504,7 +512,6 @@ struct WeightingView: View {
     private var resetButton: some View {
         Button(action: {
             focusedField = nil
-            feedbackGenerator.notificationOccurred(.warning)
             showResetAlert = true
         }) {
             HStack(spacing: 6) {
@@ -532,7 +539,6 @@ struct WeightingView: View {
         localModel = .empty
         isComponentPickerExpanded = false
         viewModel.reset()
-        feedbackGenerator.notificationOccurred(.success)
     }
 }
 
