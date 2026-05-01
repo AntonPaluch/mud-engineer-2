@@ -50,12 +50,22 @@ struct SettingsView: View {
                         .padding(.top, 28)
                                                         
                     SettingsThemeTogleView(isDarkModeEnabled: $themeSettings.isDarkModeEnabled)
+                        .environmentObject(themeSettings)
+                        .padding(.top, 15)
+
+                    Text(Texts.palette)
+                        .font(.subheadline)
+                        .foregroundColor(textColor)
+                        .padding(.top, 28)
+
+                    SettingsPaletteToggleView()
+                        .environmentObject(themeSettings)
                         .padding(.top, 15)
                                 
                     Text(Texts.units)
                         .font(.subheadline)
                         .foregroundColor(textColor)
-                        .padding(.top, 35)
+                        .padding(.top, 28)
                     
                     SettingsUnitsTogleView()
                         .environmentObject(themeSettings)
@@ -75,6 +85,7 @@ struct SettingsView: View {
     private enum Texts {
         static var settings: String { L10n.tr("preferenceVC") }
         static var theme: String { L10n.tr("swiftui.theme") }
+        static var palette: String { L10n.tr("swiftui.palette") }
         static var units: String { L10n.tr("swiftui.units") }
     }
 }

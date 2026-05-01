@@ -94,6 +94,10 @@
 "swiftui.material.dolomite" = "Dolomite";
 "swiftui.material.siderite" = "Siderite";
 "swiftui.theme" = "Theme";
+"swiftui.palette" = "Palette";
+"swiftui.palette.indigo" = "Indigo";
+"swiftui.palette.ocean" = "Ocean";
+"swiftui.palette.cosmicOrange" = "Orange";
 "swiftui.units" = "Units";
 "swiftui.theme.light" = "Light";
 "swiftui.theme.dark" = "Dark";

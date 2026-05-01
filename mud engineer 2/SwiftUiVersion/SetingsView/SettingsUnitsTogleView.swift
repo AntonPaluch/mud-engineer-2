@@ -11,6 +11,10 @@ struct SettingsUnitsTogleView: View {
     @EnvironmentObject var themeSettings: ThemeSettings
     @EnvironmentObject var unitSettings: UnitSettings
     @EnvironmentObject var drillingViewModel: DrillingIntervalsViewModel
+
+    private var accentColor: Color {
+        ThemeColors.previewAccent(for: themeSettings.palette)
+    }
     
     var body: some View {
         HStack {
@@ -23,7 +27,7 @@ struct SettingsUnitsTogleView: View {
                                 
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
-                    .background(unitSettings.isImperialEnabled ? Color.clear : ThemeColors.buttonSettings)
+                    .background(unitSettings.isImperialEnabled ? Color.clear : accentColor)
                     .cornerRadius(16)
             })
             .frame(maxWidth: .infinity)
@@ -38,7 +42,7 @@ struct SettingsUnitsTogleView: View {
                     .foregroundColor((unitSettings.isImperialEnabled || themeSettings.isDarkModeEnabled) ? ThemeColors.lightText : ThemeColors.darkText)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
-                    .background(unitSettings.isImperialEnabled ? ThemeColors.buttonSettings : Color.clear)
+                    .background(unitSettings.isImperialEnabled ? accentColor : Color.clear)
                     .cornerRadius(16)
             })
             .frame(maxWidth: .infinity)

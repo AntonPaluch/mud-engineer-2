@@ -27,6 +27,7 @@
 		3EC2157F2D281C8E00A2A92D /* DrillingIntervalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2157E2D281C8E00A2A92D /* DrillingIntervalsViewModel.swift */; };
 		3EF53DA129D99F9600921996 /* SettingsThemeTogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */; };
 		3EF53DA429D9B67700921996 /* SettingsUnitsTogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF53DA329D9B67600921996 /* SettingsUnitsTogleView.swift */; };
+		AA0000112CE5DC6400F767F9 /* SettingsPaletteToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000122CE5DC6400F767F9 /* SettingsPaletteToggleView.swift */; };
 		8CD7771D0546259CE518B3CE /* DilutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC9EE03940B5D48A479FB /* DilutionView.swift */; };
 		3EFF65E029EC0FEF003F2902 /* UnitSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF65DF29EC0FEF003F2902 /* UnitSettings.swift */; };
 		3EFF65E229EC1100003F2902 /* UnitKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF65E129EC1100003F2902 /* UnitKey.swift */; };
@@ -115,6 +116,7 @@
 		3EC2157E2D281C8E00A2A92D /* DrillingIntervalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillingIntervalsViewModel.swift; sourceTree = "<group>"; };
 		3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeTogleView.swift; sourceTree = "<group>"; };
 		3EF53DA329D9B67600921996 /* SettingsUnitsTogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUnitsTogleView.swift; sourceTree = "<group>"; };
+		AA0000122CE5DC6400F767F9 /* SettingsPaletteToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPaletteToggleView.swift; sourceTree = "<group>"; };
 		47AEC9EE03940B5D48A479FB /* DilutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DilutionView.swift; sourceTree = "<group>"; };
 		3EFF65DF29EC0FEF003F2902 /* UnitSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSettings.swift; sourceTree = "<group>"; };
 		3EFF65E129EC1100003F2902 /* UnitKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitKey.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				3E1F0EC629D8A3E400C159FA /* SettingsView.swift */,
 				3EF53DA029D99F9600921996 /* SettingsThemeTogleView.swift */,
 				3EF53DA329D9B67600921996 /* SettingsUnitsTogleView.swift */,
+				AA0000122CE5DC6400F767F9 /* SettingsPaletteToggleView.swift */,
 			);
 			path = SetingsView;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				7EB376D826E7C51700F71DBF /* PurchaseVC.swift in Sources */,
 				3EF53DA129D99F9600921996 /* SettingsThemeTogleView.swift in Sources */,
 				3EF53DA429D9B67700921996 /* SettingsUnitsTogleView.swift in Sources */,
+				AA0000112CE5DC6400F767F9 /* SettingsPaletteToggleView.swift in Sources */,
 				3EB23B862CE64890008A45DE /* DebugFrameModifier.swift in Sources */,
 				3EFF65E229EC1100003F2902 /* UnitKey.swift in Sources */,
 				7EB376D426E7BE1700F71DBF /* UIButtonExtensions.swift in Sources */,

@@ -190,14 +190,14 @@ struct WashingResult: View {
                     Image(systemName: "doc.on.doc")
                         .font(.system(size: 18, weight: .semibold))
                         .padding(8)
-                        .background(.ultraThinMaterial, in: Circle())
+                        .background(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.22 : 0.10), in: Circle())
                         .overlay(
                             Circle()
-                                .stroke(Color.white.opacity(themeSettings.isDarkModeEnabled ? 0.1 : 0.2))
+                                .stroke(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.38 : 0.28))
                         )
                 }
                 .applyGlassEffect()
-                .foregroundColor(primaryTextColor)
+                .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.buttonSettings)
                 .accessibilityLabel(L10n.tr("swiftui.copySummary"))
             }
             .padding(.horizontal, 25)
@@ -269,13 +269,13 @@ struct WashingResult: View {
             if showCopyBanner {
                 Text(L10n.tr("swiftui.summaryCopied"))
                     .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(primaryTextColor)
+                    .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.buttonSettings)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
-                    .background(.ultraThinMaterial, in: Capsule())
+                    .background(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.22 : 0.10), in: Capsule())
                     .overlay(
                         Capsule()
-                            .stroke(Color.white.opacity(themeSettings.isDarkModeEnabled ? 0.1 : 0.2))
+                            .stroke(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.38 : 0.28))
                     )
                     .padding(.bottom, 16)
                     .transition(.move(edge: .bottom).combined(with: .opacity))

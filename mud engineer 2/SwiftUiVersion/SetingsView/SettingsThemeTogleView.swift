@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct SettingsThemeTogleView: View {
+    @EnvironmentObject var themeSettings: ThemeSettings
     
     @Binding var isDarkModeEnabled: Bool
+
+    private var accentColor: Color {
+        ThemeColors.previewAccent(for: themeSettings.palette)
+    }
+
+    private var containerColor: Color {
+        isDarkModeEnabled ? Color.white.opacity(0.1) : Color.white
+    }
        
        init(isDarkModeEnabled: Binding<Bool>) {
            self._isDarkModeEnabled = isDarkModeEnabled
@@ -23,10 +32,9 @@ struct SettingsThemeTogleView: View {
                 Text(Texts.light)
                     .font(.custom("SFUIDisplay-Medium", fixedSize: 16))
                     .foregroundColor(ThemeColors.lightText)
-                    .foregroundColor(.black)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
-                    .background(isDarkModeEnabled ? Color.clear : ThemeColors.buttonSettings)
+                    .background(isDarkModeEnabled ? Color.clear : accentColor)
                     .cornerRadius(16)
             })
             .frame(maxWidth: .infinity)
@@ -41,7 +49,7 @@ struct SettingsThemeTogleView: View {
                     .foregroundColor(isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
-                    .background(isDarkModeEnabled ? ThemeColors.buttonSettings : Color.clear)
+                    .background(isDarkModeEnabled ? accentColor : Color.clear)
                     .cornerRadius(16)
             })
             .frame(maxWidth: .infinity)
@@ -49,7 +57,7 @@ struct SettingsThemeTogleView: View {
         .padding(5)
         .frame(height: 60)
         .frame(maxWidth: .infinity)
-        .background(isDarkModeEnabled ? Color.white.opacity(0.1) : Color.white)
+        .background(containerColor)
         .cornerRadius(16)
         .shadow(radius: 1)
     }
@@ -65,5 +73,6 @@ struct SettingsThemeTogleView: View {
 struct SettingsTogleView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsThemeTogleView(isDarkModeEnabled: .constant(true))
+            .environmentObject(ThemeSettings())
     }
 }

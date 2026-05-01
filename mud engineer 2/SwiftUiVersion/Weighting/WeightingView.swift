@@ -514,14 +514,14 @@ struct WeightingView: View {
             .font(.system(size: 14, weight: .semibold))
             .padding(.horizontal, 18)
             .padding(.vertical, 10)
-            .background(.ultraThinMaterial, in: Capsule())
+            .background(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.22 : 0.10), in: Capsule())
             .overlay(
                 Capsule()
-                    .stroke(Color.white.opacity(themeSettings.isDarkModeEnabled ? 0.1 : 0.2))
+                    .stroke(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.38 : 0.28))
             )
         }
         .applyGlassEffect()
-        .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
+        .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.buttonSettings)
     }
 
     private func saveLocalModel() {

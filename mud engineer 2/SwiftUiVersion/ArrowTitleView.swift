@@ -24,8 +24,12 @@ struct ArrowTitleView: View {
         }
         .frame(height: 60)
         .background(themeSettings.isDarkModeEnabled ? ThemeColors.darkBackgroundSubView : ThemeColors.lightBackgroundSubView)
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.24 : 0.14), lineWidth: 1)
+        )
         .cornerRadius(14)
-        .shadow(radius: 1)
+        .shadow(color: ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.18 : 0.08), radius: 8, x: 0, y: 4)
     }
 }
 
