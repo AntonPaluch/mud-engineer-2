@@ -176,7 +176,7 @@ struct WashingResult: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                Text("Результат промывки")
+                Text(L10n.tr("swiftui.washing.resultTitle"))
                     .font(.title2.weight(.bold))
                     .foregroundColor(primaryTextColor)
                 Spacer()
@@ -198,63 +198,63 @@ struct WashingResult: View {
                 }
                 .applyGlassEffect()
                 .foregroundColor(primaryTextColor)
-                .accessibilityLabel("Копировать сводку")
+                .accessibilityLabel(L10n.tr("swiftui.copySummary"))
             }
             .padding(.horizontal, 25)
             .padding(.top, 34)
 
             VStack(alignment: .leading, spacing: 20) {
-                sectionTitle("Время")
+                sectionTitle(L10n.tr("swiftui.time"))
 
                 resultRow(
-                    title: "Полный цикл",
+                    title: L10n.tr("swiftui.fullCycle"),
                     value: calculation.isPumpingAvailable ? formattedMinutes(calculation.fullCycle) : localized("notFlushed")
                 )
                 resultRow(
-                    title: "Выход забойной пачки",
+                    title: L10n.tr("swiftui.outputDownholePack"),
                     value: formattedMinutes(calculation.outputDownholePack)
                 )
                 resultRow(
-                    title: "Прокачка раствора для забоя",
+                    title: L10n.tr("swiftui.pumpingToBottom"),
                     value: formattedMinutes(calculation.pumpingToBottom)
                 )
                 resultRow(
-                    title: "Полтора цикла",
+                    title: L10n.tr("swiftui.oneAndHalfCycles"),
                     value: formattedHoursMinutes(calculation.oneAndHalfCycles)
                 )
                 resultRow(
-                    title: "Два цикла промывки",
+                    title: L10n.tr("swiftui.twoWashingCycles"),
                     value: formattedHoursMinutes(calculation.twoCycles)
                 )
 
-                sectionTitle("Объем")
+                sectionTitle(L10n.tr("swiftui.volume"))
 
                 resultRow(
-                    title: "С учётом инструмента",
+                    title: L10n.tr("swiftui.volumeWithInstrument"),
                     value: formattedVolume(calculation.volumeWithInstrument)
                 )
                 resultRow(
-                    title: "В инструменте",
+                    title: L10n.tr("swiftui.volumeInInstrument"),
                     value: formattedVolume(calculation.volumeInInstrument)
                 )
                 resultRow(
-                    title: "В затрубе",
+                    title: L10n.tr("swiftui.volumeBehindInstrument"),
                     value: formattedVolume(calculation.volumeBehindInstrument)
                 )
                 resultRow(
-                    title: "В скважине без инструмента",
+                    title: L10n.tr("swiftui.volumeWithoutInstrument"),
                     value: formattedVolume(calculation.volumeTotal)
                 )
                 resultRow(
-                    title: "Объём инструмента",
+                    title: L10n.tr("swiftui.instrumentVolume"),
                     value: formattedVolume(calculation.volumeMetal)
                 )
                 resultRow(
-                    title: "Объём в колонне",
+                    title: L10n.tr("swiftui.columnVolume"),
                     value: formattedVolume(calculation.volumeColumn)
                 )
                 resultRow(
-                    title: "Открытый ствол",
+                    title: L10n.tr("swiftui.openHole"),
                     value: formattedVolume(calculation.volumeOpenHole)
                 )
                 .padding(.bottom, 50)
@@ -267,7 +267,7 @@ struct WashingResult: View {
         .cornerRadius(28, corners: [.topLeft, .topRight])
         .overlay(alignment: .bottom) {
             if showCopyBanner {
-                Text("Сводка скопирована")
+                Text(L10n.tr("swiftui.summaryCopied"))
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundColor(primaryTextColor)
                     .padding(.horizontal, 20)
@@ -361,31 +361,31 @@ struct WashingResult: View {
         let calc = calculation
         var lines: [String] = []
 
-        lines.append("Время")
+        lines.append(L10n.tr("swiftui.time"))
         if calc.fullCycle != nil {
-            lines.append("Полный цикл: \(formattedMinutes(calc.fullCycle))")
+            lines.append("\(L10n.tr("swiftui.fullCycle")): \(formattedMinutes(calc.fullCycle))")
         }
         if calc.outputDownholePack != nil {
-            lines.append("Выход забойной пачки: \(formattedMinutes(calc.outputDownholePack))")
+            lines.append("\(L10n.tr("swiftui.outputDownholePack")): \(formattedMinutes(calc.outputDownholePack))")
         }
         if calc.pumpingToBottom != nil {
-            lines.append("Прокачка раствора для забоя: \(formattedMinutes(calc.pumpingToBottom))")
+            lines.append("\(L10n.tr("swiftui.pumpingToBottom")): \(formattedMinutes(calc.pumpingToBottom))")
         }
         if let oneHalf = calc.oneAndHalfCycles {
-            lines.append("Полтора цикла: \(formattedHoursMinutes(oneHalf))")
+            lines.append("\(L10n.tr("swiftui.oneAndHalfCycles")): \(formattedHoursMinutes(oneHalf))")
         }
         if let twoCycles = calc.twoCycles {
-            lines.append("Два цикла промывки: \(formattedHoursMinutes(twoCycles))")
+            lines.append("\(L10n.tr("swiftui.twoWashingCycles")): \(formattedHoursMinutes(twoCycles))")
         }
 
-        lines.append("Объем")
-        lines.append("С учётом инструмента: \(formattedVolume(calc.volumeWithInstrument))")
-        lines.append("В инструменте: \(formattedVolume(calc.volumeInInstrument))")
-        lines.append("В затрубе: \(formattedVolume(calc.volumeBehindInstrument))")
-        lines.append("В скважине без инструмента: \(formattedVolume(calc.volumeTotal))")
-        lines.append("Объём инструмента: \(formattedVolume(calc.volumeMetal))")
-        lines.append("Объём в колонне: \(formattedVolume(calc.volumeColumn))")
-        lines.append("Открытый ствол: \(formattedVolume(calc.volumeOpenHole))")
+        lines.append(L10n.tr("swiftui.volume"))
+        lines.append("\(L10n.tr("swiftui.volumeWithInstrument")): \(formattedVolume(calc.volumeWithInstrument))")
+        lines.append("\(L10n.tr("swiftui.volumeInInstrument")): \(formattedVolume(calc.volumeInInstrument))")
+        lines.append("\(L10n.tr("swiftui.volumeBehindInstrument")): \(formattedVolume(calc.volumeBehindInstrument))")
+        lines.append("\(L10n.tr("swiftui.volumeWithoutInstrument")): \(formattedVolume(calc.volumeTotal))")
+        lines.append("\(L10n.tr("swiftui.instrumentVolume")): \(formattedVolume(calc.volumeMetal))")
+        lines.append("\(L10n.tr("swiftui.columnVolume")): \(formattedVolume(calc.volumeColumn))")
+        lines.append("\(L10n.tr("swiftui.openHole")): \(formattedVolume(calc.volumeOpenHole))")
 
         return lines.joined(separator: "\n")
     }

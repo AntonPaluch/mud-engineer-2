@@ -55,8 +55,8 @@ struct SettingsThemeTogleView: View {
     }
     
     private enum Texts {
-        static let light = "Светлая"
-        static let dark = "Тёмная"
+        static var light: String { L10n.tr("swiftui.theme.light") }
+        static var dark: String { L10n.tr("swiftui.theme.dark") }
     }
 }
 

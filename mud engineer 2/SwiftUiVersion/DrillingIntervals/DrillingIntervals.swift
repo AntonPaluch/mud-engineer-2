@@ -149,11 +149,11 @@ struct DrillingIntervals: View {
                     
                     VStack() {
                         HStack() {
-                            Text("Предыдущая колонна")
+                            Text(L10n.tr("swiftui.previousColumn"))
                                 .foregroundColor(
                                     themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                                 .font(.system(size: 16, weight: .medium))
-                            Text("(не обяз.)")
+                            Text(L10n.tr("swiftui.optionalShort"))
                                 .foregroundColor(
                                     themeSettings.isDarkModeEnabled ? ThemeColors.lightText.opacity(0.4) : ThemeColors.darkText)
                                 .font(.system(size: 16, weight: .medium))
@@ -165,8 +165,8 @@ struct DrillingIntervals: View {
                             focusedField: $focusedField,
                             firstField: .firstLength,
                             secondField: .firstDiameter,
-                            firstLabel: "Длина",
-                            secondLabel: "Внутр. диаметр",
+                            firstLabel: L10n.tr("swiftui.length"),
+                            secondLabel: L10n.tr("swiftui.innerDiameter"),
                             firstUnit: units.lengthUnit,
                             secondUnit: units.diameterUnit,
                             firstTextField: $localModel.firstLength,
@@ -174,7 +174,7 @@ struct DrillingIntervals: View {
                         )
                         .focused($focusedField, equals: .firstLength)
                         
-                        Text("Открытый ствол")
+                        Text(L10n.tr("swiftui.openHole"))
                             .font(.system(size: 16, weight: .medium))
                             .foregroundColor(
                                 themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
@@ -185,7 +185,7 @@ struct DrillingIntervals: View {
                             CustomTextField(
                                 focusedField: $focusedField,
                                 currentField: .depth,
-                                firstLabel: "Забой",
+                                firstLabel: L10n.tr("swiftui.depth"),
                                 secondLabel: units.lengthUnit,
                                 numberText: $localModel.depth
                             )
@@ -193,7 +193,7 @@ struct DrillingIntervals: View {
                             CustomTextField(
                                 focusedField: $focusedField,
                                 currentField: .bitDiameter,
-                                firstLabel: "Диаметр долота",
+                                firstLabel: L10n.tr("swiftui.bitDiameter"),
                                 secondLabel: units.diameterUnit,
                                 numberText: $localModel.bitDiameter
                             )
@@ -203,7 +203,7 @@ struct DrillingIntervals: View {
                             CustomTextField(
                                 focusedField: $focusedField,
                                 currentField: .cavernosity,
-                                firstLabel: "Коэфф. кавернозности",
+                                firstLabel: L10n.tr("swiftui.cavernosityCoefficient"),
                                 secondLabel: "",
                                 numberText: $localModel.cavernosity
                             )
@@ -211,7 +211,7 @@ struct DrillingIntervals: View {
                             CustomTextField(
                                 focusedField: $focusedField,
                                 currentField: .steelPipe,
-                                firstLabel: "Стальные бур. трубы",
+                                firstLabel: L10n.tr("swiftui.steelDrillPipes"),
                                 secondLabel: units.diameterUnit,
                                 numberText: $localModel.steelPipe
                             )
@@ -221,7 +221,7 @@ struct DrillingIntervals: View {
                             CustomTextField(
                                 focusedField: $focusedField,
                                 currentField: .wallThickness,
-                                firstLabel: "Толщина стенки",
+                                firstLabel: L10n.tr("swiftui.wallThickness"),
                                 secondLabel: units.diameterUnit,
                                 numberText: $localModel.wallThickness
                             )
@@ -229,7 +229,7 @@ struct DrillingIntervals: View {
                             CustomTextField(
                                 focusedField: $focusedField,
                                 currentField: .flowRate,
-                                firstLabel: "Литраж (не обяз.)",
+                                firstLabel: L10n.tr("swiftui.flowRateOptional"),
                                 secondLabel: units.flowRateUnit,
                                 numberText: $localModel.flowRate
                             )
@@ -253,11 +253,11 @@ struct DrillingIntervals: View {
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 HStack {
-                    Button("Next") {
+                    Button(L10n.tr("swiftui.next")) {
                         focusNextField()
                     }
                     Spacer()
-                    Button("Done") {
+                    Button(L10n.tr("swiftui.done")) {
                         viewModel.update(intervalType, with: localModel)
 //                    viewModel.save()
                         focusedField = nil
@@ -278,13 +278,13 @@ struct DrillingIntervals: View {
         .onDisappear {
             viewModel.update(intervalType, with: localModel)
         }
-        .alert("Сброс данных", isPresented: $showResetAlert) {
-            Button("Отмена", role: .cancel) {}
-            Button("Сбросить", role: .destructive) {
+        .alert(L10n.tr("swiftui.resetData.title"), isPresented: $showResetAlert) {
+            Button(L10n.tr("swiftui.cancel"), role: .cancel) {}
+            Button(L10n.tr("swiftui.reset"), role: .destructive) {
                 resetInterval()
             }
         } message: {
-            Text("Все значения будут удалены и данные не сохранятся.")
+            Text(L10n.tr("swiftui.resetData.message"))
         }
     }
 
@@ -304,7 +304,7 @@ struct DrillingIntervals: View {
         }) {
             HStack(spacing: 6) {
                 Image(systemName: "arrow.counterclockwise")
-                Text("Сброс")
+                Text(L10n.tr("swiftui.reset"))
             }
             .font(.system(size: 14, weight: .semibold))
             .padding(.horizontal, 18)

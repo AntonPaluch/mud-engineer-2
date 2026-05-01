@@ -122,16 +122,22 @@ struct MainView: View {
     
     private enum Texts {
         static let mudFluid = "Mud Fluid"
-        static let сalculation = "Расчёт"
-        static let wellFlushing = "Промывка скважины"
-        static let conductor = "Кондуктор"
-        static let productionString = "Эксплуатационная колонна"
-        static let shank = "Хвостовик"
-        static let dilution = "Разбавление"
-        static let weighting = "Утяжеление"
-        static let mud = "Раствор"
+        static var сalculation: String { L10n.tr("swiftui.calculation") }
+        static var wellFlushing: String { L10n.tr("wellFlushing") }
+        static var conductor: String { L10n.tr("konduktor") }
+        static var productionString: String { L10n.tr("kolonna") }
+        static var shank: String { L10n.tr("hvost") }
+        static var dilution: String { L10n.tr("swiftui.dilution.short") }
+        static var weighting: String { L10n.tr("swiftui.weighting.short") }
+        static var mud: String { L10n.tr("swiftui.mud") }
     }
 
+}
+
+enum L10n {
+    static func tr(_ key: String) -> String {
+        NSLocalizedString(key, comment: "")
+    }
 }
 
 

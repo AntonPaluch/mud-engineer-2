@@ -116,10 +116,10 @@ struct DilutionView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 26) {
                         DilutionInputSection(
-                            title: "Исходный раствор",
-                            firstLabel: "Объём",
+                            title: L10n.tr("swiftui.sourceMud"),
+                            firstLabel: L10n.tr("swiftui.volume"),
                             firstUnit: unitSettings.system.volumeUnit,
-                            secondLabel: "Плотность",
+                            secondLabel: L10n.tr("swiftui.density"),
                             secondUnit: unitSettings.system.densityUnit,
                             firstField: .startVolume,
                             secondField: .startDensity,
@@ -130,10 +130,10 @@ struct DilutionView: View {
                         .padding(.horizontal, 25)
                         
                         DilutionInputSection(
-                            title: "Добавляемый раствор",
-                            firstLabel: "Объём",
+                            title: L10n.tr("swiftui.addedMud"),
+                            firstLabel: L10n.tr("swiftui.volume"),
                             firstUnit: unitSettings.system.volumeUnit,
-                            secondLabel: "Плотность",
+                            secondLabel: L10n.tr("swiftui.density"),
                             secondUnit: unitSettings.system.densityUnit,
                             firstField: .addedVolume,
                             secondField: .addedDensity,
@@ -165,9 +165,9 @@ struct DilutionView: View {
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 HStack {
-                    Button("Next") { focusNext() }
+                    Button(L10n.tr("swiftui.next")) { focusNext() }
                     Spacer()
-                    Button("Done") {
+                    Button(L10n.tr("swiftui.done")) {
                         saveLocalModel()
                         focusedField = nil
                     }
@@ -185,13 +185,13 @@ struct DilutionView: View {
         .onDisappear {
             saveLocalModel()
         }
-        .alert("Сброс данных", isPresented: $showResetAlert) {
-            Button("Отмена", role: .cancel) {}
-            Button("Сбросить", role: .destructive) {
+        .alert(L10n.tr("swiftui.resetData.title"), isPresented: $showResetAlert) {
+            Button(L10n.tr("swiftui.cancel"), role: .cancel) {}
+            Button(L10n.tr("swiftui.reset"), role: .destructive) {
                 resetDilution()
             }
         } message: {
-            Text("Все значения будут удалены и данные не сохранятся.")
+            Text(L10n.tr("swiftui.resetData.message"))
         }
     }
     
@@ -212,7 +212,7 @@ struct DilutionView: View {
     }
     
     private var title: some View {
-        Text("Разбавление раствора")
+        Text(L10n.tr("dilutionFluid"))
             .font(.system(size: 22, weight: .semibold))
             .foregroundColor(textColor)
     }
@@ -310,7 +310,7 @@ struct DilutionView: View {
         }) {
             HStack(spacing: 6) {
                 Image(systemName: "arrow.counterclockwise")
-                Text("Сброс")
+                Text(L10n.tr("swiftui.reset"))
             }
             .font(.system(size: 14, weight: .semibold))
             .padding(.horizontal, 18)
@@ -482,17 +482,17 @@ private struct ResultCard: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Результат разбавления")
+            Text(L10n.tr("swiftui.dilution.resultTitle"))
                 .font(.system(size: 18, weight: .semibold))
                 .foregroundColor(textColor)
             
             if isReady, let volume = resultVolume, let density = resultDensity {
                 VStack(alignment: .leading, spacing: 12) {
-                    resultRow(title: "Конечный объём", value: "\(volume) \(volumeUnit)")
-                    resultRow(title: "Плотность после разбавления", value: "\(density) \(densityUnit)")
+                    resultRow(title: L10n.tr("swiftui.finalVolume"), value: "\(volume) \(volumeUnit)")
+                    resultRow(title: L10n.tr("swiftui.dilution.finalDensity"), value: "\(density) \(densityUnit)")
                 }
             } else {
-                Text("Заполните все поля чтобы увидеть результаты расчёта")
+                Text(L10n.tr("swiftui.fillAllFields"))
                     .font(.system(size: 14))
                     .foregroundColor(secondaryTextColor)
                     .padding(.top, 4)

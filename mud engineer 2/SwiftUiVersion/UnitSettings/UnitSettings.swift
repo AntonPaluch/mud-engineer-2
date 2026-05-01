@@ -22,42 +22,42 @@ enum MeasurementSystem: String {
 
     var lengthUnit: String {
         switch self {
-        case .metric: return "м"
+        case .metric: return L10n.tr("swiftui.unit.meter")
         case .imperial: return "ft"
         }
     }
 
     var diameterUnit: String {
         switch self {
-        case .metric: return "мм"
+        case .metric: return L10n.tr("swiftui.unit.millimeter")
         case .imperial: return "in"
         }
     }
 
     var volumeUnit: String {
         switch self {
-        case .metric: return "м³"
+        case .metric: return L10n.tr("swiftui.unit.cubicMeter")
         case .imperial: return "bbl"
         }
     }
 
     var flowRateUnit: String {
         switch self {
-        case .metric: return "л/с"
+        case .metric: return L10n.tr("swiftui.unit.litersPerSecond")
         case .imperial: return "gpm"
         }
     }
 
     var densityUnit: String {
         switch self {
-        case .metric: return "г/см³"
+        case .metric: return L10n.tr("swiftui.unit.gramPerCubicCentimeter")
         case .imperial: return "ppg"
         }
     }
 
     var massUnit: String {
         switch self {
-        case .metric: return "кг"
+        case .metric: return L10n.tr("swiftui.unit.kilogram")
         case .imperial: return "lb"
         }
     }

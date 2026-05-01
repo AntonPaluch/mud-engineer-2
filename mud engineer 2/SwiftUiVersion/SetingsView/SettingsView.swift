@@ -73,8 +73,8 @@ struct SettingsView: View {
     }
     
     private enum Texts {
-        static let settings = "Настройки"
-        static let theme = "Тема"
-        static let units = "Единицы измерения"
+        static var settings: String { L10n.tr("preferenceVC") }
+        static var theme: String { L10n.tr("swiftui.theme") }
+        static var units: String { L10n.tr("swiftui.units") }
     }
 }

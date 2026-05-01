@@ -145,9 +145,9 @@ struct WeightingView: View {
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 HStack {
-                    Button("Next") { focusNext() }
+                    Button(L10n.tr("swiftui.next")) { focusNext() }
                     Spacer()
-                    Button("Done") {
+                    Button(L10n.tr("swiftui.done")) {
                         saveLocalModel()
                         focusedField = nil
                     }
@@ -166,13 +166,13 @@ struct WeightingView: View {
         .onDisappear {
             saveLocalModel()
         }
-        .alert("Сброс данных", isPresented: $showResetAlert) {
-            Button("Отмена", role: .cancel) {}
-            Button("Сбросить", role: .destructive) {
+        .alert(L10n.tr("swiftui.resetData.title"), isPresented: $showResetAlert) {
+            Button(L10n.tr("swiftui.cancel"), role: .cancel) {}
+            Button(L10n.tr("swiftui.reset"), role: .destructive) {
                 resetWeighting()
             }
         } message: {
-            Text("Все значения будут удалены и данные не сохранятся.")
+            Text(L10n.tr("swiftui.resetData.message"))
         }
     }
 
@@ -193,7 +193,7 @@ struct WeightingView: View {
     }
 
     private var title: some View {
-        Text("Утяжеление раствора")
+        Text(L10n.tr("weighting"))
             .font(.system(size: 22, weight: .semibold))
             .foregroundColor(textColor)
             .frame(height: 30, alignment: .leading)
@@ -201,14 +201,14 @@ struct WeightingView: View {
 
     private var sourceSection: some View {
         VStack(alignment: .leading, spacing: 15) {
-            Text("Исходный раствор")
+            Text(L10n.tr("swiftui.sourceMud"))
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(textColor)
                 .frame(height: 20, alignment: .leading)
 
             HStack(spacing: 0) {
                 WeightingInputCell(
-                    label: "Объём",
+                    label: L10n.tr("swiftui.volume"),
                     unit: unitSettings.system.volumeUnit,
                     value: $localModel.volume,
                     field: .volume,
@@ -220,7 +220,7 @@ struct WeightingView: View {
                 )
 
                 WeightingInputCell(
-                    label: "Плотность",
+                    label: L10n.tr("swiftui.density"),
                     unit: unitSettings.system.densityUnit,
                     value: $localModel.startDensity,
                     field: .startDensity,
@@ -236,13 +236,13 @@ struct WeightingView: View {
 
     private var weightingSection: some View {
         VStack(alignment: .leading, spacing: 15) {
-            Text("Утяжеление")
+            Text(L10n.tr("swiftui.weighting.short"))
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(textColor)
                 .frame(height: 20, alignment: .leading)
 
             VStack(alignment: .leading, spacing: 15) {
-                Text("Добавляемый материал")
+                Text(L10n.tr("swiftui.addedMaterial"))
                     .font(.system(size: 14, weight: .regular))
                     .foregroundColor(secondaryTextColor)
                     .frame(height: 20, alignment: .leading)
@@ -287,7 +287,7 @@ struct WeightingView: View {
 
     private var requiredDensityField: some View {
         VStack(alignment: .leading, spacing: 15) {
-            Text("Необходимая плотность на выходе")
+            Text(L10n.tr("swiftui.requiredOutputDensity"))
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(secondaryTextColor)
                 .frame(height: 20, alignment: .leading)
@@ -446,15 +446,15 @@ struct WeightingView: View {
 
     private var validationMessage: String {
         guard volumeValue != nil || startDensityValue != nil || finishDensityValue != nil else {
-            return "Заполните все поля чтобы увидеть результаты расчёта"
+            return L10n.tr("swiftui.fillAllFields")
         }
 
         guard let volumeValue, volumeValue > 0 else {
-            return "Введите объём раствора больше нуля"
+            return L10n.tr("swiftui.enterVolumeGreaterThanZero")
         }
 
         guard let startDensityValue, let finishDensityValue else {
-            return "Введите исходную и требуемую плотность"
+            return L10n.tr("swiftui.enterStartAndRequiredDensity")
         }
 
         if finishDensityValue <= startDensityValue {
@@ -462,10 +462,10 @@ struct WeightingView: View {
         }
 
         if finishDensityValue >= selectedComponent.rawValue {
-            return "Требуемая плотность должна быть меньше плотности выбранного утяжелителя"
+            return L10n.tr("swiftui.requiredDensityLessThanMaterial")
         }
 
-        return "Заполните все поля чтобы увидеть результаты расчёта"
+        return L10n.tr("swiftui.fillAllFields")
     }
 
     private func parse(_ value: String) -> Double? {
@@ -509,7 +509,7 @@ struct WeightingView: View {
         }) {
             HStack(spacing: 6) {
                 Image(systemName: "arrow.counterclockwise")
-                Text("Сброс")
+                Text(L10n.tr("swiftui.reset"))
             }
             .font(.system(size: 14, weight: .semibold))
             .padding(.horizontal, 18)
@@ -594,15 +594,15 @@ private struct WeightingResultCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 26) {
-            Text("Результат утяжеления")
+            Text(L10n.tr("swiftui.weighting.resultTitle"))
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(textColor)
                 .frame(height: 20, alignment: .leading)
 
             if isReady, let weightingAgentMass, let finishVolume {
                 VStack(alignment: .leading, spacing: 20) {
-                    resultRow(title: "Конечный объём", value: "\(finishVolume) \(volumeUnit)")
-                    resultRow(title: "Количество утяжелителя", value: "\(weightingAgentMass) \(massUnit)")
+                    resultRow(title: L10n.tr("swiftui.finalVolume"), value: "\(finishVolume) \(volumeUnit)")
+                    resultRow(title: L10n.tr("swiftui.weightingAgentAmount"), value: "\(weightingAgentMass) \(massUnit)")
                 }
             } else {
                 Text(message)
@@ -642,10 +642,10 @@ private struct WeightingResultCard: View {
 private extension WeightComponents {
     var displayName: String {
         switch self {
-        case .mramor: return "Микрокальцит"
-        case .barit: return "Барит"
-        case .dolomit: return "Доломит"
-        case .siderit: return "Сидерит"
+        case .mramor: return L10n.tr("swiftui.material.microcalcite")
+        case .barit: return L10n.tr("swiftui.material.barite")
+        case .dolomit: return L10n.tr("swiftui.material.dolomite")
+        case .siderit: return L10n.tr("swiftui.material.siderite")
         }
     }
 }

@@ -52,8 +52,8 @@ struct SettingsUnitsTogleView: View {
     }
     
     private enum Texts {
-        static let metric = "Метрические"
-        static let imperial = "Имперские"
+        static var metric: String { L10n.tr("swiftui.units.metric") }
+        static var imperial: String { L10n.tr("swiftui.units.imperial") }
     }
 
     private func select(_ system: MeasurementSystem) {
