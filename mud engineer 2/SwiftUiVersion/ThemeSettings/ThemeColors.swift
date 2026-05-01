@@ -34,9 +34,9 @@ struct ThemeColors {
         switch palette {
         case .indigo:
             return PaletteColors(
-                lightBackground: Color(red: 0.973, green: 0.976, blue: 0.976),
+                lightBackground: Color(red: 0.925, green: 0.929, blue: 0.992),
                 darkBackground: Color(red: 0.051, green: 0.102, blue: 0.157),
-                lightBackgroundSubView: Color.white,
+                lightBackgroundSubView: Color(red: 0.988, green: 0.988, blue: 1),
                 darkBackgroundSubView: Color.white.opacity(0.12),
                 darkText: Color(red: 0.157, green: 0.216, blue: 0.29),
                 accent: Color(red: 0.345, green: 0.337, blue: 0.839),
@@ -44,9 +44,9 @@ struct ThemeColors {
             )
         case .ocean:
             return PaletteColors(
-                lightBackground: Color(red: 0.933, green: 0.973, blue: 0.969),
+                lightBackground: Color(red: 0.875, green: 0.965, blue: 0.953),
                 darkBackground: Color(red: 0.024, green: 0.106, blue: 0.133),
-                lightBackgroundSubView: Color.white,
+                lightBackgroundSubView: Color(red: 0.98, green: 1, blue: 0.996),
                 darkBackgroundSubView: Color(red: 0.761, green: 0.925, blue: 0.902).opacity(0.14),
                 darkText: Color(red: 0.071, green: 0.196, blue: 0.224),
                 accent: Color(red: 0, green: 0.522, blue: 0.486),
@@ -54,9 +54,9 @@ struct ThemeColors {
             )
         case .cosmicOrange:
             return PaletteColors(
-                lightBackground: Color(red: 0.992, green: 0.961, blue: 0.925),
+                lightBackground: Color(red: 1, green: 0.925, blue: 0.843),
                 darkBackground: Color(red: 0.09, green: 0.075, blue: 0.059),
-                lightBackgroundSubView: Color.white,
+                lightBackgroundSubView: Color(red: 1, green: 0.988, blue: 0.973),
                 darkBackgroundSubView: Color(red: 1, green: 0.8, blue: 0.55).opacity(0.14),
                 darkText: Color(red: 0.22, green: 0.14, blue: 0.08),
                 accent: Color(red: 0.953, green: 0.392, blue: 0),

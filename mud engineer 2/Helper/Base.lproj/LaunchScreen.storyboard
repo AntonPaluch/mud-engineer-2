@@ -17,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Start" translatesAutoresizingMaskIntoConstraints="NO" id="ZwG-FU-Kmf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MudEngineerSplash" translatesAutoresizingMaskIntoConstraints="NO" id="ZwG-FU-Kmf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZwG-FU-Kmf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Bx-V9-fyd"/>
+                            <constraint firstItem="ZwG-FU-Kmf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="4Bx-V9-fyd"/>
                             <constraint firstAttribute="bottom" secondItem="ZwG-FU-Kmf" secondAttribute="bottom" id="CWB-T2-Gcm"/>
                             <constraint firstItem="ZwG-FU-Kmf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="WS8-XM-dYh"/>
                             <constraint firstAttribute="trailing" secondItem="ZwG-FU-Kmf" secondAttribute="trailing" id="gwh-ZY-u6k"/>
@@ -37,7 +37,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Start" width="1125" height="2436"/>
+        <image name="MudEngineerSplash" width="853" height="1844"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -190,14 +190,14 @@ struct WashingResult: View {
                     Image(systemName: "doc.on.doc")
                         .font(.system(size: 18, weight: .semibold))
                         .padding(8)
-                        .background(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.22 : 0.10), in: Circle())
+                        .background(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.34 : 1), in: Circle())
                         .overlay(
                             Circle()
-                                .stroke(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.38 : 0.28))
+                                .stroke(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.42 : 0.18))
                         )
                 }
                 .applyGlassEffect()
-                .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.buttonSettings)
+                .foregroundColor(ThemeColors.lightText)
                 .accessibilityLabel(L10n.tr("swiftui.copySummary"))
             }
             .padding(.horizontal, 25)
@@ -269,13 +269,13 @@ struct WashingResult: View {
             if showCopyBanner {
                 Text(L10n.tr("swiftui.summaryCopied"))
                     .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.buttonSettings)
+                    .foregroundColor(ThemeColors.lightText)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
-                    .background(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.22 : 0.10), in: Capsule())
+                    .background(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.34 : 1), in: Capsule())
                     .overlay(
                         Capsule()
-                            .stroke(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.38 : 0.28))
+                            .stroke(ThemeColors.buttonSettings.opacity(themeSettings.isDarkModeEnabled ? 0.42 : 0.18))
                     )
                     .padding(.bottom, 16)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
