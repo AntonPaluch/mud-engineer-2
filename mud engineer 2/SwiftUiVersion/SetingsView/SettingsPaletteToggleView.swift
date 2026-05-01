@@ -30,9 +30,9 @@ struct SettingsPaletteToggleView: View {
                             .frame(width: 12, height: 12)
 
                         Text(palette.title)
-                            .font(.system(size: 13, weight: .medium))
+                            .font(.system(size: 12, weight: .medium))
                             .lineLimit(1)
-                            .minimumScaleFactor(0.8)
+                            .minimumScaleFactor(0.72)
                     }
                     .foregroundColor(textColor(for: palette))
                     .frame(maxWidth: .infinity)
@@ -44,7 +44,7 @@ struct SettingsPaletteToggleView: View {
             }
         }
         .padding(5)
-        .frame(height: 66)
+        .frame(height: 68)
         .frame(maxWidth: .infinity)
         .background(containerColor)
         .cornerRadius(16)

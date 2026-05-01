@@ -97,6 +97,7 @@
 "swiftui.palette" = "Палитра";
 "swiftui.palette.indigo" = "Индиго";
 "swiftui.palette.ocean" = "Океан";
+"swiftui.palette.splashBlue" = "Голубая";
 "swiftui.palette.cosmicOrange" = "Оранж";
 "swiftui.units" = "Единицы измерения";
 "swiftui.theme.light" = "Светлая";

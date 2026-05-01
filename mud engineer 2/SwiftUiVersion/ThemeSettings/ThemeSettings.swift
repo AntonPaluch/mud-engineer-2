@@ -11,6 +11,7 @@ import Combine
 enum ThemePalette: String, CaseIterable, Identifiable {
     case indigo
     case ocean
+    case splashBlue
     case cosmicOrange
 
     var id: String { rawValue }
@@ -21,6 +22,8 @@ enum ThemePalette: String, CaseIterable, Identifiable {
             return L10n.tr("swiftui.palette.indigo")
         case .ocean:
             return L10n.tr("swiftui.palette.ocean")
+        case .splashBlue:
+            return L10n.tr("swiftui.palette.splashBlue")
         case .cosmicOrange:
             return L10n.tr("swiftui.palette.cosmicOrange")
         }

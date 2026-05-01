@@ -52,6 +52,16 @@ struct ThemeColors {
                 accent: Color(red: 0, green: 0.522, blue: 0.486),
                 inputAccent: Color(red: 0.051, green: 0.635, blue: 0.576)
             )
+        case .splashBlue:
+            return PaletteColors(
+                lightBackground: Color(red: 0.859, green: 0.953, blue: 1),
+                darkBackground: Color(red: 0.024, green: 0.082, blue: 0.145),
+                lightBackgroundSubView: Color(red: 0.98, green: 0.996, blue: 1),
+                darkBackgroundSubView: Color(red: 0.651, green: 0.871, blue: 1).opacity(0.15),
+                darkText: Color(red: 0.055, green: 0.145, blue: 0.235),
+                accent: Color(red: 0.027, green: 0.62, blue: 0.875),
+                inputAccent: Color(red: 0.039, green: 0.69, blue: 0.94)
+            )
         case .cosmicOrange:
             return PaletteColors(
                 lightBackground: Color(red: 1, green: 0.925, blue: 0.843),
