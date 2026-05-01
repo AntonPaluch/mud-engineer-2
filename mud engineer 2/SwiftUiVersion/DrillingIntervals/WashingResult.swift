@@ -28,16 +28,17 @@ fileprivate struct WashingCalculationResult {
 
 fileprivate struct WashingCalculator {
     let model: DrillingIntervalModel
+    let units: MeasurementSystem
 
     func compute() -> WashingCalculationResult {
-        let previousColumnLength = parse(model.firstLength)
-        let previousColumnDiameter = parse(model.firstDiameter)
-        let depth = parse(model.depth)
-        let bitDiameter = parse(model.bitDiameter)
+        let previousColumnLength = parse(model.firstLength).map(units.lengthToMeters)
+        let previousColumnDiameter = parse(model.firstDiameter).map(units.diameterToMillimeters)
+        let depth = parse(model.depth).map(units.lengthToMeters)
+        let bitDiameter = parse(model.bitDiameter).map(units.diameterToMillimeters)
         let cavernosity = parse(model.cavernosity) ?? 1
-        let instrumentDiameter = parse(model.steelPipe)
-        let wallThickness = parse(model.wallThickness)
-        let flowRate = parse(model.flowRate)
+        let instrumentDiameter = parse(model.steelPipe).map(units.diameterToMillimeters)
+        let wallThickness = parse(model.wallThickness).map(units.diameterToMillimeters)
+        let flowRate = parse(model.flowRate).map(units.flowRateToLitersPerSecond)
 
         let columnVolume = calculateColumnVolume(length: previousColumnLength, diameter: previousColumnDiameter)
         let openHoleVolume = calculateOpenHoleVolume(depth: depth, previousColumnLength: previousColumnLength, bitDiameter: bitDiameter, cavernosity: cavernosity)
@@ -146,11 +147,12 @@ fileprivate struct WashingCalculator {
 
 struct WashingResult: View {
     @EnvironmentObject var themeSettings: ThemeSettings
+    @EnvironmentObject var unitSettings: UnitSettings
 
     var model: DrillingIntervalModel
 
     private var calculation: WashingCalculationResult {
-        WashingCalculator(model: model).compute()
+        WashingCalculator(model: model, units: unitSettings.system).compute()
     }
 
     private var primaryTextColor: Color {
@@ -322,7 +324,9 @@ struct WashingResult: View {
     }
 
     private func formattedVolume(_ value: Double) -> String {
-        Self.volumeFormatter.string(from: value as NSNumber)?.appending(localized("metr3")) ?? "-"
+        let displayValue = unitSettings.system.volumeFromCubicMeters(value)
+        let number = Self.volumeFormatter.string(from: displayValue as NSNumber) ?? "-"
+        return "\(number) \(unitSettings.system.volumeUnit)"
     }
 
     private func localized(_ key: String) -> String {
@@ -387,18 +391,21 @@ struct WashingResult: View {
     }
 }
 
-#Preview {
-    WashingResult(
-        model: DrillingIntervalModel(
-            firstLength: "400",
-            firstDiameter: "178",
-            depth: "1500",
-            bitDiameter: "220",
-            cavernosity: "1.1",
-            steelPipe: "127",
-            wallThickness: "9",
-            flowRate: "30"
+struct WashingResult_Previews: PreviewProvider {
+    static var previews: some View {
+        WashingResult(
+            model: DrillingIntervalModel(
+                firstLength: "400",
+                firstDiameter: "178",
+                depth: "1500",
+                bitDiameter: "220",
+                cavernosity: "1.1",
+                steelPipe: "127",
+                wallThickness: "9",
+                flowRate: "30"
+            )
         )
-    )
-    .environmentObject(ThemeSettings())
+        .environmentObject(ThemeSettings())
+        .environmentObject(UnitSettings())
+    }
 }

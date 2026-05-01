@@ -74,6 +74,7 @@ private final class DilutionViewModel: ObservableObject {
 
 struct DilutionView: View {
     @EnvironmentObject private var themeSettings: ThemeSettings
+    @EnvironmentObject private var unitSettings: UnitSettings
     @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
     
     @FocusState private var focusedField: DilutionField?
@@ -117,9 +118,9 @@ struct DilutionView: View {
                         DilutionInputSection(
                             title: "Исходный раствор",
                             firstLabel: "Объём",
-                            firstUnit: "м³",
+                            firstUnit: unitSettings.system.volumeUnit,
                             secondLabel: "Плотность",
-                            secondUnit: "г/см³",
+                            secondUnit: unitSettings.system.densityUnit,
                             firstField: .startVolume,
                             secondField: .startDensity,
                             firstValue: $localModel.startVolume,
@@ -131,9 +132,9 @@ struct DilutionView: View {
                         DilutionInputSection(
                             title: "Добавляемый раствор",
                             firstLabel: "Объём",
-                            firstUnit: "м³",
+                            firstUnit: unitSettings.system.volumeUnit,
                             secondLabel: "Плотность",
-                            secondUnit: "г/см³",
+                            secondUnit: unitSettings.system.densityUnit,
                             firstField: .addedVolume,
                             secondField: .addedDensity,
                             firstValue: $localModel.addedVolume,
@@ -145,6 +146,8 @@ struct DilutionView: View {
                         ResultCard(
                             resultVolume: formattedVolume,
                             resultDensity: formattedDensity,
+                            volumeUnit: unitSettings.system.volumeUnit,
+                            densityUnit: unitSettings.system.densityUnit,
                             isReady: resultsAvailable,
                             textColor: textColor,
                             secondaryTextColor: secondaryTextColor,
@@ -174,6 +177,10 @@ struct DilutionView: View {
         }
         .onAppear {
             localModel = viewModel.model
+        }
+        .onChange(of: unitSettings.resetVersion) { _ in
+            localModel = .empty
+            viewModel.reset()
         }
         .onDisappear {
             saveLocalModel()
@@ -220,10 +227,21 @@ struct DilutionView: View {
         totalVolumeValue > 0
     }
     
-    private var startVolumeValue: Double? { parse(localModel.startVolume) }
-    private var startDensityValue: Double? { parse(localModel.startDensity) }
-    private var addedVolumeValue: Double? { parse(localModel.addedVolume) }
-    private var addedDensityValue: Double? { parse(localModel.addedDensity) }
+    private var startVolumeValue: Double? {
+        parse(localModel.startVolume).map(unitSettings.system.volumeToCubicMeters)
+    }
+
+    private var startDensityValue: Double? {
+        parse(localModel.startDensity).map(unitSettings.system.densityToGramPerCubicCentimeter)
+    }
+
+    private var addedVolumeValue: Double? {
+        parse(localModel.addedVolume).map(unitSettings.system.volumeToCubicMeters)
+    }
+
+    private var addedDensityValue: Double? {
+        parse(localModel.addedDensity).map(unitSettings.system.densityToGramPerCubicCentimeter)
+    }
     
     private var totalVolumeValue: Double {
         guard let start = startVolumeValue, let add = addedVolumeValue else { return 0 }
@@ -245,12 +263,15 @@ struct DilutionView: View {
     
     private var formattedVolume: String? {
         guard resultsAvailable else { return nil }
-        return numberFormatter(fraction: 0).string(from: NSNumber(value: totalVolumeValue))
+        let displayValue = unitSettings.system.volumeFromCubicMeters(totalVolumeValue)
+        return numberFormatter(fraction: 0).string(from: NSNumber(value: displayValue))
     }
     
     private var formattedDensity: String? {
         guard let density = resultDensityValue else { return nil }
-        return numberFormatter(fraction: 3).string(from: NSNumber(value: density))
+        let displayValue = unitSettings.system.densityFromGramPerCubicCentimeter(density)
+        let fraction = unitSettings.system == .metric ? 3 : 1
+        return numberFormatter(fraction: fraction).string(from: NSNumber(value: displayValue))
     }
     
     private func parse(_ value: String) -> Double? {
@@ -452,6 +473,8 @@ private struct DualInputField: View {
 private struct ResultCard: View {
     let resultVolume: String?
     let resultDensity: String?
+    let volumeUnit: String
+    let densityUnit: String
     let isReady: Bool
     let textColor: Color
     let secondaryTextColor: Color
@@ -465,8 +488,8 @@ private struct ResultCard: View {
             
             if isReady, let volume = resultVolume, let density = resultDensity {
                 VStack(alignment: .leading, spacing: 12) {
-                    resultRow(title: "Конечный объём", value: "\(volume) м³")
-                    resultRow(title: "Плотность после разбавления", value: "\(density) г/см³")
+                    resultRow(title: "Конечный объём", value: "\(volume) \(volumeUnit)")
+                    resultRow(title: "Плотность после разбавления", value: "\(density) \(densityUnit)")
                 }
             } else {
                 Text("Заполните все поля чтобы увидеть результаты расчёта")
@@ -504,8 +527,11 @@ private struct ResultCard: View {
 
 // MARK: - Focus helper
 
-#Preview {
-    DilutionView()
-        .environmentObject(ThemeSettings())
-        .environmentObject(NavigationCoordinator())
+struct DilutionView_Previews: PreviewProvider {
+    static var previews: some View {
+        DilutionView()
+            .environmentObject(ThemeSettings())
+            .environmentObject(UnitSettings())
+            .environmentObject(NavigationCoordinator())
+    }
 }

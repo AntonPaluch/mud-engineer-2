@@ -16,6 +16,8 @@ struct CustomDoubleTextField: View {
     
     var firstLabel: String
     var secondLabel: String
+    var firstUnit: String = "м"
+    var secondUnit: String = "мм"
     
     @Binding var firstTextField: String
     @Binding var secondTextField: String
@@ -48,7 +50,7 @@ struct CustomDoubleTextField: View {
                         .padding(.leading, 20)
                         .focused($focusedField, equals: firstField)
                     
-                    Text("м")
+                    Text(firstUnit)
                         .foregroundColor(
                             themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                         .padding(.leading, 5)
@@ -65,7 +67,7 @@ struct CustomDoubleTextField: View {
                         .padding(.leading, 20)
                         .focused($focusedField, equals: secondField)
                     
-                    Text("мм")
+                    Text(secondUnit)
                         .foregroundColor(
                             themeSettings.isDarkModeEnabled ? ThemeColors.lightText : ThemeColors.darkText)
                         .padding(.trailing, 20)

@@ -69,6 +69,10 @@ class DrillingIntervalsStorage {
             print("Ошибка при сохранении данных: \(error)")
         }
     }
+
+    func resetAll() {
+        userDefaults.removeObject(forKey: storageKey)
+    }
 }
 
 
@@ -95,6 +99,10 @@ struct DrillingIntervals: View {
 
     @FocusState private var focusedField: Field?
     @State private var showResetAlert = false
+
+    private var units: MeasurementSystem {
+        unitSettings.system
+    }
     
     init(title: String, intervalType: DrillingIntervalType) {
         self.title = title
@@ -159,6 +167,8 @@ struct DrillingIntervals: View {
                             secondField: .firstDiameter,
                             firstLabel: "Длина",
                             secondLabel: "Внутр. диаметр",
+                            firstUnit: units.lengthUnit,
+                            secondUnit: units.diameterUnit,
                             firstTextField: $localModel.firstLength,
                             secondTextField: $localModel.firstDiameter
                         )
@@ -176,7 +186,7 @@ struct DrillingIntervals: View {
                                 focusedField: $focusedField,
                                 currentField: .depth,
                                 firstLabel: "Забой",
-                                secondLabel: "м",
+                                secondLabel: units.lengthUnit,
                                 numberText: $localModel.depth
                             )
                             Spacer(minLength: 25)
@@ -184,7 +194,7 @@ struct DrillingIntervals: View {
                                 focusedField: $focusedField,
                                 currentField: .bitDiameter,
                                 firstLabel: "Диаметр долота",
-                                secondLabel: "мм",
+                                secondLabel: units.diameterUnit,
                                 numberText: $localModel.bitDiameter
                             )
                         }
@@ -202,7 +212,7 @@ struct DrillingIntervals: View {
                                 focusedField: $focusedField,
                                 currentField: .steelPipe,
                                 firstLabel: "Стальные бур. трубы",
-                                secondLabel: "мм",
+                                secondLabel: units.diameterUnit,
                                 numberText: $localModel.steelPipe
                             )
                         }
@@ -212,7 +222,7 @@ struct DrillingIntervals: View {
                                 focusedField: $focusedField,
                                 currentField: .wallThickness,
                                 firstLabel: "Толщина стенки",
-                                secondLabel: "мм",
+                                secondLabel: units.diameterUnit,
                                 numberText: $localModel.wallThickness
                             )
                             Spacer(minLength: 25)
@@ -220,7 +230,7 @@ struct DrillingIntervals: View {
                                 focusedField: $focusedField,
                                 currentField: .flowRate,
                                 firstLabel: "Литраж (не обяз.)",
-                                secondLabel: "л/с",
+                                secondLabel: units.flowRateUnit,
                                 numberText: $localModel.flowRate
                             )
                         }
@@ -260,6 +270,10 @@ struct DrillingIntervals: View {
         .navigationBarItems(leading: EmptyView())
         .onAppear {
             localModel = viewModel.model(for: intervalType)
+        }
+        .onChange(of: unitSettings.resetVersion) { _ in
+            localModel = .empty
+            viewModel.clearAll()
         }
         .onDisappear {
             viewModel.update(intervalType, with: localModel)

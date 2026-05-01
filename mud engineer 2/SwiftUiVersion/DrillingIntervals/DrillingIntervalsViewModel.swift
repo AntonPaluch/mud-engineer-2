@@ -41,4 +41,9 @@ class DrillingIntervalsViewModel: ObservableObject {
         intervalsDict.removeValue(forKey: intervalType.rawValue)
         storage.saveData(intervalsDict)
     }
+
+    func clearAll() {
+        intervalsDict.removeAll()
+        storage.resetAll()
+    }
 }

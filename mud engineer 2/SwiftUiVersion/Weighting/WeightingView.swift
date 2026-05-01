@@ -72,6 +72,7 @@ private final class WeightingViewModel: ObservableObject {
 
 struct WeightingView: View {
     @EnvironmentObject private var themeSettings: ThemeSettings
+    @EnvironmentObject private var unitSettings: UnitSettings
     @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
 
     @FocusState private var focusedField: WeightingField?
@@ -157,6 +158,11 @@ struct WeightingView: View {
         .onAppear {
             localModel = viewModel.model
         }
+        .onChange(of: unitSettings.resetVersion) { _ in
+            localModel = .empty
+            isComponentPickerExpanded = false
+            viewModel.reset()
+        }
         .onDisappear {
             saveLocalModel()
         }
@@ -203,7 +209,7 @@ struct WeightingView: View {
             HStack(spacing: 0) {
                 WeightingInputCell(
                     label: "Объём",
-                    unit: "м³",
+                    unit: unitSettings.system.volumeUnit,
                     value: $localModel.volume,
                     field: .volume,
                     focusedField: $focusedField,
@@ -215,7 +221,7 @@ struct WeightingView: View {
 
                 WeightingInputCell(
                     label: "Плотность",
-                    unit: "г/см³",
+                    unit: unitSettings.system.densityUnit,
                     value: $localModel.startDensity,
                     field: .startDensity,
                     focusedField: $focusedField,
@@ -294,7 +300,7 @@ struct WeightingView: View {
                     .focused($focusedField, equals: .finishDensity)
                     .multilineTextAlignment(.leading)
 
-                Text("г/см³")
+                Text(unitSettings.system.densityUnit)
                     .font(.system(size: 14, weight: .regular))
                     .foregroundColor(secondaryTextColor.opacity(0.75))
             }
@@ -314,6 +320,8 @@ struct WeightingView: View {
         WeightingResultCard(
             weightingAgentMass: formattedWeightingAgentMass,
             finishVolume: formattedFinishVolume,
+            volumeUnit: unitSettings.system.volumeUnit,
+            massUnit: unitSettings.system.massUnit,
             message: validationMessage,
             isReady: resultsAvailable,
             textColor: textColor,
@@ -353,7 +361,7 @@ struct WeightingView: View {
                 .foregroundColor(isSelected ? .white : textColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            Text(component.densityLabel)
+            Text(densityLabel(for: component))
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(isSelected ? .white : secondaryTextColor)
                 .multilineTextAlignment(.trailing)
@@ -374,9 +382,17 @@ struct WeightingView: View {
 
     // MARK: - Calculation
 
-    private var volumeValue: Double? { parse(localModel.volume) }
-    private var startDensityValue: Double? { parse(localModel.startDensity) }
-    private var finishDensityValue: Double? { parse(localModel.finishDensity) }
+    private var volumeValue: Double? {
+        parse(localModel.volume).map(unitSettings.system.volumeToCubicMeters)
+    }
+
+    private var startDensityValue: Double? {
+        parse(localModel.startDensity).map(unitSettings.system.densityToGramPerCubicCentimeter)
+    }
+
+    private var finishDensityValue: Double? {
+        parse(localModel.finishDensity).map(unitSettings.system.densityToGramPerCubicCentimeter)
+    }
 
     private var resultsAvailable: Bool {
         guard
@@ -418,12 +434,14 @@ struct WeightingView: View {
 
     private var formattedWeightingAgentMass: String? {
         guard let weightingAgentMassValue else { return nil }
-        return numberFormatter(fraction: 0).string(from: NSNumber(value: weightingAgentMassValue))
+        let displayValue = unitSettings.system.massFromKilograms(weightingAgentMassValue)
+        return numberFormatter(fraction: 0).string(from: NSNumber(value: displayValue))
     }
 
     private var formattedFinishVolume: String? {
         guard let finishVolumeValue else { return nil }
-        return numberFormatter(fraction: 0).string(from: NSNumber(value: finishVolumeValue))
+        let displayValue = unitSettings.system.volumeFromCubicMeters(finishVolumeValue)
+        return numberFormatter(fraction: 0).string(from: NSNumber(value: displayValue))
     }
 
     private var validationMessage: String {
@@ -462,6 +480,12 @@ struct WeightingView: View {
         formatter.maximumFractionDigits = fraction
         formatter.locale = Locale.current
         return formatter
+    }
+
+    private func densityLabel(for component: WeightComponents) -> String {
+        let displayValue = unitSettings.system.densityFromGramPerCubicCentimeter(component.rawValue)
+        let value = numberFormatter(fraction: 1).string(from: NSNumber(value: displayValue)) ?? "-"
+        return "\(value) \(unitSettings.system.densityUnit)"
     }
 
     private func nextField(for current: WeightingField?) -> WeightingField? {
@@ -560,6 +584,8 @@ private struct WeightingInputCell: View {
 private struct WeightingResultCard: View {
     let weightingAgentMass: String?
     let finishVolume: String?
+    let volumeUnit: String
+    let massUnit: String
     let message: String
     let isReady: Bool
     let textColor: Color
@@ -575,8 +601,8 @@ private struct WeightingResultCard: View {
 
             if isReady, let weightingAgentMass, let finishVolume {
                 VStack(alignment: .leading, spacing: 20) {
-                    resultRow(title: "Конечный объём", value: "\(finishVolume) м³")
-                    resultRow(title: "Количество утяжелителя", value: "\(weightingAgentMass) кг")
+                    resultRow(title: "Конечный объём", value: "\(finishVolume) \(volumeUnit)")
+                    resultRow(title: "Количество утяжелителя", value: "\(weightingAgentMass) \(massUnit)")
                 }
             } else {
                 Text(message)
@@ -622,15 +648,13 @@ private extension WeightComponents {
         case .siderit: return "Сидерит"
         }
     }
-
-    var densityLabel: String {
-        let value = String(format: "%.1f", rawValue).replacingOccurrences(of: ".", with: ",")
-        return "\(value) г/см³"
-    }
 }
 
-#Preview {
-    WeightingView()
-        .environmentObject(ThemeSettings())
-        .environmentObject(NavigationCoordinator())
+struct WeightingView_Previews: PreviewProvider {
+    static var previews: some View {
+        WeightingView()
+            .environmentObject(ThemeSettings())
+            .environmentObject(UnitSettings())
+            .environmentObject(NavigationCoordinator())
+    }
 }

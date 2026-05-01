@@ -10,11 +10,12 @@ import SwiftUI
 struct SettingsUnitsTogleView: View {
     @EnvironmentObject var themeSettings: ThemeSettings
     @EnvironmentObject var unitSettings: UnitSettings
+    @EnvironmentObject var drillingViewModel: DrillingIntervalsViewModel
     
     var body: some View {
         HStack {
             Button(action: {
-                unitSettings.isImperialEnabled = false
+                select(.metric)
             }, label: {
                 Text(Texts.metric)
                     .font(.system(size: 16, weight: .regular))
@@ -30,7 +31,7 @@ struct SettingsUnitsTogleView: View {
             Spacer().frame(width: 5)
             
             Button(action: {
-                unitSettings.isImperialEnabled = true
+                select(.imperial)
             }, label: {
                 Text(Texts.imperial)
                     .font(.system(size: 16, weight: .regular))
@@ -54,6 +55,12 @@ struct SettingsUnitsTogleView: View {
         static let metric = "Метрические"
         static let imperial = "Имперские"
     }
+
+    private func select(_ system: MeasurementSystem) {
+        guard unitSettings.system != system else { return }
+        unitSettings.setSystem(system)
+        drillingViewModel.clearAll()
+    }
 }
 
 struct SettingsUnitsTogleView_Previews: PreviewProvider {
@@ -61,5 +68,6 @@ struct SettingsUnitsTogleView_Previews: PreviewProvider {
         SettingsUnitsTogleView()
             .environmentObject(ThemeSettings())
             .environmentObject(UnitSettings())
+            .environmentObject(DrillingIntervalsViewModel())
     }
 }
